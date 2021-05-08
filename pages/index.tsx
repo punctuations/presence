@@ -1,5 +1,17 @@
+import { Main } from "../lib/assets/Main";
+
+import Header from "../lib/ui/header";
+import Images from "../lib/ui/images";
+import Button from "../lib/ui/button";
+
 export default function Home() {
   return (
-    <div className="max-w-7xl mx-auto">Hello, Tailwind!</div>
-  )
+    <>
+      <Main>
+        <Header />
+        <Images />
+        <Button text="🎉 Docs" url="/docs" />
+      </Main>
+    </>
+  );
 }

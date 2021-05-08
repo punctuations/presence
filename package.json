@@ -1,5 +1,5 @@
 {
-  "name": "next-tailwind-ts",
+  "name": "presence",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,15 +8,18 @@
     "start": "next start"
   },
   "dependencies": {
+    "canvas": "^2.7.0",
+    "framer-motion": "^4.1.13",
     "next": "10.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.4.0",
     "@types/node": "^15.0.1",
     "@types/react": "^17.0.4",
     "autoprefixer": "^10.2.5",
-    "postcss": "^8.2.13",
+    "postcss": "^8.2.14",
     "tailwindcss": "^2.1.2",
     "typescript": "^4.2.4"
   }
