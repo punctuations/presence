@@ -8,11 +8,11 @@
     "start": "next start"
   },
   "dependencies": {
-    "canvas": "^2.7.0",
     "framer-motion": "^4.1.13",
     "next": "10.2.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "swr": "^0.5.6"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.4.0",
