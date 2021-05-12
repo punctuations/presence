@@ -1,11 +1,11 @@
 import * as React from "react";
 
 import useAPI from "./useAPI";
-import Repo from "./repo";
 
 export const Image = (props: {
   username: string | string[] | undefined;
   type: string;
+  children: React.ReactNode;
 }) => {
   const {
     data,
@@ -65,10 +65,7 @@ export const Image = (props: {
           {"Following"}
         </text>
       </g>
-      {/* fix Repo */}
-      {/*{!data ? null : props.type === "github/user" ? (*/}
-      {/*  <Repo username={props.username} />*/}
-      {/*) : null}*/}
+      {props.children}
       <g>
         <g fill="#C4C4C4">
           <path d="M177 815.823c-4.35 0-7.89-3.538-7.89-7.888s3.542-7.893 7.89-7.893 7.89 3.541 7.89 7.889c0 4.348-3.542 7.886-7.89 7.886v.006zm0-12.652a4.771 4.771 0 00-4.765 4.764 4.768 4.768 0 004.765 4.761 4.77 4.77 0 004.765-4.763 4.773 4.773 0 00-4.765-4.766v.004z" />

@@ -14,14 +14,18 @@ const Repo = (props: { username: string | string[] | undefined }) => {
   );
 
   const [mostStarred, setMostStarred] = React.useState<number>(0);
+  const [starredIndex, setStarredIndex] = React.useState<number>(0);
 
   if (data) {
     data.forEach(isMostStarred);
   }
 
   function isMostStarred(_contents: any, i: number, data: any[]) {
-    if (data[i]?.stargazers_count > mostStarred) {
-      setMostStarred(i);
+    if (data) {
+      if (data[i].stargazers_count > mostStarred) {
+        setMostStarred(data[i].stargazers_count);
+        setStarredIndex(i);
+      }
     }
   }
 
@@ -33,7 +37,7 @@ const Repo = (props: { username: string | string[] | undefined }) => {
   );
 
   function colorForLanguage(language: string) {
-    return eval(`languages.${language}.color`);
+    return eval(!languages ? "" : `languages.${language}.color`);
   }
 
   return (
@@ -54,14 +58,14 @@ const Repo = (props: { username: string | string[] | undefined }) => {
         clipRule="evenodd"
       />
       <text fill="#000" x={267} y={550} fontSize={48}>
-        {`${!data ? null : data[mostStarred]?.full_name.split("/")[0]}/`}
+        {!data ? null : `${data[starredIndex]?.full_name.split("/")[0]}/`}
         <tspan fontWeight="bold">
-          {!data ? null : data[mostStarred]?.full_name.split("/")[1]}
+          {!data ? null : data[starredIndex]?.full_name.split("/")[1]}
         </tspan>
       </text>
-      {!data ? null : data[mostStarred].description == null ? null : (
+      {!data ? null : data[starredIndex].description == null ? null : (
         <text fill="#B4B4B4" x={202} y={609} fontSize={30}>
-          {!data ? null : data[mostStarred].description}
+          {!data ? null : data[starredIndex].description}
         </text>
       )}
       <g>
@@ -70,11 +74,11 @@ const Repo = (props: { username: string | string[] | undefined }) => {
           cy={661}
           r={10}
           fill={
-            !languages ? null : colorForLanguage(data[mostStarred]?.language)
+            !languages ? null : colorForLanguage(data[starredIndex].language)
           }
         />
         <text fill={"#838383"} x={238} y={671} fontSize={24}>
-          {!data ? null : data[mostStarred]?.language}
+          {!data ? null : data[starredIndex].language}
         </text>
         <g fill="#838383">
           <path
@@ -83,7 +87,7 @@ const Repo = (props: { username: string | string[] | undefined }) => {
             clipRule="evenodd"
           />
           <text x={586} y={670} fontSize={24}>
-            {!data ? null : data[mostStarred]?.forks}
+            {!data ? null : data[starredIndex].forks}
           </text>
         </g>
         <g fill="#838383">
@@ -93,7 +97,7 @@ const Repo = (props: { username: string | string[] | undefined }) => {
             clipRule="evenodd"
           />
           <text x={459} y={674} fontSize={24}>
-            {!data ? null : data[mostStarred]?.stargazer_count}
+            {!data ? null : mostStarred}
           </text>
         </g>
       </g>
