@@ -12,7 +12,7 @@ export async function getServerSideProps(x: { params: { uname: any } }) {
 export default function Username(props: { username: any }) {
   return (
     <Image username={props.username} type={"github/user"}>
-      {/*<Repo username={props.username} />*/}
+      <Repo username={props.username} />
     </Image>
   );
 }

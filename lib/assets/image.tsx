@@ -55,7 +55,7 @@ export const Image = (props: {
         <text fill="#000" x={450} y={379} fontWeight="bold">
           {!data ? null : props.type === "github/user" ? data.followers : null}
         </text>
-        <text fill="#676767" x={522} y={379}>
+        <text fill="#676767" x={527} y={379}>
           {"Followers"}
         </text>
         <text fill="#000" x={783} y={379} fontWeight="bold">
