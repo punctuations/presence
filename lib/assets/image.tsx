@@ -1,4 +1,5 @@
 import * as React from "react";
+import numeral from "numeral";
 
 import useAPI from "./useAPI";
 
@@ -12,8 +13,8 @@ export const Image = (props: {
     isLoading,
     isError,
   }: { isLoading: boolean; isError: any; data: any } = useAPI(
-    props.username,
-    props.type
+    props.type,
+    props.username
   );
 
   return (
@@ -53,13 +54,21 @@ export const Image = (props: {
       </text>
       <g fontSize={40}>
         <text fill="#000" x={450} y={379} fontWeight="bold">
-          {!data ? null : props.type === "github/user" ? data.followers : null}
+          {!data
+            ? null
+            : props.type === "github/user"
+            ? numeral(data.followers).format("0a")
+            : null}
         </text>
         <text fill="#676767" x={527} y={379}>
           {"Followers"}
         </text>
         <text fill="#000" x={783} y={379} fontWeight="bold">
-          {!data ? null : props.type === "github/user" ? data.following : null}
+          {!data
+            ? null
+            : props.type === "github/user"
+            ? numeral(data.following).format("0a")
+            : null}
         </text>
         <text fill="#676767" x={860} y={379}>
           {"Following"}

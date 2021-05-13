@@ -1,5 +1,5 @@
 import * as React from "react";
-import useSWR from "swr";
+import numeral from "numeral";
 
 import useAPI from "./useAPI";
 
@@ -9,9 +9,11 @@ const Repo = (props: { username: string | string[] | undefined }) => {
     isLoading,
     isError,
   }: { isLoading: boolean; isError: any; data: any } = useAPI(
-    props.username,
-    "github/starred"
+    "github/starred",
+    props.username
   );
+
+  const { data: languages } = useAPI("github/colors");
 
   const [mostStarred, setMostStarred] = React.useState<number>(0);
   const [starredIndex, setStarredIndex] = React.useState<number>(0);
@@ -28,13 +30,6 @@ const Repo = (props: { username: string | string[] | undefined }) => {
       }
     }
   }
-
-  const fetcher = (args: RequestInfo) => fetch(args).then((res) => res.json());
-
-  const { data: languages } = useSWR(
-    "https://raw.githubusercontent.com/ozh/github-colors/master/colors.json",
-    fetcher
-  );
 
   function colorForLanguage(language: string) {
     return eval(!languages ? "" : `languages.${language}.color`);
@@ -78,7 +73,7 @@ const Repo = (props: { username: string | string[] | undefined }) => {
                 clipRule="evenodd"
               />
               <text x={245} y={670} fontSize={24}>
-                {!data ? null : data[starredIndex].forks}
+                {!data ? null : numeral(data[starredIndex].forks).format("0a")}
               </text>
             </g>
             <g fill="#838383">
@@ -96,18 +91,20 @@ const Repo = (props: { username: string | string[] | undefined }) => {
                 />
               </svg>
               <text x={360} y={670} fontSize={24}>
-                {!data ? null : mostStarred}
+                {!data ? null : numeral(mostStarred).format("0a")}
               </text>
             </g>
           </>
         ) : (
           <>
-            <circle
-              cx={217}
-              cy={661}
-              r={10}
-              fill={!data && !languages ? null : languages["TypeScript"].color}
-            />
+            {/*{!data && !languages ? null : (*/}
+            {/*  <circle*/}
+            {/*    cx={217}*/}
+            {/*    cy={661}*/}
+            {/*    r={10}*/}
+            {/*    fill={languages[`${data[starredIndex].language}`].color}*/}
+            {/*  />*/}
+            {/*)}*/}
 
             <text fill={"#838383"} x={238} y={671} fontSize={24}>
               {!data ? null : data[starredIndex].language}
@@ -119,7 +116,7 @@ const Repo = (props: { username: string | string[] | undefined }) => {
                 clipRule="evenodd"
               />
               <text x={586} y={670} fontSize={24}>
-                {!data ? null : data[starredIndex].forks}
+                {!data ? null : numeral(data[starredIndex].forks).format("0a")}
               </text>
             </g>
             <g fill="#838383">
@@ -129,7 +126,7 @@ const Repo = (props: { username: string | string[] | undefined }) => {
                 clipRule="evenodd"
               />
               <text x={459} y={674} fontSize={24}>
-                {!data ? null : mostStarred}
+                {!data ? null : numeral(mostStarred).format("0a")}
               </text>
             </g>
           </>

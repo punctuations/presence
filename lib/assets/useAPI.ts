@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import useSWR from "swr";
 
-const useAPI = (username: string | string[] | undefined, type: string) => {
+const useAPI = (type: string, username?: string | string[] | undefined) => {
   const fetcher = (args: RequestInfo) => fetch(args).then((res) => res.json());
 
   const [route, setRoute] = useState<any>(null);
@@ -18,6 +18,11 @@ const useAPI = (username: string | string[] | undefined, type: string) => {
         break;
       case "github/starred":
         setRoute(`https://api.github.com/users/${username}/repos`);
+        break;
+      case "github/colors":
+        setRoute(
+          "https://raw.githubusercontent.com/ozh/github-colors/master/colors.json"
+        );
         break;
       default:
         return "";
