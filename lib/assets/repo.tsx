@@ -31,10 +31,6 @@ const Repo = (props: { username: string | string[] | undefined }) => {
     }
   }
 
-  function colorForLanguage(language: string) {
-    return eval(!languages ? "" : `languages.${language}.color`);
-  }
-
   return (
     <g>
       <rect
@@ -102,7 +98,7 @@ const Repo = (props: { username: string | string[] | undefined }) => {
             {/*    cx={217}*/}
             {/*    cy={661}*/}
             {/*    r={10}*/}
-            {/*    fill={languages[`${data[starredIndex].language}`].color}*/}
+            {/*    fill={languages[data[starredIndex].language].color}*/}
             {/*  />*/}
             {/*)}*/}
 
