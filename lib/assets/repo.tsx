@@ -93,14 +93,14 @@ const Repo = (props: { username: string | string[] | undefined }) => {
           </>
         ) : (
           <>
-            {/*{!data && !languages ? null : (*/}
-            {/*  <circle*/}
-            {/*    cx={217}*/}
-            {/*    cy={661}*/}
-            {/*    r={10}*/}
-            {/*    fill={languages[data[starredIndex].language].color}*/}
-            {/*  />*/}
-            {/*)}*/}
+            {data && languages && (
+              <circle
+                cx={217}
+                cy={661}
+                r={10}
+                fill={languages[data[starredIndex].language].color}
+              />
+            )}
 
             <text fill={"#838383"} x={238} y={671} fontSize={24}>
               {!data ? null : data[starredIndex].language}
