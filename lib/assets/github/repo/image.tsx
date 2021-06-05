@@ -12,7 +12,11 @@ export const RepoImage = (props: { username: string; repo: string }) => {
 
   const { data: languages } = useAPI("github/colors");
 
-  const { data: contributors } = useAPI("github/contributors");
+  const { data: contributors } = useAPI(
+    "github/contributors",
+    props.username,
+    props.repo
+  );
 
   return (
     <svg
