@@ -1,8 +1,8 @@
-import { Main } from "../lib/assets/github/user/main";
+import { Main } from "@lib/assets/main";
 
-import Header from "../lib/ui/header";
-import Images from "../lib/ui/images";
-import Button from "../lib/ui/button";
+import Header from "@lib/ui/header";
+import Images from "@lib/ui/images";
+import Button from "@lib/ui/button";
 
 export default function Home() {
   return (
