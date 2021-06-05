@@ -1,4 +1,4 @@
-import { Main } from "../lib/assets/main";
+import { Main } from "../lib/assets/github/user/main";
 
 import Header from "../lib/ui/header";
 import Images from "../lib/ui/images";

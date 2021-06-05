@@ -1,21 +1,14 @@
 import * as React from "react";
 import numeral from "numeral";
 
-import useAPI from "./useAPI";
+import useAPI from "../../useAPI";
 
-export const Image = (props: {
+export const UserImage = (props: {
   username: string | string[] | undefined;
   type: string;
   children: React.ReactNode;
 }) => {
-  const {
-    data,
-    isLoading,
-    isError,
-  }: { isLoading: boolean; isError: any; data: any } = useAPI(
-    props.type,
-    props.username
-  );
+  const { data }: { data: any } = useAPI(props.type, props.username);
 
   return (
     <svg

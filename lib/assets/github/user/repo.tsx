@@ -1,7 +1,7 @@
 import * as React from "react";
 import numeral from "numeral";
 
-import useAPI from "./useAPI";
+import useAPI from "@lib/assets/useAPI";
 
 const Repo = (props: { username: string | string[] | undefined }) => {
   const {

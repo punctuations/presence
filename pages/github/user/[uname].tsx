@@ -1,5 +1,5 @@
-import { Image } from "../../../lib/assets/image";
-import Repo from "../../../lib/assets/repo";
+import { UserImage } from "@github/user/image";
+import Repo from "../../../lib/assets/github/user/repo";
 
 export async function getServerSideProps(x: { params: { uname: any } }) {
   const { uname } = x.params;
@@ -11,8 +11,8 @@ export async function getServerSideProps(x: { params: { uname: any } }) {
 
 export default function Username(props: { username: any }) {
   return (
-    <Image username={props.username} type={"github/user"}>
+    <UserImage username={props.username} type={"github/user"}>
       <Repo username={props.username} />
-    </Image>
+    </UserImage>
   );
 }
