@@ -3,7 +3,13 @@ import numeral from "numeral";
 
 import useAPI from "@lib/assets/useAPI";
 
-export const RepoImage = (props: { username: string; repo: string }) => {
+export const RepoImage = (props: {
+  username: string;
+  repo: string;
+  bg: string | null;
+  accent: string | null;
+  text: string | null;
+}) => {
   const { data }: { data: any } = useAPI(
     "github/repo",
     props.username,
@@ -27,7 +33,7 @@ export const RepoImage = (props: { username: string; repo: string }) => {
       fill="none"
       viewBox="0 0 1920 582"
     >
-      <path fill="#fff" d="M0 0h1920v940H0z" />
+      <path fill={props.bg ? props.bg : "#fff"} d="M0 0h1920v940H0z" />
       <path
         fill="#C4C4C4"
         fillRule="evenodd"
