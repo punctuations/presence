@@ -47,9 +47,26 @@ export const RepoImage = (props: { username: string; repo: string }) => {
           </tspan>
         </text>
         {!data ? null : data.description == null ? null : (
-          <text fill="#B4B4B4" x={202} y={325} fontSize={40}>
-            {!data ? null : data.description}
-          </text>
+          <>
+            {data.description.length > 72 ? (
+              <>
+                <text fill="#B4B4B4" x={202} y={325} fontSize={40}>
+                  {!data ? null : data.description.substring(0, 72)}
+                </text>{" "}
+                <text fill="#B4B4B4" x={202} y={375} fontSize={40}>
+                  {!data
+                    ? null
+                    : data.description.length >= 154
+                    ? `${data.description.substring(72, 154)}...`
+                    : data.description.substring(72)}
+                </text>{" "}
+              </>
+            ) : (
+              <text fill="#B4B4B4" x={202} y={325} fontSize={40}>
+                {!data ? null : data.description}
+              </text>
+            )}
+          </>
         )}
         <g>
           {data && data.language == null ? (
