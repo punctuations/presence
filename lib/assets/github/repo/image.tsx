@@ -49,7 +49,7 @@ export const RepoImage = (props: { username: string; repo: string }) => {
               ? data?.full_name.split("/")[1]
               : data?.full_name
                   .split("/")
-                  .subtring(
+                  .substring(
                     0,
                     data?.full_name.split("/")[0].length -
                       data?.full_name.split("/")[1].length
