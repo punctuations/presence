@@ -43,7 +43,17 @@ export const RepoImage = (props: { username: string; repo: string }) => {
         <text fill="#000" x={202} y={250} fontSize={86}>
           {!data ? null : `${data?.full_name.split("/")[0]}/`}
           <tspan fontWeight="bold">
-            {!data ? null : data?.full_name.split("/")[1]}
+            {!data
+              ? null
+              : data?.full_name! >= 27
+              ? data?.full_name.split("/")[1]
+              : data?.full_name
+                  .split("/")
+                  .subtring(
+                    0,
+                    data?.full_name.split("/")[0].length -
+                      data?.full_name.split("/")[1].length
+                  )}
           </tspan>
         </text>
         {!data ? null : data.description == null ? null : (
