@@ -5,9 +5,15 @@ export async function getServerSideProps(x: {
 }) {
   const { repo } = x.params;
 
-  return {
-    props: { username: repo[0], repo: repo[1] },
-  };
+  if (repo.length > 1) {
+    return {
+      props: { username: repo[0], repo: repo[1] },
+    };
+  } else {
+    return {
+      props: { username: repo[0].split(":")[0], repo: repo[0].split(":")[1] },
+    };
+  }
 }
 
 export default function Username(props: { username: string; repo: string }) {
