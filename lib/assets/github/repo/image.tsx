@@ -9,6 +9,10 @@ export const RepoImage = (props: {
   bg: string | null;
   accent: string | null;
   text: string | null;
+  description: string | null;
+  stats: string | null;
+  showLanguage: boolean | null;
+  rounded: boolean | null;
 }) => {
   const { data }: { data: any } = useAPI(
     "github/repo",
@@ -33,7 +37,10 @@ export const RepoImage = (props: {
       fill="none"
       viewBox="0 0 1920 582"
     >
-      <path fill={props.bg ? props.bg : "#fff"} d="M0 0h1920v940H0z" />
+      {/*background*/}
+      <path fill={props.bg ? `#${props.bg}` : "#fff"} d="M0 0h1920v582H0z" />
+
+      {/*github icon*/}
       <path
         fill="#C4C4C4"
         fillRule="evenodd"
@@ -41,12 +48,18 @@ export const RepoImage = (props: {
         clipRule="evenodd"
       />
 
+      {/*profile picture*/}
       <clipPath id="prefix__a">
         <rect width={273} height={306} x={1540} y={82} rx={31} />
       </clipPath>
 
       <g>
-        <text fill="#000" x={202} y={250} fontSize={86}>
+        <text
+          fill={props.text ? `#${props.text}` : "#000"}
+          x={202}
+          y={250}
+          fontSize={86}
+        >
           {!data ? null : `${data?.full_name.split("/")[0]}/`}
           <tspan fontWeight="bold">
             {!data
@@ -66,10 +79,20 @@ export const RepoImage = (props: {
           <>
             {data.description.length > 72 ? (
               <>
-                <text fill="#B4B4B4" x={202} y={325} fontSize={40}>
+                <text
+                  fill={props.description ? `#${props.description}` : "#B4B4B4"}
+                  x={202}
+                  y={325}
+                  fontSize={40}
+                >
                   {!data ? null : data.description.substring(0, 72)}
                 </text>{" "}
-                <text fill="#B4B4B4" x={202} y={375} fontSize={40}>
+                <text
+                  fill={props.description ? `#${props.description}` : "#B4B4B4"}
+                  x={202}
+                  y={375}
+                  fontSize={40}
+                >
                   {!data
                     ? null
                     : data.description.length >= 154
@@ -78,7 +101,12 @@ export const RepoImage = (props: {
                 </text>{" "}
               </>
             ) : (
-              <text fill="#B4B4B4" x={202} y={325} fontSize={40}>
+              <text
+                fill={props.description ? `#${props.description}` : "#B4B4B4"}
+                x={202}
+                y={325}
+                fontSize={40}
+              >
                 {!data ? null : data.description}
               </text>
             )}
@@ -87,7 +115,7 @@ export const RepoImage = (props: {
         <g>
           {data && data.language == null ? (
             <>
-              <g fill="#838383">
+              <g fill={props.stats ? `#${props.stats}` : "#838383"}>
                 <svg
                   x={202}
                   y={444}
@@ -105,7 +133,7 @@ export const RepoImage = (props: {
                   {!data ? null : numeral(data.stargazers_count).format("0a")}
                 </text>
               </g>
-              <g fill="#838383">
+              <g fill={props.stats ? `#${props.stats}` : "#838383"}>
                 <svg x={496} y={443} viewBox="0 0 26 26" height={40} width={40}>
                   <path
                     fillRule="evenodd"
@@ -121,20 +149,29 @@ export const RepoImage = (props: {
             </>
           ) : (
             <>
-              {data && languages && (
-                <rect
-                  x={0}
-                  y={564}
-                  width={1920}
-                  height={50}
-                  fill={languages[data.language].color}
-                />
-              )}
+              {props.showLanguage === null || props.showLanguage ? (
+                <>
+                  {data && languages && (
+                    <rect
+                      x={0}
+                      y={564}
+                      width={1920}
+                      height={50}
+                      fill={languages[data.language].color}
+                    />
+                  )}
+                </>
+              ) : null}
 
-              <text fill={"#838383"} x={202} y={475} fontSize={36}>
+              <text
+                fill={props.stats ? `#${props.stats}` : "#838383"}
+                x={202}
+                y={475}
+                fontSize={36}
+              >
                 {!data ? null : data.language}
               </text>
-              <g fill="#838383">
+              <g fill={props.stats ? `#${props.stats}` : "#838383"}>
                 <svg
                   x={496}
                   y={444}
@@ -152,7 +189,7 @@ export const RepoImage = (props: {
                   {!data ? null : numeral(data.stargazers_count).format("0a")}
                 </text>
               </g>
-              <g fill="#838383">
+              <g fill={props.stats ? `#${props.stats}` : "#838383"}>
                 <svg x={794} y={443} viewBox="0 0 26 26" height={40} width={40}>
                   <path
                     fillRule="evenodd"
@@ -165,7 +202,7 @@ export const RepoImage = (props: {
                   {!data ? null : numeral(data.forks).format("0a")}
                 </text>
               </g>
-              <g fill="#838383">
+              <g fill={props.stats ? `#${props.stats}` : "#838383"}>
                 <svg x={990} y={443} viewBox="0 0 16 16" height={40} width={40}>
                   <path
                     fillRule="evenodd"
