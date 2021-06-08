@@ -8,13 +8,14 @@ export async function getServerSideProps(x: {
     text: string;
     desc: string;
     stats: string;
+    icon: string;
     language: string;
     rounded: string;
   };
 }) {
   const { repo } = x.params;
 
-  const { bg, accent, text, desc, stats, language, rounded } = x.query;
+  const { bg, accent, text, desc, stats, icon, language, rounded } = x.query;
 
   return {
     props: {
@@ -25,6 +26,7 @@ export async function getServerSideProps(x: {
       text: text ? text : null,
       desc: desc ? desc : null,
       stats: stats ? stats : null,
+      icon: icon ? icon : null,
       showLanguage: language ? language.toLowerCase() === "true" : null,
       rounded: rounded ? rounded.toLowerCase() === "true" : null,
     },
@@ -39,6 +41,7 @@ export default function Username(props: {
   text: string | null;
   desc: string | null;
   stats: string | null;
+  icon: string | null;
   showLanguage: boolean | null;
   rounded: boolean | null;
 }) {
@@ -51,6 +54,7 @@ export default function Username(props: {
       text={props.text}
       description={props.desc}
       stats={props.stats}
+      icon={props.icon}
       showLanguage={props.showLanguage}
       rounded={props.rounded}
     />
