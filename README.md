@@ -1,1 +1,1 @@
-### Someone remind me to make a contribution guide
+### Someone remind me to fix the todos in contribution guide
