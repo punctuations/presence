@@ -37,6 +37,7 @@ export const RepoImage = (props: {
       height={285}
       fill="none"
       viewBox="0 0 1920 582"
+      style={{ borderRadius: props.rounded ? "20px" : "0" }}
     >
       {/*background*/}
       <path fill={props.bg ? `#${props.bg}` : "#fff"} d="M0 0h1920v582H0z" />
