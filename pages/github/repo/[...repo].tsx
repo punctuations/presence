@@ -33,7 +33,7 @@ export async function getServerSideProps(x: {
   };
 }
 
-export default function Username(props: {
+export default function Repo(props: {
   username: string;
   repo: string;
   bg: string | null;
