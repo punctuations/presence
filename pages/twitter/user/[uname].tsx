@@ -20,7 +20,7 @@ export async function getServerSideProps(x: {
   const { bg, accent, text, desc, stats, icon, rounded } = x.query;
 
   const res = await fetch(
-    `https://api.twitter.com/2/users/by/username/${uname}?user.fields=description,url,location,created_at,public_metrics,verified,protected&expansions=pinned_tweet_id&tweet.fields=created_at`,
+    `https://api.twitter.com/2/users/by/username/${uname}?user.fields=description,url,location,created_at,profile_image_url,public_metrics,verified,protected&expansions=pinned_tweet_id&tweet.fields=created_at`,
     {
       headers: {
         Authorization: `Bearer ${process.env.NEXT_PUBLIC_TWITTER_BEARER_TOKEN}`,

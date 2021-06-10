@@ -81,38 +81,29 @@ export const TwitterImage = (props: {
         )}
         <g>
           <g fill={props.stats ? `#${props.stats}` : "#838383"}>
-            <svg
-              x={202}
-              y={444}
-              aria-hidden="true"
-              viewBox="0 0 16 16"
-              height={40}
-              width={40}
-            >
-              <path
-                fillRule="evenodd"
-                d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"
-              />
-            </svg>
-            <text x={244} y={475} fontSize={36}>
-              {`${numeral(
-                props.twitter.data.public_metrics.follower_count
-              ).format("0a")} Followers`}
+            <text x={202} y={475} fontSize={36}>
+              <tspan
+                fill={props.text ? `#${props.text}` : "#000"}
+                fontWeight="bold"
+              >
+                {numeral(
+                  props.twitter.data.public_metrics.follower_count
+                ).format("0a")}
+              </tspan>{" "}
+              Followers
             </text>
           </g>
           <g fill={props.stats ? `#${props.stats}` : "#838383"}>
-            <svg x={496} y={443} viewBox="0 0 26 26" height={40} width={40}>
-              <path
-                fillRule="evenodd"
-                d="M8 4.05a1.405 1.405 0 11-2.812 0c0-.373.148-.731.411-.995a1.41 1.41 0 011.989 0c.264.264.412.622.412.995zm0 3.979a4.226 4.226 0 002.233-1.843 4.22 4.22 0 10-7.797-2.848 4.214 4.214 0 002.752 4.691v1.646a4.218 4.218 0 004.218 4.219h2.813v3.99a4.215 4.215 0 00-2.754 4.692 4.22 4.22 0 105.566-4.692v-3.99h2.813a4.22 4.22 0 004.219-4.219v-1.646a4.22 4.22 0 10-2.813 0v1.646a1.405 1.405 0 01-1.406 1.406h-8.438a1.405 1.405 0 01-1.406-1.406v-1.646zm7.031 13.833a1.407 1.407 0 11-2.814 0 1.407 1.407 0 012.814 0zm5.625-16.406a1.407 1.407 0 100-2.814 1.407 1.407 0 000 2.814z"
-                clipRule="evenodd"
-              />
-            </svg>
-
-            <text x={550} y={475} fontSize={36}>
-              {`${numeral(
-                props.twitter.data.public_metrics.following_count
-              ).format("0a")} Following`}
+            <text x={496} y={475} fontSize={36}>
+              <tspan
+                fill={props.text ? `#${props.text}` : "#000"}
+                fontWeight="bold"
+              >
+                {numeral(
+                  props.twitter.data.public_metrics.following_count
+                ).format("0a")}
+              </tspan>{" "}
+              Following
             </text>
           </g>
         </g>
@@ -120,7 +111,10 @@ export const TwitterImage = (props: {
 
       <image
         clipPath="url(#prefix__a)"
-        xlinkHref={`${props.twitter.data.profile_image_url}`}
+        xlinkHref={`${
+          props.twitter.data.profile_image_url.split("_normal")[0] +
+          props.twitter.data.profile_image_url.split("_normal")[1]
+        }`}
         width={350}
         height={390}
         x={1500}
