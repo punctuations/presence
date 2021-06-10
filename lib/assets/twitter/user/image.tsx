@@ -41,7 +41,11 @@ export const TwitterImage = (props: {
         fontWeight="bold"
         transform="rotate(-90 100 355)"
       >
-        {`@${props.twitter.data.username}`}
+        {`@${
+          props.twitter.data.username.length >= 11
+            ? `${props.twitter.data.username.slice(0, 11)}...`
+            : props.twitter.data.username
+        }`}
       </text>
 
       {/*profile picture*/}
