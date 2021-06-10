@@ -4,6 +4,7 @@
     "paths": {
       "@lib/*": ["lib/*"],
       "@github/*": ["lib/assets/github/*"],
+      "@twitter/*": ["lib/assets/twitter/*"]
     },
     "target": "es5",
     "lib": [
