@@ -12,7 +12,7 @@ export interface TwitterResponse {
     name: string;
     description: string;
     public_metrics: {
-      follower_count: string;
+      followers_count: string;
       following_count: string;
       tweet_count: string;
       listed_count: string;

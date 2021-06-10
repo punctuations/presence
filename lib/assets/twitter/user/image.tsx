@@ -87,7 +87,7 @@ export const TwitterImage = (props: {
                 fontWeight="bold"
               >
                 {numeral(
-                  props.twitter.data.public_metrics.follower_count
+                  props.twitter.data.public_metrics.followers_count
                 ).format("0a")}
               </tspan>{" "}
               Followers
