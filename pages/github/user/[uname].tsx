@@ -1,7 +1,9 @@
 import { UserImage } from "@github/user/image";
 import Repo from "../../../lib/assets/github/user/repo";
 
-export async function getServerSideProps(x: { params: { uname: any } }) {
+export async function getServerSideProps(x: {
+  params: { uname: string | string[] };
+}) {
   const { uname } = x.params;
 
   return {
