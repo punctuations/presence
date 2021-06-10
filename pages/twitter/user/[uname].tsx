@@ -10,14 +10,14 @@ export async function getServerSideProps(x: {
     text: string;
     desc: string;
     stats: string;
+    stats_text: string;
     icon: string;
-    language: string;
     rounded: string;
   };
 }) {
   const { uname } = x.params;
 
-  const { bg, accent, text, desc, stats, icon, rounded } = x.query;
+  const { bg, accent, text, desc, stats, stats_text, icon, rounded } = x.query;
 
   const res = await fetch(
     `https://api.twitter.com/2/users/by/username/${uname}?user.fields=description,url,location,created_at,profile_image_url,public_metrics,verified,protected&expansions=pinned_tweet_id&tweet.fields=created_at`,
@@ -39,6 +39,7 @@ export async function getServerSideProps(x: {
       text: text ? text : null,
       desc: desc ? desc : null,
       stats: stats ? stats : null,
+      statsText: stats_text ? stats_text : null,
       icon: icon ? icon : null,
       rounded: rounded ? rounded.toLowerCase() === "true" : null,
     },
@@ -52,8 +53,8 @@ export default function Username(props: {
   text: string | null;
   desc: string | null;
   stats: string | null;
+  statsText: string | null;
   icon: string | null;
-  showLanguage: boolean | null;
   rounded: boolean | null;
 }) {
   return (
@@ -62,6 +63,7 @@ export default function Username(props: {
       bg={props.bg}
       text={props.text}
       description={props.desc}
+      statsText={props.statsText}
       stats={props.stats}
       icon={props.icon}
       rounded={props.rounded}
