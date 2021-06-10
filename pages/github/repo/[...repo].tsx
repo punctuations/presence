@@ -4,7 +4,6 @@ export async function getServerSideProps(x: {
   params: { repo: string | string[] };
   query: {
     bg: string;
-    accent: string;
     text: string;
     desc: string;
     stats: string;
@@ -15,14 +14,13 @@ export async function getServerSideProps(x: {
 }) {
   const { repo } = x.params;
 
-  const { bg, accent, text, desc, stats, icon, language, rounded } = x.query;
+  const { bg, text, desc, stats, icon, language, rounded } = x.query;
 
   return {
     props: {
       username: repo.length > 1 ? repo[0] : repo[0].split(":")[0],
       repo: repo.length > 1 ? repo[1] : repo[0].split(":")[1],
       bg: bg ? bg : null,
-      accent: accent ? accent : null,
       text: text ? text : null,
       desc: desc ? desc : null,
       stats: stats ? stats : null,
@@ -37,7 +35,6 @@ export default function Repo(props: {
   username: string;
   repo: string;
   bg: string | null;
-  accent: string | null;
   text: string | null;
   desc: string | null;
   stats: string | null;
@@ -50,7 +47,6 @@ export default function Repo(props: {
       username={props.username}
       repo={props.repo}
       bg={props.bg}
-      accent={props.accent}
       text={props.text}
       description={props.desc}
       stats={props.stats}
