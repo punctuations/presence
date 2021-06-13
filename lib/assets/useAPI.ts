@@ -4,7 +4,7 @@ import useSWR from "swr";
 
 const useAPI = (
   type: string,
-  username?: string | string[] | undefined,
+  username?: string | string[] | null | undefined,
   subParam?: string | string[] | undefined
 ) => {
   const fetcher = (args: RequestInfo) => fetch(args).then((res) => res.json());
