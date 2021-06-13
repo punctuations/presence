@@ -6,7 +6,6 @@ export async function getServerSideProps(x: {
   params: { uname: string | string[] };
   query: {
     bg: string;
-    accent: string;
     text: string;
     desc: string;
     stats: string;
