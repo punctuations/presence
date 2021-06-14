@@ -2,6 +2,8 @@ import * as React from "react";
 import numeral from "numeral";
 
 import useAPI from "@lib/assets/useAPI";
+import { themes } from "@themes";
+import { ThemesTypes } from "@lib/types/ThemesTypes";
 
 export const RepoImage = (props: {
   username: string;
@@ -11,6 +13,7 @@ export const RepoImage = (props: {
   description: string | null;
   stats: string | null;
   icon: string | null;
+  theme: string | null;
   showLanguage: boolean | null;
   rounded: boolean | null;
 }) => {
@@ -19,6 +22,7 @@ export const RepoImage = (props: {
     props.username,
     props.repo
   );
+  const defaultThemes: ThemesTypes = themes;
 
   const { data: languages } = useAPI("github/colors");
 
@@ -39,11 +43,26 @@ export const RepoImage = (props: {
       style={{ borderRadius: props.rounded ? "20px" : "0" }}
     >
       {/*background*/}
-      <path fill={props.bg ? `#${props.bg}` : "#fff"} d="M0 0h1920v582H0z" />
+      <path
+        fill={
+          !props.theme
+            ? props.bg
+              ? `#${props.bg}`
+              : "#fff"
+            : defaultThemes[props.theme].bg
+        }
+        d="M0 0h1920v582H0z"
+      />
 
       {/*github icon*/}
       <path
-        fill={props.icon ? `#${props.icon}` : "#C4C4C4"}
+        fill={
+          !props.theme
+            ? props.icon
+              ? `#${props.icon}`
+              : "#C4C4C4"
+            : defaultThemes[props.theme].icon
+        }
         fillRule="evenodd"
         d="M80.5 65C66.411 65 55 76.188 55 90c0 11.062 7.3 20.406 17.436 23.719 1.275.219 1.753-.531 1.753-1.188 0-.593-.032-2.562-.032-4.656-6.407 1.156-8.064-1.531-8.575-2.937-.286-.719-1.53-2.938-2.613-3.532-.893-.468-2.168-1.625-.032-1.656 2.008-.031 3.442 1.812 3.92 2.562 2.296 3.782 5.961 2.719 7.427 2.063.223-1.625.893-2.719 1.626-3.344-5.674-.625-11.602-2.781-11.602-12.344 0-2.718.988-4.968 2.613-6.718-.255-.625-1.147-3.188.255-6.625 0 0 2.136-.656 7.013 2.562a24.111 24.111 0 016.375-.844c2.167 0 4.335.282 6.375.844 4.877-3.25 7.012-2.562 7.012-2.562 1.403 3.437.51 6 .255 6.625 1.626 1.75 2.614 3.969 2.614 6.719 0 9.593-5.96 11.718-11.634 12.343.924.781 1.72 2.281 1.72 4.625 0 3.344-.031 6.032-.031 6.875 0 .657.478 1.438 1.753 1.188 5.062-1.676 9.461-4.865 12.577-9.12A24.703 24.703 0 00106 90c0-13.813-11.411-25-25.5-25z"
         clipRule="evenodd"
@@ -56,7 +75,13 @@ export const RepoImage = (props: {
 
       <g>
         <text
-          fill={props.text ? `#${props.text}` : "#000"}
+          fill={
+            !props.theme
+              ? props.text
+                ? `#${props.text}`
+                : "#000"
+              : defaultThemes[props.theme].text
+          }
           x={202}
           y={250}
           fontSize={86}
@@ -81,7 +106,13 @@ export const RepoImage = (props: {
             {data.description.length > 72 ? (
               <>
                 <text
-                  fill={props.description ? `#${props.description}` : "#B4B4B4"}
+                  fill={
+                    !props.theme
+                      ? props.description
+                        ? `#${props.description}`
+                        : "#B4B4B4"
+                      : defaultThemes[props.theme].description
+                  }
                   x={202}
                   y={325}
                   fontSize={40}
@@ -89,7 +120,13 @@ export const RepoImage = (props: {
                   {!data ? null : data.description.substring(0, 72)}
                 </text>{" "}
                 <text
-                  fill={props.description ? `#${props.description}` : "#B4B4B4"}
+                  fill={
+                    !props.theme
+                      ? props.description
+                        ? `#${props.description}`
+                        : "#B4B4B4"
+                      : defaultThemes[props.theme].description
+                  }
                   x={202}
                   y={375}
                   fontSize={40}
@@ -103,7 +140,13 @@ export const RepoImage = (props: {
               </>
             ) : (
               <text
-                fill={props.description ? `#${props.description}` : "#B4B4B4"}
+                fill={
+                  !props.theme
+                    ? props.description
+                      ? `#${props.description}`
+                      : "#B4B4B4"
+                    : defaultThemes[props.theme].description
+                }
                 x={202}
                 y={325}
                 fontSize={40}
@@ -116,7 +159,15 @@ export const RepoImage = (props: {
         <g>
           {data && data.language == null ? (
             <>
-              <g fill={props.stats ? `#${props.stats}` : "#838383"}>
+              <g
+                fill={
+                  !props.theme
+                    ? props.stats
+                      ? `#${props.stats}`
+                      : "#838383"
+                    : defaultThemes[props.theme].stats
+                }
+              >
                 <svg
                   x={202}
                   y={444}
@@ -134,7 +185,15 @@ export const RepoImage = (props: {
                   {!data ? null : numeral(data.stargazers_count).format("0a")}
                 </text>
               </g>
-              <g fill={props.stats ? `#${props.stats}` : "#838383"}>
+              <g
+                fill={
+                  !props.theme
+                    ? props.stats
+                      ? `#${props.stats}`
+                      : "#838383"
+                    : defaultThemes[props.theme].stats
+                }
+              >
                 <svg x={496} y={443} viewBox="0 0 26 26" height={40} width={40}>
                   <path
                     fillRule="evenodd"
@@ -147,7 +206,15 @@ export const RepoImage = (props: {
                   {!data ? null : numeral(data.forks).format("0a")}
                 </text>
               </g>
-              <g fill={props.stats ? `#${props.stats}` : "#838383"}>
+              <g
+                fill={
+                  !props.theme
+                    ? props.stats
+                      ? `#${props.stats}`
+                      : "#838383"
+                    : defaultThemes[props.theme].stats
+                }
+              >
                 <svg x={990} y={443} viewBox="0 0 16 16" height={40} width={40}>
                   <path
                     fillRule="evenodd"
@@ -179,14 +246,28 @@ export const RepoImage = (props: {
               ) : null}
 
               <text
-                fill={props.stats ? `#${props.stats}` : "#838383"}
+                fill={
+                  !props.theme
+                    ? props.stats
+                      ? `#${props.stats}`
+                      : "#838383"
+                    : defaultThemes[props.theme].stats
+                }
                 x={202}
                 y={475}
                 fontSize={36}
               >
                 {!data ? null : data.language}
               </text>
-              <g fill={props.stats ? `#${props.stats}` : "#838383"}>
+              <g
+                fill={
+                  !props.theme
+                    ? props.stats
+                      ? `#${props.stats}`
+                      : "#838383"
+                    : defaultThemes[props.theme].stats
+                }
+              >
                 <svg
                   x={496}
                   y={444}
@@ -204,7 +285,15 @@ export const RepoImage = (props: {
                   {!data ? null : numeral(data.stargazers_count).format("0a")}
                 </text>
               </g>
-              <g fill={props.stats ? `#${props.stats}` : "#838383"}>
+              <g
+                fill={
+                  !props.theme
+                    ? props.stats
+                      ? `#${props.stats}`
+                      : "#838383"
+                    : defaultThemes[props.theme].stats
+                }
+              >
                 <svg x={794} y={443} viewBox="0 0 26 26" height={40} width={40}>
                   <path
                     fillRule="evenodd"
@@ -217,7 +306,15 @@ export const RepoImage = (props: {
                   {!data ? null : numeral(data.forks).format("0a")}
                 </text>
               </g>
-              <g fill={props.stats ? `#${props.stats}` : "#838383"}>
+              <g
+                fill={
+                  !props.theme
+                    ? props.stats
+                      ? `#${props.stats}`
+                      : "#838383"
+                    : defaultThemes[props.theme].stats
+                }
+              >
                 <svg x={990} y={443} viewBox="0 0 16 16" height={40} width={40}>
                   <path
                     fillRule="evenodd"
