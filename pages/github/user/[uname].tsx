@@ -10,13 +10,24 @@ export async function getServerSideProps(x: {
     desc: string;
     stats: string;
     stats_text: string;
+    theme: string;
     icon: string;
     rounded: string;
   };
 }) {
   const { uname } = x.params;
 
-  const { bg, accent, text, desc, stats, stats_text, icon, rounded } = x.query;
+  const {
+    bg,
+    accent,
+    text,
+    desc,
+    stats,
+    stats_text,
+    theme,
+    icon,
+    rounded,
+  } = x.query;
 
   return {
     props: {
@@ -27,6 +38,7 @@ export async function getServerSideProps(x: {
       desc: desc ? desc : null,
       stats: stats ? stats : null,
       statsText: stats_text ? stats_text : null,
+      theme: theme ? theme : null,
       icon: icon ? icon : null,
       rounded: rounded ? rounded.toLowerCase() === "true" : null,
     },
@@ -41,6 +53,7 @@ export default function Username(props: {
   desc: string | null;
   stats: string | null;
   statsText: string | null;
+  theme: string | null;
   icon: string | null;
   rounded: boolean | null;
 }) {
@@ -53,6 +66,7 @@ export default function Username(props: {
       description={props.desc}
       stats={props.stats}
       statsText={props.statsText}
+      theme={props.theme}
       icon={props.icon}
       rounded={props.rounded}
     >
@@ -64,6 +78,7 @@ export default function Username(props: {
         description={props.desc}
         stats={props.stats}
         statsText={props.statsText}
+        theme={props.theme}
       />
     </UserImage>
   );
