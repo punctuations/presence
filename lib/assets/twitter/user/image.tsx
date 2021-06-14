@@ -1,7 +1,7 @@
 import * as React from "react";
 import numeral from "numeral";
 
-import { TwitterResponse } from "@twitter/TwitterResponse";
+import { TwitterResponse } from "@lib/types/TwitterResponse";
 
 export const TwitterImage = (props: {
   twitter: TwitterResponse;

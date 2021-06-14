@@ -1,6 +1,6 @@
 import { TwitterImage } from "@twitter/user/image";
 
-import { TwitterResponse } from "@twitter/TwitterResponse";
+import { TwitterResponse } from "@lib/types/TwitterResponse";
 
 export async function getServerSideProps(x: {
   params: { uname: string | string[] };
