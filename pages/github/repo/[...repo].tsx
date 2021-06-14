@@ -7,6 +7,7 @@ export async function getServerSideProps(x: {
     text: string;
     desc: string;
     stats: string;
+    stats_text: string;
     icon: string;
     theme: string;
     language: string;
@@ -15,7 +16,17 @@ export async function getServerSideProps(x: {
 }) {
   const { repo } = x.params;
 
-  const { bg, text, desc, stats, icon, theme, language, rounded } = x.query;
+  const {
+    bg,
+    text,
+    desc,
+    stats,
+    stats_text,
+    icon,
+    theme,
+    language,
+    rounded,
+  } = x.query;
 
   return {
     props: {
@@ -25,6 +36,7 @@ export async function getServerSideProps(x: {
       text: text ? text : null,
       desc: desc ? desc : null,
       stats: stats ? stats : null,
+      statsText: stats_text ? stats_text : null,
       icon: icon ? icon : null,
       theme: theme ? theme : null,
       showLanguage: language ? language.toLowerCase() === "true" : null,
@@ -40,6 +52,7 @@ export default function Repo(props: {
   text: string | null;
   desc: string | null;
   stats: string | null;
+  statsText: string | null;
   icon: string | null;
   theme: string | null;
   showLanguage: boolean | null;
@@ -53,6 +66,7 @@ export default function Repo(props: {
       text={props.text}
       description={props.desc}
       stats={props.stats}
+      statsText={props.statsText}
       icon={props.icon}
       theme={props.theme}
       showLanguage={props.showLanguage}
