@@ -67,7 +67,7 @@ export const UserImage = (props: {
         fontWeight="bold"
         transform="rotate(-90 100 355)"
       >
-        {!data ? null : props.type === "github/user" ? data.login : null}
+        {!data ? null : data.login}
       </text>
       <clipPath id="prefix__a">
         <rect width={273} height={306} x={143} y={82} rx={31} />
