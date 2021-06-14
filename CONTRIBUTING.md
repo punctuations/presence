@@ -12,7 +12,7 @@ Commits should follow the rules of [conventionalcommits.org](https://www.convent
 
 To add themes you can go to `/themes.json` and add a theme by adding the following entry:
 
-```json
+```json5
 /* themes.json */
 {
   "themes": {
