@@ -2,6 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@themes": [
+        "themes.json"
+      ],
       "@lib/*": ["lib/*"],
       "@github/*": ["lib/assets/github/*"],
       "@twitter/*": ["lib/assets/twitter/*"]

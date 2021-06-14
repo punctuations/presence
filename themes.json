@@ -1,0 +1,13 @@
+{
+  "themes": {
+    "dark": {
+      "bg": "#000",
+      "text": "#FFF",
+      "description": "#B4B4B4",
+      "stats": "#C4C4C4",
+      "statsText": "#646464",
+      "icon": "#C4C4C4",
+      "accent": "#9D9D9D"
+    }
+  }
+}
