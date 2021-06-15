@@ -68,7 +68,7 @@ export const TwitterImage = (props: {
         transform="rotate(-90 100 355)"
       >
         {`@${
-          props.twitter.data.username.length >= 11
+          props.twitter.data.username.length > 11
             ? `${props.twitter.data.username.slice(0, 11)}...`
             : props.twitter.data.username
         }`}
@@ -93,7 +93,9 @@ export const TwitterImage = (props: {
           fontSize={86}
           fontWeight="bold"
         >
-          {`${props.twitter.data.name}`}
+          {props.twitter.data.name === ""
+            ? props.twitter.data.name
+            : props.twitter.data.username}
         </text>
         {props.twitter.data.description.length > 84 ? (
           <>
