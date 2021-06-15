@@ -85,7 +85,7 @@ export const UserImage = (props: {
             : defaultThemes[props.theme].text
         }
         x={440}
-        y={200}
+        y={185}
         fontSize={72}
         fontWeight="bold"
       >
