@@ -89,7 +89,7 @@ export const UserImage = (props: {
         fontSize={72}
         fontWeight="bold"
       >
-        {!data ? null : data.name}
+        {!data ? null : data.name ? data.name : data.login}
       </text>
       {!data ? null : (
         <>
