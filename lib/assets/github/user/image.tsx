@@ -67,7 +67,11 @@ export const UserImage = (props: {
         fontWeight="bold"
         transform="rotate(-90 100 355)"
       >
-        {!data ? null : data.login}
+        {!data
+          ? null
+          : data.login > 11
+          ? `${data.login.slice(0, 11)}...`
+          : data.login}
       </text>
       <clipPath id="prefix__a">
         <rect width={273} height={306} x={143} y={82} rx={31} />
