@@ -4,11 +4,9 @@ import numeral from "numeral";
 import { themes } from "@themes";
 import { ThemesTypes } from "@lib/types/ThemesTypes";
 import { TwitterResponse } from "@lib/types/TwitterResponse";
-import { TweetResponse } from "@lib/types/TweetResponse";
 
 export const PinnedTweet = (props: {
   twitter: TwitterResponse;
-  tweet: TweetResponse;
   bg: string | null;
   text: string | null;
   description: string | null;
@@ -212,13 +210,14 @@ export const PinnedTweet = (props: {
             y={665}
             fontSize={24}
           >
-            {props.tweet.data?.public_metrics.retweet_count! < 1000
-              ? numeral(props.tweet.data?.public_metrics.retweet_count).format(
-                  "0a"
-                )
-              : numeral(props.tweet.data?.public_metrics.retweet_count).format(
-                  "0.0a"
-                )}
+            {props.twitter.includes?.tweets[0].public_metrics.retweet_count! <
+            1000
+              ? numeral(
+                  props.twitter.includes?.tweets[0].public_metrics.retweet_count
+                ).format("0a")
+              : numeral(
+                  props.twitter.includes?.tweets[0].public_metrics.retweet_count
+                ).format("0.0a")}
           </text>
         </g>
         <g>
@@ -244,13 +243,14 @@ export const PinnedTweet = (props: {
             y={665}
             fontSize={24}
           >
-            {props.tweet.data?.public_metrics.reply_count! < 1000
-              ? numeral(props.tweet.data?.public_metrics.reply_count).format(
-                  "0a"
-                )
-              : numeral(props.tweet.data?.public_metrics.reply_count).format(
-                  "0.0a"
-                )}
+            {props.twitter.includes?.tweets[0].public_metrics.reply_count! <
+            1000
+              ? numeral(
+                  props.twitter.includes?.tweets[0].public_metrics.reply_count
+                ).format("0a")
+              : numeral(
+                  props.twitter.includes?.tweets[0].public_metrics.reply_count
+                ).format("0.0a")}
           </text>
         </g>
         <g>
@@ -276,13 +276,13 @@ export const PinnedTweet = (props: {
             y={665}
             fontSize={24}
           >
-            {props.tweet.data?.public_metrics.like_count! < 1000
-              ? numeral(props.tweet.data?.public_metrics.like_count).format(
-                  "0a"
-                )
-              : numeral(props.tweet.data?.public_metrics.like_count).format(
-                  "0.0a"
-                )}
+            {props.twitter.includes?.tweets[0].public_metrics.like_count! < 1000
+              ? numeral(
+                  props.twitter.includes?.tweets[0].public_metrics.like_count
+                ).format("0a")
+              : numeral(
+                  props.twitter.includes?.tweets[0].public_metrics.like_count
+                ).format("0.0a")}
           </text>
         </g>
       </g>

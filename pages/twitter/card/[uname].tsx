@@ -33,7 +33,7 @@ export async function getServerSideProps(x: {
   } = x.query;
 
   const res = await fetch(
-    `https://api.twitter.com/2/users/by/username/${uname}?user.fields=description,url,location,created_at,profile_image_url,public_metrics,verified,protected&expansions=pinned_tweet_id&tweet.fields=created_at`,
+    `https://api.twitter.com/2/users/by/username/${uname}?user.fields=description,url,location,created_at,profile_image_url,public_metrics,verified,protected&expansions=pinned_tweet_id&tweet.fields=created_at,public_metrics`,
     {
       headers: {
         Authorization: `Bearer ${process.env.NEXT_PUBLIC_TWITTER_BEARER_TOKEN}`,
@@ -43,21 +43,9 @@ export async function getServerSideProps(x: {
 
   const body = await res.json();
 
-  const r = await fetch(
-    `https://api.twitter.com/2/tweets/${body.includes?.tweets[0].id}?tweet.fields=public_metrics`,
-    {
-      headers: {
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_TWITTER_BEARER_TOKEN}`,
-      },
-    }
-  );
-
-  const tweetBody = await r.json();
-
   return {
     props: {
       twitter: body,
-      tweet: tweetBody,
       username: uname ? uname : null,
       bg: bg ? bg : null,
       text: text ? text : null,
@@ -74,7 +62,6 @@ export async function getServerSideProps(x: {
 
 export default function Username(props: {
   twitter: TwitterResponse;
-  tweet: TweetResponse;
   bg: string | null;
   text: string | null;
   desc: string | null;
@@ -86,29 +73,28 @@ export default function Username(props: {
   rounded: boolean | null;
 }) {
   return (
-    <TwitterImage
-      twitter={props.twitter}
-      bg={props.bg}
-      text={props.text}
-      description={props.desc}
-      stats={props.stats}
-      statsText={props.statsText}
-      theme={props.theme}
-      icon={props.icon}
-      rounded={props.rounded}
-    >
-      <PinnedTweet
-        twitter={props.twitter}
-        tweet={props.tweet}
-        bg={props.bg}
-        text={props.text}
-        description={props.desc}
-        stats={props.stats}
-        statsText={props.statsText}
-        accent={props.accent}
-        theme={props.theme}
-      />
-    </TwitterImage>
-    // <pre>{JSON.stringify(props.twitter, null, 2)}</pre>
+    // <TwitterImage
+    //   twitter={props.twitter}
+    //   bg={props.bg}
+    //   text={props.text}
+    //   description={props.desc}
+    //   stats={props.stats}
+    //   statsText={props.statsText}
+    //   theme={props.theme}
+    //   icon={props.icon}
+    //   rounded={props.rounded}
+    // >
+    //   <PinnedTweet
+    //     twitter={props.twitter}
+    //     bg={props.bg}
+    //     text={props.text}
+    //     description={props.desc}
+    //     stats={props.stats}
+    //     statsText={props.statsText}
+    //     accent={props.accent}
+    //     theme={props.theme}
+    //   />
+    // </TwitterImage>
+    <pre>{JSON.stringify(props.twitter, null, 2)}</pre>
   );
 }
