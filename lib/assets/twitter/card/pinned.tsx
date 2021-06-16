@@ -145,7 +145,7 @@ export const PinnedTweet = (props: {
                 y={597}
                 fontSize={24}
               >
-                {props.twitter.includes?.tweets[0].text.substring(0, 125)}
+                {props.twitter.includes?.tweets[0].text.substring(0, 115)}
               </text>{" "}
               <text
                 fill={
@@ -161,10 +161,10 @@ export const PinnedTweet = (props: {
               >
                 {props.twitter.includes?.tweets[0].text.length >= 240
                   ? `${props.twitter.includes?.tweets[0].text.substring(
-                      125,
+                      115,
                       240
                     )}...`
-                  : props.twitter.includes?.tweets[0].text.substring(125)}
+                  : props.twitter.includes?.tweets[0].text.substring(115)}
               </text>{" "}
             </>
           ) : (
