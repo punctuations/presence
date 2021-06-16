@@ -73,28 +73,28 @@ export default function Username(props: {
   rounded: boolean | null;
 }) {
   return (
-    // <TwitterImage
-    //   twitter={props.twitter}
-    //   bg={props.bg}
-    //   text={props.text}
-    //   description={props.desc}
-    //   stats={props.stats}
-    //   statsText={props.statsText}
-    //   theme={props.theme}
-    //   icon={props.icon}
-    //   rounded={props.rounded}
-    // >
-    //   <PinnedTweet
-    //     twitter={props.twitter}
-    //     bg={props.bg}
-    //     text={props.text}
-    //     description={props.desc}
-    //     stats={props.stats}
-    //     statsText={props.statsText}
-    //     accent={props.accent}
-    //     theme={props.theme}
-    //   />
-    // </TwitterImage>
-    <pre>{JSON.stringify(props.twitter, null, 2)}</pre>
+    <TwitterImage
+      twitter={props.twitter}
+      bg={props.bg}
+      text={props.text}
+      description={props.desc}
+      stats={props.stats}
+      statsText={props.statsText}
+      theme={props.theme}
+      icon={props.icon}
+      rounded={props.rounded}
+    >
+      <PinnedTweet
+        twitter={props.twitter}
+        bg={props.bg}
+        text={props.text}
+        description={props.desc}
+        stats={props.stats}
+        statsText={props.statsText}
+        accent={props.accent}
+        theme={props.theme}
+      />
+    </TwitterImage>
+    // <pre>{JSON.stringify(props.twitter, null, 2)}</pre>
   );
 }
