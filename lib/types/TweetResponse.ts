@@ -1,14 +1,25 @@
 export interface TweetResponse {
   data: {
     id: string;
+    text: string;
+    author_id: string;
     public_metrics: {
       retweet_count: number;
       reply_count: number;
       like_count: number;
       quote_count: number;
     };
-    text: string;
   } | null;
+  includes: {
+    users: [
+      {
+        profile_image_url: string;
+        username: string;
+        name: string;
+        id: string;
+      }
+    ];
+  };
   errors:
     | [
         {
