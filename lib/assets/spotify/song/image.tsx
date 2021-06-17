@@ -12,7 +12,6 @@ export const SpotifySong = (props: {
   text: string | null;
   description: string | null;
   theme: string | null;
-  icon: string | null;
   rounded: boolean | null;
 }) => {
   const defaultThemes: ThemesTypes = themes;
@@ -25,8 +24,19 @@ export const SpotifySong = (props: {
       height={460}
       fill="none"
       viewBox="0 0 1920 1080"
+      style={{ borderRadius: props.rounded ? "20px" : "0" }}
     >
-      <path fill="#fff" d="M25 25h1920v1080H25z" />
+      <path
+        fill={
+          !props.theme
+            ? props.bg
+              ? `#${props.bg}`
+              : "#fff"
+            : defaultThemes[props.theme].bg
+        }
+        d="M-400 0h2500v1080H-400z"
+      />
+
       <g filter="url(#prefix__filter0_f)">
         <rect
           fill="url(#prefix__pattern0)"

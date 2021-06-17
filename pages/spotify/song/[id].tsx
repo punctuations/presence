@@ -11,13 +11,12 @@ export async function getServerSideProps(x: {
     text: string;
     desc: string;
     theme: string;
-    icon: string;
     rounded: string;
   };
 }) {
   const { id } = x.params;
 
-  const { bg, text, desc, theme, icon, rounded } = x.query;
+  const { bg, text, desc, theme, rounded } = x.query;
 
   const data = new URLSearchParams();
   data.append("grant_type", "client_credentials");
@@ -61,7 +60,6 @@ export async function getServerSideProps(x: {
       text: text ? text : null,
       desc: desc ? desc : null,
       theme: theme ? theme : null,
-      icon: icon ? icon : null,
       rounded: rounded ? rounded.toLowerCase() === "true" : null,
     },
   };
@@ -76,7 +74,6 @@ export default function Username(props: {
   stats: string | null;
   statsText: string | null;
   theme: string | null;
-  icon: string | null;
   rounded: boolean | null;
 }) {
   return (
@@ -87,7 +84,6 @@ export default function Username(props: {
       text={props.text}
       description={props.desc}
       theme={props.theme}
-      icon={props.icon}
       rounded={props.rounded}
     />
     // <pre>{JSON.stringify(props.artist, null, 2)}</pre>
