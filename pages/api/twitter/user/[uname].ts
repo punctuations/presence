@@ -19,8 +19,6 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const query = req.query as Query,
     uname = req.query.uname;
 
-  console.log(req.query);
-
   axios
     .get(
       `https://api.twitter.com/2/users/by/username/${uname}?user.fields=description,url,location,created_at,profile_image_url,public_metrics,verified,protected&expansions=pinned_tweet_id&tweet.fields=created_at`,
@@ -30,7 +28,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         },
       }
     )
-    .then((r: AxiosResponse<any>) => res.send(TwitterImage(r.data, query)))
+    .then((r: AxiosResponse) => res.send(TwitterImage(r.data, query)))
     .catch((err) => {
       console.log(err);
       res.send({ error: "Please use a proper twitter username." });
