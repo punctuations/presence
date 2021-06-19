@@ -31,7 +31,8 @@ export const TwitterImage = (
       style="border-radius: ${
         query.rounded?.toLowerCase() === "true" ? "20px" : "0px"
       }"
-    >    
+    >
+        
       <path
         fill="${
           !query?.theme
@@ -64,9 +65,9 @@ export const TwitterImage = (
         }"
         x="83"
         y="350"
-        font-family="Roboto"
         font-size="36"
         font-weight="bold"
+        font-family="Roboto"
         transform="rotate(-90 100 355)"
       >
         @${
@@ -93,6 +94,7 @@ export const TwitterImage = (
           y="175"
           font-size="86"
           font-weight="bold"
+          font-family="Roboto"
         >
           ${
             twitter.data.name !== "" ? twitter.data.name : twitter.data.username
@@ -112,6 +114,7 @@ export const TwitterImage = (
                 x="446"
                 y="245"
                 font-size="36"
+                font-family="Roboto"
               >
                 ${twitter.data.description.substring(0, 84)}
               </text>
@@ -126,6 +129,7 @@ export const TwitterImage = (
                 x="446"
                 y="295"
                 font-size="36"
+                font-family="Roboto"
               >
                 ${
                   twitter.data.description.length >= 154
@@ -147,6 +151,7 @@ export const TwitterImage = (
               x="446"
               y="245"
               font-size="40"
+              font-family="Roboto"
             >
               ${twitter.data.description}
             </text>
@@ -162,7 +167,7 @@ export const TwitterImage = (
                 : defaultThemes[query?.theme].statsText
             }"
           >
-            <text x="450" y="370" font-size="36">
+            <text x="450" y="370" font-size="36" font-family="Roboto">
               <tspan
                 fill="${
                   !query?.theme
@@ -172,6 +177,7 @@ export const TwitterImage = (
                     : defaultThemes[query?.theme].text
                 }"
                 font-weight="bold"
+                font-family="Roboto"
               >
                 ${numeral(twitter.data.public_metrics.followers_count).format(
                   "0a"
@@ -189,7 +195,7 @@ export const TwitterImage = (
                 : defaultThemes[query?.theme].statsText
             }"
           >
-            <text x='783' y='370' font-size='36'>
+            <text x='783' y='370' font-size='36' font-family="Roboto">
               <tspan
                 fill="${
                   !query?.theme
@@ -236,6 +242,7 @@ export const TwitterImage = (
                     x="216"
                     y="476"
                     font-size="40"
+                    font-family="Roboto"
                   >
                     ${twitter.data.location}
                   </text>
@@ -273,6 +280,7 @@ export const TwitterImage = (
                     y="476"
                     font-size="40"
                     text-decoration="underline"
+                    font-family="Roboto"
                   >
                     ${twitter.data.url}
                   </text>
@@ -309,6 +317,7 @@ export const TwitterImage = (
                     x="1442"
                     y="476"
                     font-size="40"
+                    font-family="Roboto"
                   >
                     Joined ${new Date(twitter.data.created_at).toDateString()}
                   </text>
@@ -331,5 +340,13 @@ export const TwitterImage = (
         x="105"
         y="50"
       />
+      
+      <defs>
+        <style type="text/css">
+            @import
+            url('https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic');
+        </style>
+      </defs>;
+
     </svg>`;
 };
