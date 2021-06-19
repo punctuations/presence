@@ -31,7 +31,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     .then((r: AxiosResponse) => res.send(TwitterImage(r.data, query)))
     .catch((err) => {
       console.log(err);
-      res.send({ error: "Please use a proper twitter username." });
+      res.send({ error: "Sorry, that user doesn't exist." });
     });
 
   res.setHeader("Content-Type", "image/svg+xml; charset=utf-8");
