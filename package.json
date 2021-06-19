@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/numeral": "^2.0.1",
+    "axios": "^0.21.1",
     "framer-motion": "^4.1.9",
     "next": "10.0.4",
     "next-seo": "^4.24.0",
