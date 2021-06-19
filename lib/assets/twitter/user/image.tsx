@@ -95,7 +95,7 @@ export const TwitterImage = (
           font-weight="bold"
         >
           ${
-            twitter.data.name === "" ? twitter.data.name : twitter.data.username
+            twitter.data.name !== "" ? twitter.data.name : twitter.data.username
           }
         </text>
         ${
