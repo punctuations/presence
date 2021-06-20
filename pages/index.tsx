@@ -7,7 +7,21 @@ import Header from "@lib/ui/header";
 import Images from "@lib/ui/images";
 import Button from "@lib/ui/button";
 
-export default function Home() {
+export async function getServerSideProps() {
+  const twitterResponse = await fetch(
+    "http://localhost:3000/api/twitter/user/atmattt?type=base64"
+  );
+
+  const body = await twitterResponse.json();
+
+  return {
+    props: {
+      twitter: body.data,
+    },
+  };
+}
+
+export default function Home(props: { twitter?: string }) {
   return (
     <>
       <Head>
@@ -40,7 +54,7 @@ export default function Home() {
 
       <Main>
         <Header />
-        <Images />
+        <Images twitter={props?.twitter} />
         <Button text="🎉 Docs" url="/docs" />
       </Main>
     </>

@@ -1,11 +1,12 @@
-const Images = () => {
+import React from "react";
+
+const Images = (props: { twitter?: string }) => {
   const images = [
     "https://picsum.photos/500/200?a",
     "https://picsum.photos/500/200?b",
     "https://picsum.photos/500/200?c",
     "https://picsum.photos/500/200?d",
     "https://picsum.photos/500/200?e",
-    "https://picsum.photos/500/200?f",
   ];
 
   return (
@@ -20,6 +21,11 @@ const Images = () => {
           />
         );
       })}
+      <img
+        alt="example image"
+        src={props?.twitter}
+        className="rounded-md shadow-sm 2xl:w-auto xl:w-auto lg:w-auto md:w-1/2 sm:w-1/2 w-1/3 place-self-center"
+      />
     </section>
   );
 };

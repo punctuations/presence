@@ -1,5 +1,7 @@
 import { TwitterImage } from "@twitter/user/image";
 
+import { base } from "@lib/assets/base";
+
 import { NextApiRequest, NextApiResponse } from "next";
 import axios, { AxiosResponse } from "axios";
 
@@ -13,6 +15,7 @@ type Query = {
   theme?: string;
   icon?: string;
   rounded?: string;
+  type?: string;
 };
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -28,11 +31,23 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         },
       }
     )
-    .then((r: AxiosResponse) => res.send(TwitterImage(r.data, query)))
+    .then((r: AxiosResponse) =>
+      res.send(
+        query.type?.toLowerCase() === "base64"
+          ? { data: base(TwitterImage(r.data, query)) }
+          : TwitterImage(r.data, query)
+      )
+    )
     .catch((err) => {
       console.log(err);
       res.send({ error: "Sorry, that user doesn't exist." });
     });
 
-  res.setHeader("Content-Type", "image/svg+xml; charset=utf-8");
+  query.type?.toLowerCase() !== "base64"
+    ? res.setHeader("Content-Type", "image/svg+xml; charset=utf-8")
+    : null;
+  res.setHeader(
+    "content-security-policy",
+    "default-src 'none'; img-src *; style-src 'unsafe-inline'"
+  );
 }
