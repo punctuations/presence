@@ -9,7 +9,9 @@ import Button from "@lib/ui/button";
 
 export async function getServerSideProps() {
   const twitterResponse = await fetch(
-    "http://localhost:3000/api/twitter/user/atmattt?type=base64"
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000/api/twitter/user/atmattt?type=base64"
+      : "https://presence.vercel.app/api/twitter/user/atmattt?type=base64"
   );
 
   const body = await twitterResponse.json();
