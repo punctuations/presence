@@ -1,5 +1,3 @@
-import React from "react";
-
 const Images = (props: { twitter?: string }) => {
   const images = [
     "https://picsum.photos/500/200?a",
