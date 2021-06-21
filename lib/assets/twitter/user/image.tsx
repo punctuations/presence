@@ -5,7 +5,9 @@ import { themes } from "@themes";
 import { ThemesTypes } from "@lib/types/ThemesTypes";
 import { TwitterResponse } from "@lib/types/TwitterResponse";
 
-export const TwitterImage = (
+import { urlBase } from "@lib/assets/urlBase";
+
+export const TwitterImage = async (
   twitter: TwitterResponse,
   query: {
     [p: string]: string | string[] | undefined;
@@ -331,10 +333,11 @@ export const TwitterImage = (
 
       <image
         clip-path="url(#prefix__a)"
-        xlink:href="${
-          twitter.data.profile_image_url.split("_normal")[0] +
-          twitter.data.profile_image_url.split("_normal")[1]
-        }"
+        xlink:href="data:image/jpg;base64,${await urlBase(
+          `${twitter.data.profile_image_url.split("_normal")[0]}${
+            twitter.data.profile_image_url.split("_normal")[1]
+          }`
+        )}"
         width="350"
         height="390"
         x="105"

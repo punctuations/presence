@@ -1,3 +1,3 @@
-export function base(content: string) {
-  return "data:image/svg+xml;base64," + Buffer.from(content).toString("base64");
+export async function base(context: string) {
+  return "data:image/svg+xml;base64," + Buffer.from(context).toString("base64");
 }

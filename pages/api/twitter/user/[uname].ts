@@ -18,7 +18,10 @@ type Query = {
   type?: string;
 };
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const query = req.query as Query,
     uname = req.query.uname;
 
@@ -31,11 +34,11 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         },
       }
     )
-    .then((r: AxiosResponse) =>
+    .then(async (r: AxiosResponse) =>
       res.send(
         query.type?.toLowerCase() === "base64"
-          ? { data: base(TwitterImage(r.data, query)) }
-          : TwitterImage(r.data, query)
+          ? { data: base(await TwitterImage(r.data, query)) }
+          : await TwitterImage(r.data, query)
       )
     )
     .catch((err) => {
