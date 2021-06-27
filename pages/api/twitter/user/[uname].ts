@@ -37,7 +37,7 @@ export default async function handler(
     .then(async (r: AxiosResponse) =>
       res.send(
         query.type?.toLowerCase() === "base64"
-          ? { data: base(await TwitterImage(r.data, query)) }
+          ? { data: await base(await TwitterImage(r.data, query)) }
           : await TwitterImage(r.data, query)
       )
     )
@@ -49,8 +49,9 @@ export default async function handler(
   query.type?.toLowerCase() !== "base64"
     ? res.setHeader("Content-Type", "image/svg+xml; charset=utf-8")
     : null;
+
   res.setHeader(
     "content-security-policy",
-    "default-src 'none'; img-src *; style-src 'unsafe-inline'"
+    "default-src 'none'; img-src * data:; style-src 'unsafe-inline'"
   );
 }

@@ -20,7 +20,7 @@ const Images = (props: { twitter?: string }) => {
         );
       })}
       <img
-        alt="example image"
+        alt="example twitter image"
         src={props?.twitter}
         className="rounded-md shadow-sm 2xl:w-auto xl:w-auto lg:w-auto md:w-1/2 sm:w-1/2 w-1/3 place-self-center"
       />

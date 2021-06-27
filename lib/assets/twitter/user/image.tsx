@@ -34,7 +34,7 @@ export const TwitterImage = async (
         query.rounded?.toLowerCase() === "true" ? "20px" : "0px"
       }"
     >
-        
+
       <path
         fill="${
           !query?.theme
@@ -333,7 +333,7 @@ export const TwitterImage = async (
 
       <image
         clip-path="url(#prefix__a)"
-        xlink:href="data:image/jpg;base64,${await urlBase(
+        xlink:href="data:image/png;base64,${await urlBase(
           `${twitter.data.profile_image_url.split("_normal")[0]}${
             twitter.data.profile_image_url.split("_normal")[1]
           }`
