@@ -1,10 +1,9 @@
-const Images = (props: { twitter?: string }) => {
+const Images = (props: { twitter?: string; tweet?: string }) => {
   const images = [
     "https://picsum.photos/500/200?a",
     "https://picsum.photos/500/200?b",
     "https://picsum.photos/500/200?c",
     "https://picsum.photos/500/200?d",
-    "https://picsum.photos/500/200?e",
   ];
 
   return (
@@ -20,9 +19,14 @@ const Images = (props: { twitter?: string }) => {
         );
       })}
       <img
+        alt="example tweet image"
+        src={props?.tweet}
+        className="rounded-md 2xl:w-auto xl:w-auto lg:w-auto md:w-1/2 sm:w-1/2 w-1/3 place-self-center"
+      />
+      <img
         alt="example twitter image"
         src={props?.twitter}
-        className="rounded-md shadow-sm 2xl:w-auto xl:w-auto lg:w-auto md:w-1/2 sm:w-1/2 w-1/3 place-self-center"
+        className="rounded-md shadow-lg 2xl:w-auto xl:w-auto lg:w-auto md:w-1/2 sm:w-1/2 w-1/3 place-self-center"
       />
     </section>
   );
