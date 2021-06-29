@@ -67,6 +67,7 @@ export const TweetImage = async (
         y="350"
         font-size="36"
         font-weight="bold"
+        font-family="'Roboto', sans-serif"
         transform="rotate(-90 100 355)"
       >
         @${
@@ -93,6 +94,7 @@ export const TweetImage = async (
           y="175"
           font-size="86"
           font-weight="bold"
+          font-family="'Roboto', sans-serif"
         >
           ${
             twitter.includes?.users[0].name !== ""
@@ -117,6 +119,7 @@ export const TweetImage = async (
                   x="446"
                   y="245"
                   font-size="36"
+                  font-family="'Roboto', sans-serif"
                 >
                   ${twitter.data.text.substring(0, 84)}
                 </text>
@@ -131,6 +134,7 @@ export const TweetImage = async (
                   x="446"
                   y="295"
                   font-size="36"
+                  font-family="'Roboto', sans-serif"
                 >
                   ${
                     twitter.data.text.length >= 169
@@ -149,6 +153,7 @@ export const TweetImage = async (
                   x="446"
                   y="345"
                   font-size="36"
+                  font-family="'Roboto', sans-serif"
                 >
                   ${
                     twitter.data.text.length >= 253
@@ -170,6 +175,7 @@ export const TweetImage = async (
                 x="446"
                 y="245"
                 font-size="40"
+                font-family="'Roboto', sans-serif"
               >
                 ${twitter.data.text}
               </text>
@@ -204,6 +210,7 @@ export const TweetImage = async (
                 x="216"
                 y="485"
                 font-size="40"
+                font-family="'Roboto', sans-serif"
               >
                 ${
                   twitter.data?.public_metrics.reply_count! < 1000
@@ -241,6 +248,7 @@ export const TweetImage = async (
                 x="817"
                 y="485"
                 font-size="40"
+                font-family="'Roboto', sans-serif"
               >
                 ${
                   twitter.data?.public_metrics.retweet_count! < 1000
@@ -278,6 +286,7 @@ export const TweetImage = async (
                 x="1342"
                 y="485"
                 font-size="40"
+                font-family="'Roboto', sans-serif"
               >
                 ${
                   twitter.data?.public_metrics.like_count! < 1000
