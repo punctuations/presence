@@ -19,19 +19,30 @@ export async function getServerSideProps() {
       ? "http://localhost:3000/api/twitter/tweet/1394507872017403904?type=base64&theme=dark&rounded=true"
       : "https://presence.vercel.app/api/twitter/tweet/1394507872017403904?type=base64&theme=dark&rounded=true"
   );
+  const cardResponse = await fetch(
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000/api/twitter/card/atmattt?type=base64&theme=dark&rounded=true"
+      : "https://presence.vercel.app/api/twitter/card/atmattt?type=base64&theme=dark&rounded=true"
+  );
 
   const twitterBody = await twitterResponse.json();
   const tweetBody = await tweetResponse.json();
+  const cardBody = await cardResponse.json();
 
   return {
     props: {
       twitter: twitterBody.data,
       tweet: tweetBody.data,
+      card: cardBody.data,
     },
   };
 }
 
-export default function Home(props: { twitter?: string; tweet?: string }) {
+export default function Home(props: {
+  twitter?: string;
+  tweet?: string;
+  card?: string;
+}) {
   return (
     <>
       <Head>
@@ -67,6 +78,7 @@ export default function Home(props: { twitter?: string; tweet?: string }) {
         <Images
           twitter={props?.twitter as string}
           tweet={props?.tweet as string}
+          card={props?.card as string}
         />
         <Spacer y={1} />
         <Docs text="🎉 Docs" url="/docs" />
