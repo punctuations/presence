@@ -5,7 +5,7 @@ import { Main } from "@lib/components/main";
 
 import Header from "@lib/ui/header";
 import Images from "@lib/ui/images";
-import Docs from "@lib/ui/button";
+import Docs from "@lib/ui/docs";
 import { Spacer } from "@geist-ui/react";
 
 export async function getServerSideProps() {
