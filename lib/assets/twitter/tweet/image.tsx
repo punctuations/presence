@@ -30,7 +30,7 @@ export const TweetImage = async (
       fill="none"
       viewBox="0 0 1920 582"
       style="border-radius: ${
-        query.rounded?.toLowerCase() === "true" ? "20px" : "0px"
+        query.rounded?.toLowerCase() === "true" ? "7px" : "0px"
       }"
     >
       <path
