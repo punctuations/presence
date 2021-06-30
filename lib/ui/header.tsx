@@ -1,11 +1,17 @@
+import { Text, Grid } from "@geist-ui/react";
+
 const Header = () => {
   return (
-    <header className="flex flex-col space-y-5 items-center justify-center">
-      <h1 className="text-5xl font-bold">presence</h1>
-      <p className="text-xl text-gray-400 font-semibold">
-        Beautifully simple images for your social media.
-      </p>
-    </header>
+    <Grid>
+      <Grid.Container gap={1} alignItems="center" direction="column">
+        <Grid>
+          <Text h1>presence</Text>
+        </Grid>
+        <Grid>
+          <p>Beautifully simple images for your social media.</p>
+        </Grid>
+      </Grid.Container>
+    </Grid>
   );
 };
 

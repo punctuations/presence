@@ -1,9 +1,13 @@
 import { ReactNode } from "react";
 
+import { Page, Grid } from "@geist-ui/react";
+
 export const Main = (props: { children: ReactNode }) => {
   return (
-    <main className="absolute w-full h-full grid place-content-center gap-y-6 overflow-hidden">
-      {props.children}
-    </main>
+    <Page dotBackdrop size="large">
+      <Grid.Container gap={1} justify="center" alignItems="center">
+        {props.children}
+      </Grid.Container>
+    </Page>
   );
 };

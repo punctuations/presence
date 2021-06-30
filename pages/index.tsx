@@ -5,7 +5,8 @@ import { Main } from "@lib/assets/main";
 
 import Header from "@lib/ui/header";
 import Images from "@lib/ui/images";
-import Button from "@lib/ui/button";
+import Docs from "@lib/ui/button";
+import { Spacer } from "@geist-ui/react";
 
 export async function getServerSideProps() {
   const twitterResponse = await fetch(
@@ -64,7 +65,8 @@ export default function Home(props: { twitter?: string; tweet?: string }) {
       <Main>
         <Header />
         <Images twitter={props?.twitter} tweet={props?.tweet} />
-        <Button text="🎉 Docs" url="/docs" />
+        <Spacer y={1} />
+        <Docs text="🎉 Docs" url="/docs" />
       </Main>
     </>
   );
