@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { NextSeo } from "next-seo";
 
-import { Main } from "@lib/assets/main";
+import { Main } from "@lib/components/main";
 
 import Header from "@lib/ui/header";
 import Images from "@lib/ui/images";
