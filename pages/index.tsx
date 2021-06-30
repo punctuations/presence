@@ -11,13 +11,13 @@ import { Spacer } from "@geist-ui/react";
 export async function getServerSideProps() {
   const twitterResponse = await fetch(
     process.env.NODE_ENV === "development"
-      ? "http://localhost:3000/api/twitter/user/atmattt?type=base64"
-      : "https://presence.vercel.app/api/twitter/user/atmattt?type=base64"
+      ? "http://localhost:3000/api/twitter/user/atmattt?type=base64&rounded=true"
+      : "https://presence.vercel.app/api/twitter/user/atmattt?type=base64&rounded=true"
   );
   const tweetResponse = await fetch(
     process.env.NODE_ENV === "development"
-      ? "http://localhost:3000/api/twitter/tweet/1394507872017403904?type=base64&theme=dark"
-      : "https://presence.vercel.app/api/twitter/tweet/1394507872017403904?type=base64&theme=dark"
+      ? "http://localhost:3000/api/twitter/tweet/1394507872017403904?type=base64&theme=dark&rounded=true"
+      : "https://presence.vercel.app/api/twitter/tweet/1394507872017403904?type=base64&theme=dark&rounded=true"
   );
 
   const twitterBody = await twitterResponse.json();
