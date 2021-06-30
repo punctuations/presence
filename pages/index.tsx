@@ -64,7 +64,10 @@ export default function Home(props: { twitter?: string; tweet?: string }) {
 
       <Main>
         <Header />
-        <Images twitter={props?.twitter} tweet={props?.tweet} />
+        <Images
+          twitter={props?.twitter as string}
+          tweet={props?.tweet as string}
+        />
         <Spacer y={1} />
         <Docs text="🎉 Docs" url="/docs" />
       </Main>
