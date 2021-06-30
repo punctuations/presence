@@ -4,6 +4,7 @@ import numeral from "numeral";
 import { themes } from "@themes";
 import { ThemesTypes } from "@lib/types/ThemesTypes";
 import { TwitterResponse } from "@lib/types/TwitterResponse";
+import { urlBase } from "@lib/assets/urlBase";
 
 export const CardImage = async (
   twitter: TwitterResponse,
@@ -98,20 +99,20 @@ export const CardImage = async (
           font-family="'Roboto', sans-serif"
         >
           ${
-            twitter.data.name === "" ? twitter.data.name : twitter.data.username
+            twitter.data.name !== "" ? twitter.data.name : twitter.data.username
           }
         </text>
         ${
           twitter.data.description.length > 84
             ? `
             <text
-              fill=${
+              fill="${
                 !query.theme
                   ? query.description
                     ? `#${query.description}`
                     : "#B4B4B4"
                   : defaultThemes[query.theme].description
-              }
+              }"
               x="446"
               y="245"
               font-size="36"
@@ -182,7 +183,7 @@ export const CardImage = async (
                 ${numeral(twitter.data.public_metrics.followers_count).format(
                   "0a"
                 )}
-              </tspan>{" "}
+              </tspan>
               Followers
             </text>
           </g>
@@ -210,7 +211,7 @@ export const CardImage = async (
                 ${numeral(twitter.data.public_metrics.following_count).format(
                   "0a"
                 )}
-              </tspan>{" "}
+              </tspan>
               Following
             </text>
           </g>
@@ -499,7 +500,7 @@ export const CardImage = async (
                     }"
                     x="720"
                     y="665"
-                    font-Size="24"
+                    font-size="24"
                     font-family="'Roboto', sans-serif"
                   >
                     ${
@@ -638,10 +639,10 @@ export const CardImage = async (
 
       <image
         clip-path="url(#prefix__a)"
-        xlink:href=${
+        xlink:href="data:image/png;base64,${await urlBase(
           twitter.data.profile_image_url.split("_normal")[0] +
-          twitter.data.profile_image_url.split("_normal")[1]
-        }
+            twitter.data.profile_image_url.split("_normal")[1]
+        )}"
         width="350"
         height="390"
         x="105"
@@ -649,10 +650,10 @@ export const CardImage = async (
       />
       <image
         clip-path="url(#twitter-pinned)"
-        xlink:href=${
+        xlink:href="data:image/png;base64,${await urlBase(
           twitter.data.profile_image_url.split("_normal")[0] +
-          twitter.data.profile_image_url.split("_normal")[1]
-        }
+            twitter.data.profile_image_url.split("_normal")[1]
+        )}"
         width="135"
         height="135"
         x="167"
