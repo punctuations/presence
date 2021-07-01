@@ -16,17 +16,8 @@ export async function getServerSideProps(x: {
 }) {
   const { repo } = x.params;
 
-  const {
-    bg,
-    text,
-    desc,
-    stats,
-    stats_text,
-    icon,
-    theme,
-    language,
-    rounded,
-  } = x.query;
+  const { bg, text, desc, stats, stats_text, icon, theme, language, rounded } =
+    x.query;
 
   return {
     props: {

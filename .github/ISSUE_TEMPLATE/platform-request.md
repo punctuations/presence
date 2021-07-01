@@ -1,10 +1,9 @@
 ---
 name: Platform request
 about: Request a platform to be a part of presence.
-title: 'platform(req): PLATFORM'
+title: "platform(req): PLATFORM"
 labels: platform
-assignees: ''
-
+assignees: ""
 ---
 
 **What is the platform?**
