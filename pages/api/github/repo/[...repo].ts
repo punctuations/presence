@@ -38,7 +38,12 @@ export default async function handler(
         : req.query.repo[0].split(":")[1];
 
   const contributorsResponse = await fetch(
-    `https://api.github.com/repos/${username}/${repo}/contributors`
+    `https://api.github.com/repos/${username}/${repo}/contributors`,
+    {
+      headers: {
+        Authorization: `token ${process.env.NEXT_PUBLIC_GITHUB_REPO_TOKEN}`,
+      },
+    }
   );
   const colorResponse = await fetch(
     "https://raw.githubusercontent.com/ozh/github-colors/master/colors.json"
@@ -48,7 +53,11 @@ export default async function handler(
   const colors: GithubColorResponse = await colorResponse.json();
 
   axios
-    .get(`https://api.github.com/repos/${username}/${repo}`)
+    .get(`https://api.github.com/repos/${username}/${repo}`, {
+      headers: {
+        Authorization: `token ${process.env.NEXT_PUBLIC_GITHUB_REPO_TOKEN}`,
+      },
+    })
     .then(async (r: AxiosResponse) =>
       res.send(
         query.type?.toLowerCase() === "base64"
