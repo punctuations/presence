@@ -19,21 +19,28 @@ export async function getServerSideProps() {
       ? "http://localhost:3000/api/twitter/tweet/1394507872017403904?type=base64&theme=dark&rounded=true"
       : "https://presence.vercel.app/api/twitter/tweet/1394507872017403904?type=base64&theme=dark&rounded=true"
   );
-  const cardResponse = await fetch(
+  const twitterCardResponse = await fetch(
     process.env.NODE_ENV === "development"
-      ? "http://localhost:3000/api/twitter/card/atmattt?type=base64&theme=dark&rounded=true"
-      : "https://presence.vercel.app/api/twitter/card/atmattt?type=base64&theme=dark&rounded=true"
+      ? "http://localhost:3000/api/twitter/card/atmattt?type=base64&rounded=true"
+      : "https://presence.vercel.app/api/twitter/card/atmattt?type=base64&rounded=true"
+  );
+  const githubCardResponse = await fetch(
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000/api/github/card/punctuations?type=base64&theme=dark&rounded=true"
+      : "https://presence.vercel.app/api/github/card/punctuations?type=base64&theme=dark&rounded=true"
   );
 
   const twitterBody = await twitterResponse.json();
   const tweetBody = await tweetResponse.json();
-  const cardBody = await cardResponse.json();
+  const twitterCard = await twitterCardResponse.json();
+  const githubCard = await githubCardResponse.json();
 
   return {
     props: {
       twitter: twitterBody.data,
       tweet: tweetBody.data,
-      card: cardBody.data,
+      twitterCard: twitterCard.data,
+      githubCard: githubCard.data,
     },
   };
 }
@@ -41,7 +48,8 @@ export async function getServerSideProps() {
 export default function Home(props: {
   twitter?: string;
   tweet?: string;
-  card?: string;
+  twitterCard?: string;
+  githubCard?: string;
 }) {
   return (
     <>
@@ -78,7 +86,8 @@ export default function Home(props: {
         <Images
           twitter={props?.twitter as string}
           tweet={props?.tweet as string}
-          card={props?.card as string}
+          twitterCard={props?.twitterCard as string}
+          githubCard={props?.githubCard as string}
         />
         <Spacer y={1} />
         <Docs text="🎉 Docs" url="/docs" />
