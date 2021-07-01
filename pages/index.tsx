@@ -19,19 +19,30 @@ export async function getServerSideProps() {
       ? "http://localhost:3000/api/github/repo/punctuations:presence?type=base64&rounded=true"
       : "https://presence.vercel.app/api/github/repo/punctuations:presence?type=base64&rounded=true"
   );
+  const songResponse = await fetch(
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000/api/spotify/track/3dhjNA0jGA8vHBQ1VdD6vV?type=base64&rounded=true"
+      : "https://presence.vercel.app/api/spotify/track/3dhjNA0jGA8vHBQ1VdD6vV?type=base64&rounded=true"
+  );
 
   const tweetBody = await tweetResponse.json(),
-    repoBody = await githubRepoResponse.json();
+    repoBody = await githubRepoResponse.json(),
+    songBody = await songResponse.json();
 
   return {
     props: {
       tweet: tweetBody.data,
       repo: repoBody.data,
+      song: songBody.data,
     },
   };
 }
 
-export default function Home(props: { tweet?: string; repo?: string }) {
+export default function Home(props: {
+  tweet?: string;
+  repo?: string;
+  song?: string;
+}) {
   return (
     <>
       <Head>
@@ -64,7 +75,11 @@ export default function Home(props: { tweet?: string; repo?: string }) {
 
       <Main>
         <Header />
-        <Images tweet={props?.tweet as string} repo={props?.repo as string} />
+        <Images
+          tweet={props?.tweet as string}
+          repo={props?.repo as string}
+          song={props?.song as string}
+        />
         <Spacer y={1} />
         <Docs text="🎉 Docs" url="/docs" />
       </Main>
