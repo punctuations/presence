@@ -29,11 +29,17 @@ export async function getServerSideProps() {
       ? "http://localhost:3000/api/github/card/punctuations?type=base64&theme=dark&rounded=true"
       : "https://presence.vercel.app/api/github/card/punctuations?type=base64&theme=dark&rounded=true"
   );
+  const githubRepoResponse = await fetch(
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000/api/github/repo/punctuations:presence?type=base64&rounded=true"
+      : "https://presence.vercel.app/api/github/repo/punctuations:presence?type=base64&rounded=true"
+  );
 
-  const twitterBody = await twitterResponse.json();
-  const tweetBody = await tweetResponse.json();
-  const twitterCard = await twitterCardResponse.json();
-  const githubCard = await githubCardResponse.json();
+  const twitterBody = await twitterResponse.json(),
+    tweetBody = await tweetResponse.json(),
+    twitterCard = await twitterCardResponse.json(),
+    githubCard = await githubCardResponse.json(),
+    repoBody = await githubRepoResponse.json();
 
   return {
     props: {
@@ -41,6 +47,7 @@ export async function getServerSideProps() {
       tweet: tweetBody.data,
       twitterCard: twitterCard.data,
       githubCard: githubCard.data,
+      repo: repoBody.data,
     },
   };
 }
@@ -50,6 +57,7 @@ export default function Home(props: {
   tweet?: string;
   twitterCard?: string;
   githubCard?: string;
+  repo?: string;
 }) {
   return (
     <>
@@ -88,6 +96,7 @@ export default function Home(props: {
           tweet={props?.tweet as string}
           twitterCard={props?.twitterCard as string}
           githubCard={props?.githubCard as string}
+          repo={props?.repo as string}
         />
         <Spacer y={1} />
         <Docs text="🎉 Docs" url="/docs" />
