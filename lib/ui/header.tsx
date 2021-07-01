@@ -12,7 +12,7 @@ const Header = () => {
   });
 
   return (
-    <Grid>
+    <Grid xs={20}>
       <Grid.Container gap={1} alignItems="center" direction="column">
         <Grid>
           <Text h1 style={{ position: "relative" }}>
