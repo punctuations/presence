@@ -4,136 +4,131 @@ import { themes } from "@themes";
 import { ThemesTypes } from "@lib/types/ThemesTypes";
 import { SpotifySongResponse } from "@lib/types/SpotifySongResponse";
 import { SpotifyArtistResponse } from "@lib/types/SpotifyArtistResponse";
+import { urlBase } from "@lib/assets/urlBase";
 
-export const SpotifySong = (props: {
-  song: SpotifySongResponse;
-  artist: SpotifyArtistResponse;
-  bg: string | null;
-  text: string | null;
-  description: string | null;
-  theme: string | null;
-  rounded: boolean | null;
-}) => {
+export const SpotifyImage = async (
+  song: SpotifySongResponse,
+  artist: SpotifyArtistResponse,
+  query: {
+    bg?: string;
+    text?: string;
+    desc?: string;
+    theme?: string;
+    rounded?: string;
+  }
+) => {
   const defaultThemes: ThemesTypes = themes;
 
-  return (
+  function escapeHtml(unsafe: string) {
+    return unsafe
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  return `
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
-      width={940}
-      height={460}
-      fill="none"
-      viewBox="0 0 1920 1080"
-      style={{ borderRadius: props.rounded ? "20px" : "0" }}
+      xmlns:xhtml="http://www.w3.org/1999/xhtml"
+      width="410px" height="218px"
+      viewBox="0 0 410 218"
+      style="border-radius: ${
+        query.rounded?.toLowerCase() === "true" ? "7px" : "0px"
+      }"
     >
-      <path
-        fill={
-          !props.theme
-            ? props.bg
-              ? `#${props.bg}`
-              : "#fff"
-            : defaultThemes[props.theme].bg
-        }
-        d="M-400 0h2500v1080H-400z"
-      />
-
-      <g filter="url(#prefix__filter0_f)">
-        <rect
-          fill="url(#prefix__pattern0)"
-          width={4000}
-          height={1080}
-          x={-350}
-          y={0}
-        />
-      </g>
-      <rect
-        width={300}
-        height={300}
-        x={614}
-        y={415}
-        fill="url(#prefix__pattern1)"
-        rx={10}
-      />
-      <text
-        fill={
-          !props.theme
-            ? props.text
-              ? `#${props.text}`
-              : "#fff"
-            : defaultThemes[props.theme].text
-        }
-        x={940}
-        y={548}
-        fontSize={40}
-        fontWeight="bold"
-      >
-        {props.song.name}
-      </text>
-      <text
-        fill={
-          !props.theme
-            ? props.description
-              ? `#${props.description}`
+      <foreignObject x="0" y="0" width="410" height="218">
+      <div  xmlns="http://www.w3.org/1999/xhtml" style="
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        background-color: ${
+                          !query.theme
+                            ? query.bg
+                              ? `#${query.bg}`
+                              : "#fff"
+                            : defaultThemes[query.theme].bg
+                        };
+                        background-image: url('data:image/png;base64,${await urlBase(
+                          artist.images[0].url
+                        )}');
+                        background-position: center;
+                        background-size: cover;
+                        filter: blur(3px);
+                        -webkit-filter: blur(3px);
+                    "/>
+                    <div  xmlns="http://www.w3.org/1999/xhtml" style="
+                        position: relative;
+                        z-index: 1;
+                        width: 100%;
+                        height: 100%;
+                        display: grid;
+                        place-content: center
+                        ">
+                        <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+                            <div style="margin-right: 1.625rem; width: 75px; height: 75px; background-image: url('data:image/png;base64,${await urlBase(
+                              song.album.images[0].url
+                            )}'); background-position: center; background-size: contain; border-radius: 7px" />
+                            <div style="flex-direction: column; justify-content: center; align-items: center;">
+                            <h3 style="font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; font-size: ${
+          song.name.length >= 25 ? "12px" : "18px"
+        }; font-weight: bold; color: ${
+    !query.theme
+      ? query.text
+        ? `#${query.text}`
+        : "#fff"
+      : defaultThemes[query.theme].text
+  }">${
+    song.name.length > 39
+      ? `${escapeHtml(song.name.substring(39))}...`
+      : escapeHtml(song.name)
+  }</h3>
+                            <p style="font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; font-size: 14px; color: ${
+          !query.theme
+            ? query.desc
+              ? `#${query.desc}`
               : "#DADADA"
-            : defaultThemes[props.theme].description
-        }
-        x={940}
-        y={615}
-        fontSize={40}
-      >
-        {props.song.artists.length > 3
-          ? "Various Artists"
-          : props.song.artists.length === 3
-          ? `${props.song.artists[0].name}, ${props.song.artists[1].name}, ${props.song.artists[2].name}.`
-          : props.song.artists.length === 2
-          ? `${props.song.artists[0].name}, ${props.song.artists[1].name}.`
-          : `${props.song.artists[0].name}.`}
-      </text>
-      <defs>
-        <pattern
-          id="prefix__pattern0"
-          width={1}
-          height={1}
-          patternContentUnits="objectBoundingBox"
-        >
-          <use
-            transform="matrix(.0005 0 0 .00088 -.156 0)"
-            xlinkHref="#prefix__image0"
-          />
-        </pattern>
-        <pattern
-          id="prefix__pattern1"
-          width={1}
-          height={1}
-          patternContentUnits="objectBoundingBox"
-        >
-          <use transform="scale(.00333)" xlinkHref="#prefix__image1" />
-        </pattern>
-        <image
-          id="prefix__image0"
-          width={1920}
-          height={1080}
-          xlinkHref={`${props.artist.images[0].url}`}
-        />
-        <image
-          id="prefix__image1"
-          width={300}
-          height={300}
-          xlinkHref={`${props.song.album.images[0].url}`}
-        />
-        <filter
-          id="prefix__filter0_f"
-          width={1970}
-          height={1080}
-          x={0}
-          y={0}
-          colorInterpolationFilters="sRGB"
-        >
-          <feFlood floodOpacity={0} result="BackgroundImageFix" />
-          <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-          <feGaussianBlur result="effect1_foregroundBlur" stdDeviation={12.5} />
-        </filter>
-      </defs>
+            : defaultThemes[query.theme].description
+        }">${
+    song.artists.length > 3
+      ? "Various Artists"
+      : song.artists.length === 3
+      ? `${escapeHtml(
+          song.artists[0].name.length >= 14
+            ? `${song.artists[0].name.substring(0, 14)}-`
+            : song.artists[0].name
+        )}, ${escapeHtml(
+          song.artists[1].name.length >= 14
+            ? `${song.artists[1].name.substring(0, 14)}-`
+            : song.artists[1].name
+        )}, ${escapeHtml(
+          song.artists[2].name.length >= 14
+            ? `${song.artists[2].name.substring(0, 14)}..`
+            : song.artists[2].name
+        )}.`
+      : song.artists.length === 2
+      ? `${escapeHtml(
+          song.artists[0].name.length >= 21
+            ? `${song.artists[0].name.substring(0, 21)}-`
+            : song.artists[0].name
+        )}, ${escapeHtml(
+          song.artists[1].name.length >= 21
+            ? `${song.artists[1].name.substring(0, 21)}..`
+            : song.artists[1].name
+        )}.`
+      : `${escapeHtml(
+          song.artists[0].name.length >= 43
+            ? `${song.artists[0].name.substring(0, 43)}..`
+            : song.artists[0].name
+        )}.`
+  }</p>
+                            </div>
+                        </div>
+                    </div>
+      </foreignObject>
     </svg>
-  );
+  `;
 };
