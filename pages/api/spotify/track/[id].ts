@@ -12,8 +12,11 @@ type Query = {
   bg?: string;
   text?: string;
   desc?: string;
+  index?: string;
   theme?: string;
   rounded?: string;
+  bottom?: string;
+  top?: string;
   type?: string;
 };
 
