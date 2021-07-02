@@ -32,6 +32,10 @@ export const SpotifyImage = async (
       .replace(/'/g, "&#039;");
   }
 
+  await extractColors(
+    `data:image/png;base64,${await urlBase(song.album.images[0].url)}`
+  ).then((colors) => console.log(colors));
+
   return `
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +59,7 @@ export const SpotifyImage = async (
                   (colors) =>
                     colors[
                       query.index
-                        ? parseInt(query.index) > colors.length
+                        ? parseInt(query.index) > colors.length - 1
                           ? 0
                           : parseInt(query.index)
                         : 0
