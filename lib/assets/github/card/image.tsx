@@ -87,7 +87,7 @@ export const GithubCardImage = async (
         y="345"
         font-size="36"
         font-weight="bold"
-        font-family="'Roboto', sans-serif"
+        font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         transform="rotate(-90 100 355)"
       >
         ${
@@ -113,7 +113,7 @@ export const GithubCardImage = async (
         y="185"
         font-size="72"
         font-weight="bold"
-        font-family="'Roboto', sans-serif"
+        font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
       >
         ${!github ? null : github.name ? github.name : github.login}
       </text>
@@ -134,7 +134,7 @@ export const GithubCardImage = async (
                 x="446"
                 y="245"
                 font-size="36"
-                font-family="'Roboto', sans-serif"
+                font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
               >
                 ${github.bio.substring(0, 84)}
               </text>
@@ -149,7 +149,7 @@ export const GithubCardImage = async (
                 x="446"
                 y="295"
                 font-size="36"
-                font-family="'Roboto', sans-serif"
+                font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
               >
                 ${
                   github.bio && github.bio.length >= 154
@@ -172,7 +172,7 @@ export const GithubCardImage = async (
               x="446"
               y="245"
               font-size="40"
-              font-family="'Roboto', sans-serif"
+              font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
             >
               ${github.bio}
             </text>
@@ -194,7 +194,7 @@ export const GithubCardImage = async (
           x="450"
           y="379"
           font-weight="bold"
-          font-family="'Roboto', sans-serif"
+          font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         >
           ${!github ? null : numeral(github.followers).format("0a")}
         </text>
@@ -208,7 +208,7 @@ export const GithubCardImage = async (
           }"
           x="527"
           y="379"
-          font-family="'Roboto', sans-serif"
+          font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         >
           Followers
         </text>
@@ -223,7 +223,7 @@ export const GithubCardImage = async (
           x="783"
           y="379"
           font-weight="bold"
-          font-family="'Roboto', sans-serif"
+          font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         >
           ${!github ? null : numeral(github.following).format("0a")}
         </text>
@@ -237,7 +237,7 @@ export const GithubCardImage = async (
           }"
           x="860"
           y="379"
-          font-family="'Roboto', sans-serif"
+          font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         >
           Following
         </text>
@@ -287,7 +287,7 @@ export const GithubCardImage = async (
         x="267"
         y="550"
         font-size="48"
-        font-family="'Roboto', sans-serif"
+        font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
       >
         ${
           !starred ? null : `${starred[starredIndex]?.full_name.split("/")[0]}/`
@@ -310,7 +310,7 @@ export const GithubCardImage = async (
           x="202"
           y="609"
           font-size="30"
-          font-family="'Roboto', sans-serif"
+          font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         >
           ${starred[starredIndex].description}
         </text>
@@ -346,7 +346,7 @@ export const GithubCardImage = async (
                 x="245"
                 y="670"
                 font-size="24"
-                font-family="'Roboto', sans-serif"
+                font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
               >
                 ${numeral(starred[starredIndex].forks).format("0a")}
               </text>
@@ -367,7 +367,7 @@ export const GithubCardImage = async (
                 viewBox="0 0 16 16"
                 height="30"
                 width="30"
-                font-family="'Roboto', sans-serif"
+                font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
               >
                 <path
                   fill-rule="evenodd"
@@ -385,7 +385,7 @@ export const GithubCardImage = async (
                 x="360"
                 y="670"
                 font-size="24"
-                font-family="'Roboto', sans-serif"
+                font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
               >
                 ${!starred ? null : numeral(mostStarred).format("0a")}
               </text>
@@ -416,7 +416,7 @@ export const GithubCardImage = async (
               x="238"
               y="671"
               font-size="24"
-              font-family="'Roboto', sans-serif"
+              font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
             >
               ${!starred ? null : starred[starredIndex].language}
             </text>
@@ -445,7 +445,7 @@ export const GithubCardImage = async (
                 x="586"
                 y="670"
                 font-size="24"
-                font-family="'Roboto', sans-serif"
+                font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
               >
                 ${
                   !starred
@@ -479,7 +479,7 @@ export const GithubCardImage = async (
                 x="459"
                 y="674"
                 font-size="24"
-                font-family="'Roboto', sans-serif"
+                font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
               >
                 ${!starred ? null : numeral(mostStarred).format("0a")}
               </text>
@@ -519,7 +519,7 @@ export const GithubCardImage = async (
           x="216"
           y="823"
           font-size="40"
-          font-family="'Roboto', sans-serif"
+          font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         >
           ${github ? github.location : null}
         </text>
@@ -555,7 +555,7 @@ export const GithubCardImage = async (
           y="823"
           font-size="40"
           text-decoration="underline"
-          font-family="'Roboto', sans-serif"
+          font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         >
           ${!github ? null : github.blog}
         </text>
@@ -591,7 +591,7 @@ export const GithubCardImage = async (
             x="1342"
             y="823"
             font-size="40"
-            font-family="'Roboto', sans-serif"
+            font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
           >
           ${
             github.created_at
@@ -611,13 +611,6 @@ export const GithubCardImage = async (
         x="105"
         y="50"
       />
-      
-      <defs>
-        <style type="text/css">
-            @import
-            url('https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic');
-        </style>
-      </defs>
     </svg>
   `;
 };

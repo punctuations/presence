@@ -83,7 +83,7 @@ export const RepoImage = async (
           x="202"
           y="250"
           font-size="86"
-          font-family="'Roboto', sans-serif"
+          font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         >
           ${
             !repo ? null : `${repo?.full_name.split("/")[0]}/`
@@ -123,7 +123,7 @@ export const RepoImage = async (
                   x="202"
                   y="325"
                   font-size="40"
-                  font-family="'Roboto', sans-serif"
+                  font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                 >
                   {$!repo ? null : repo.description.substring(0, 72)}
                 </text>
@@ -138,7 +138,7 @@ export const RepoImage = async (
                   x="202"
                   y="375"
                   font-size="40"
-                  font-family="'Roboto', sans-serif"
+                  font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                 >
                   ${
                     !repo
@@ -161,7 +161,7 @@ export const RepoImage = async (
                 x="202"
                 y="325"
                 font-size="40"
-                font-family="'Roboto', sans-serif"
+                font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
               >
                 ${!repo ? null : repo.description}
               </text>
@@ -206,7 +206,7 @@ export const RepoImage = async (
                   x="244"
                   y="475"
                   font-size="36"
-                  font-family="'Roboto', sans-serif"
+                  font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                 >
                   ${!repo ? null : numeral(repo.stargazers_count).format("0a")}
                 </text>
@@ -239,7 +239,7 @@ export const RepoImage = async (
                   x="550"
                   y="475"
                   font-size="36"
-                  font-family="'Roboto', sans-serif"
+                  font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                 >
                   ${!repo ? null : numeral(repo.forks).format("0a")}
                 </text>
@@ -271,7 +271,7 @@ export const RepoImage = async (
                   x="1038"
                   y="475"
                   font-size="36"
-                  font-family="'Roboto', sans-serif"
+                  font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                 >
                   ${
                     !contributors
@@ -313,7 +313,7 @@ export const RepoImage = async (
                 x="202"
                 y="475"
                 font-size="36"
-                font-family="'Roboto', sans-serif"
+                font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
               >
                 ${!repo ? null : repo.language}
               </text>
@@ -350,7 +350,7 @@ export const RepoImage = async (
                   x="550"
                   y="475"
                   font-size="36"
-                  font-family="'Roboto', sans-serif"
+                  font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                 >
                   ${!repo ? null : numeral(repo.stargazers_count).format("0a")}
                 </text>
@@ -383,7 +383,7 @@ export const RepoImage = async (
                   x="848"
                   y="475"
                   font-size="36"
-                  font-family="'Roboto', sans-serif"
+                  font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                 >
                   ${!repo ? null : numeral(repo.forks).format("0a")}
                 </text>
@@ -415,7 +415,7 @@ export const RepoImage = async (
                   x="1038"
                   y="475"
                   font-size="36"
-                  font-family="'Roboto', sans-serif"
+                  font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                 >
                   ${
                     !contributors
@@ -439,14 +439,6 @@ export const RepoImage = async (
         x="1500"
         y="50"
       />
-      
-      <defs>
-        <style type="text/css">
-            @import
-            url('https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic');
-       
-        </style>
-      </defs>
     </svg>
   `;
 };

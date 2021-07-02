@@ -69,7 +69,7 @@ export const CardImage = async (
         y="350"
         font-size="36"
         font-weight="bold"
-        font-family="'Roboto', sans-serif"
+        font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         transform="rotate(-90 100 355)"
       >
         @${
@@ -96,7 +96,7 @@ export const CardImage = async (
           y="175"
           font-size="86"
           font-weight="bold"
-          font-family="'Roboto', sans-serif"
+          font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         >
           ${
             twitter.data.name !== "" ? twitter.data.name : twitter.data.username
@@ -116,7 +116,7 @@ export const CardImage = async (
               x="446"
               y="245"
               font-size="36"
-              font-family="'Roboto', sans-serif"
+              font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
             >
               ${twitter.data.description.substring(0, 84)}
             </text>
@@ -131,7 +131,7 @@ export const CardImage = async (
               x="446"
               y="295"
               font-size="36"
-              font-family="'Roboto', sans-serif"
+              font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
             >
               ${
                 twitter.data.description.length >= 154
@@ -152,7 +152,7 @@ export const CardImage = async (
             x="446"
             y="245"
             font-size="40"
-            font-family="'Roboto', sans-serif"
+            font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
           >
             ${twitter.data.description}
           </text>
@@ -168,7 +168,7 @@ export const CardImage = async (
                 : defaultThemes[query.theme].statsText
             }"
           >
-            <text x="450" y="370" font-size="36" font-family="'Roboto', sans-serif">
+            <text x="450" y="370" font-size="36" font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'>
               <tspan
                 fill="${
                   !query.theme
@@ -178,7 +178,7 @@ export const CardImage = async (
                     : defaultThemes[query.theme].text
                 }"
                 font-weight="bold"
-                font-family="'Roboto', sans-serif"
+                font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
               >
                 ${numeral(twitter.data.public_metrics.followers_count).format(
                   "0a"
@@ -196,7 +196,7 @@ export const CardImage = async (
                 : defaultThemes[query.theme].statsText
             }"
           >
-            <text x="783" y="370" font-size="36" font-family="'Roboto', sans-serif">
+            <text x="783" y="370" font-size="36" font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'>
               <tspan
                 fill="${
                   !query.theme
@@ -206,7 +206,7 @@ export const CardImage = async (
                     : defaultThemes[query.theme].text
                 }"
                 font-weight="bold"
-                font-family="'Roboto', sans-serif"
+                font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
               >
                 ${numeral(twitter.data.public_metrics.following_count).format(
                   "0a"
@@ -276,7 +276,7 @@ export const CardImage = async (
                   x="248"
                   y="499"
                   font-size="24"
-                  font-family="'Roboto', sans-serif"
+                  font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                 >
                   Pinned Tweet
                 </text>
@@ -296,7 +296,7 @@ export const CardImage = async (
                 y="560"
                 font-size="36"
                 font-weight="bold"
-                font-family="'Roboto', sans-serif"
+                font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
               >
                 ${twitter.data.name}
                 <tspan
@@ -310,7 +310,7 @@ export const CardImage = async (
                   y="557"
                   font-size="30"
                   font-weight="normal"
-                  font-family="'Roboto', sans-serif"
+                  font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                 >
                   @${twitter.data.username}
                 </tspan>
@@ -325,7 +325,7 @@ export const CardImage = async (
                   y="557"
                   font-size="30"
                   font-weight="normal"
-                  font-family="'Roboto', sans-serif"
+                  font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                 >
                   ${
                     !twitter.includes?.tweets[0].created_at
@@ -353,7 +353,7 @@ export const CardImage = async (
                         x="302"
                         y="597"
                         font-size="24"
-                        font-family="'Roboto', sans-serif"
+                        font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                       >
                         ${twitter.includes?.tweets[0].text.substring(0, 115)}
                       </text>
@@ -368,7 +368,7 @@ export const CardImage = async (
                         x="302"
                         y="629"
                         font-size="24"
-                        font-family="'Roboto', sans-serif"
+                        font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                       >
                         ${
                           twitter.includes?.tweets[0].text.length >= 240
@@ -392,7 +392,7 @@ export const CardImage = async (
                       x="302"
                       y="597"
                       font-size="24"
-                      font-family="'Roboto', sans-serif"
+                      font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                     >
                       ${twitter.includes?.tweets[0].text}
                     </text>
@@ -425,7 +425,7 @@ export const CardImage = async (
                     x="370"
                     y="665"
                     font-size="24"
-                    font-family="'Roboto', sans-serif"
+                    font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                   >
                     ${
                       twitter.includes?.tweets[0].public_metrics
@@ -463,7 +463,7 @@ export const CardImage = async (
                     x="550"
                     y="665"
                     font-size="24"
-                    font-family="'Roboto', sans-serif"
+                    font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                   >
                     ${
                       twitter.includes?.tweets[0].public_metrics.reply_count! <
@@ -501,7 +501,7 @@ export const CardImage = async (
                     x="720"
                     y="665"
                     font-size="24"
-                    font-family="'Roboto', sans-serif"
+                    font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                   >
                     ${
                       twitter.includes?.tweets[0].public_metrics.like_count! <
@@ -550,7 +550,7 @@ export const CardImage = async (
                   x="216"
                   y="823"
                   font-size="40"
-                  font-family="'Roboto', sans-serif"
+                  font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                 >
                   ${twitter.data.location}
                 </text>
@@ -588,7 +588,7 @@ export const CardImage = async (
                   y="823"
                   font-size="40"
                   text-decoration="underline"
-                  font-family="'Roboto', sans-serif"
+                  font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                 >
                   ${twitter.data.url}
                 </text>
@@ -625,7 +625,7 @@ export const CardImage = async (
                   x="1442"
                   y="823"
                   font-size="40"
-                  font-family="'Roboto', sans-serif"
+                  font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                 >
                   Joined ${new Date(twitter.data.created_at).toDateString()}
                 </text>
