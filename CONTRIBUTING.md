@@ -8,7 +8,7 @@ Commits should follow the rules of [conventionalcommits.org](https://www.convent
 
 ### Adding platforms
 
-// todo
+To add a platform you can either make an issue and use the platform request template, or if you want to add it yourself you can get started by going to `pages/api` which from there you can make a directory of the platform name, in the directory create another directory of the type of image that will be returned like `user`, `channel`, or `song`. Once you have created that you can create a dynamic route file like so: `[uname].ts`, uname meaning username. you  can refer to the other files for what the contents should look like. Once everything is made you can navigate to `lib/assets` and create a directory of the name and a sub-directory of the type, within the sub-directory create a file called `image.tsx` in this file you can create the actual svg, for reference you can see the other ones 
 
 ### Adding themes
 
