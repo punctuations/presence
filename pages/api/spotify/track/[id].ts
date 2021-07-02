@@ -10,6 +10,7 @@ import { SpotifySongResponse } from "@lib/types/SpotifySongResponse";
 type Query = {
   [p: string]: string | string[] | undefined;
   bg?: string;
+  icon?: string;
   text?: string;
   desc?: string;
   index?: string;

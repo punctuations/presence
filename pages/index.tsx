@@ -21,8 +21,8 @@ export async function getServerSideProps() {
   );
   const songResponse = await fetch(
     process.env.NODE_ENV === "development"
-      ? "http://localhost:3000/api/spotify/track/3dhjNA0jGA8vHBQ1VdD6vV?type=base64&rounded=true"
-      : "https://presence.vercel.app/api/spotify/track/3dhjNA0jGA8vHBQ1VdD6vV?type=base64&rounded=true"
+      ? "http://localhost:3000/api/spotify/track/3dhjNA0jGA8vHBQ1VdD6vV?type=base64&index=1&rounded=true"
+      : "https://presence.vercel.app/api/spotify/track/3dhjNA0jGA8vHBQ1VdD6vV?type=base64&index=1&rounded=true"
   );
 
   const tweetBody = await tweetResponse.json(),
