@@ -12,14 +12,8 @@ const Images = (props: { [index: string]: string }) => {
       <Grid.Container gap={1} alignItems="center" justify="center">
         {images.map((url, i) => {
           return (
-            <Grid xs={12}>
-              <Image
-                width={540}
-                height={160}
-                alt="example image"
-                src={url}
-                key={i}
-              />
+            <Grid xs={12} key={i}>
+              <Image width={540} height={160} alt="example image" src={url} />
             </Grid>
           );
         })}
