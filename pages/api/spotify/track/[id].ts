@@ -16,6 +16,7 @@ type Query = {
   index?: string;
   theme?: string;
   rounded?: string;
+  show_icon?: string;
   bottom?: string;
   top?: string;
   type?: string;

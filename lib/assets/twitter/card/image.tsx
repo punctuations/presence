@@ -15,7 +15,7 @@ export const CardImage = async (
     description?: string;
     accent?: string;
     stats?: string;
-    statsText?: string;
+    stats_text?: string;
     theme?: string;
     icon?: string;
     rounded?: string;
@@ -162,8 +162,8 @@ export const CardImage = async (
           <g
             fill="${
               !query.theme
-                ? query.statsText
-                  ? `#${query.statsText}`
+                ? query.stats_text
+                  ? `#${query.stats_text}`
                   : "#838383"
                 : defaultThemes[query.theme].statsText
             }"
@@ -190,8 +190,8 @@ export const CardImage = async (
           <g
             fill="${
               !query.theme
-                ? query.statsText
-                  ? `#${query.statsText}`
+                ? query.stats_text
+                  ? `#${query.stats_text}`
                   : "#838383"
                 : defaultThemes[query.theme].statsText
             }"
@@ -268,8 +268,8 @@ export const CardImage = async (
                 <text
                   fill="${
                     !query.theme
-                      ? query.statsText
-                        ? `#${query.statsText}`
+                      ? query.stats_text
+                        ? `#${query.stats_text}`
                         : "#C4C4C4"
                       : defaultThemes[query.theme].statsText
                   }"
@@ -317,8 +317,8 @@ export const CardImage = async (
                 <tspan
                   fill="${
                     !query.theme
-                      ? query.statsText
-                        ? `#${query.statsText}`
+                      ? query.stats_text
+                        ? `#${query.stats_text}`
                         : "#C7C7C7"
                       : defaultThemes[query.theme].statsText
                   }"
@@ -417,8 +417,8 @@ export const CardImage = async (
                   <text
                     fill="${
                       !query.theme
-                        ? query.statsText
-                          ? `#${query.statsText}`
+                        ? query.stats_text
+                          ? `#${query.stats_text}`
                           : "#838383"
                         : defaultThemes[query.theme].statsText
                     }"
@@ -455,8 +455,8 @@ export const CardImage = async (
                   <text
                     fill="${
                       !query.theme
-                        ? query.statsText
-                          ? `#${query.statsText}`
+                        ? query.stats_text
+                          ? `#${query.stats_text}`
                           : "#838383"
                         : defaultThemes[query.theme].statsText
                     }"
@@ -493,8 +493,8 @@ export const CardImage = async (
                   <text
                     fill="${
                       !query.theme
-                        ? query.statsText
-                          ? `#${query.statsText}`
+                        ? query.stats_text
+                          ? `#${query.stats_text}`
                           : "#838383"
                         : defaultThemes[query.theme].statsText
                     }"
@@ -542,8 +542,8 @@ export const CardImage = async (
                 <text
                   fill="${
                     !query.theme
-                      ? query.statsText
-                        ? `#${query.statsText}`
+                      ? query.stats_text
+                        ? `#${query.stats_text}`
                         : "#646464"
                       : defaultThemes[query.theme].statsText
                   }"
@@ -579,8 +579,8 @@ export const CardImage = async (
                 <text
                   fill="${
                     !query.theme
-                      ? query.statsText
-                        ? `#${query.statsText}`
+                      ? query.stats_text
+                        ? `#${query.stats_text}`
                         : "#646464"
                       : defaultThemes[query.theme].statsText
                   }"
@@ -617,8 +617,8 @@ export const CardImage = async (
                 <text
                   fill="${
                     !query.theme
-                      ? query.statsText
-                        ? `#${query.statsText}`
+                      ? query.stats_text
+                        ? `#${query.stats_text}`
                         : "#646464"
                       : defaultThemes[query.theme].statsText
                   }"

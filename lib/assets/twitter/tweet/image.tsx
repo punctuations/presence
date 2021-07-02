@@ -202,8 +202,8 @@ export const TweetImage = async (
               <text
                 fill="${
                   !query.theme
-                    ? query.statsText
-                      ? `#${query.statsText}`
+                    ? query.stats_text
+                      ? `#${query.stats_text}`
                       : "#646464"
                     : defaultThemes[query.theme].statsText
                 }"
@@ -240,8 +240,8 @@ export const TweetImage = async (
               <text
                 fill="${
                   !query.theme
-                    ? query.statsText
-                      ? `#${query.statsText}`
+                    ? query.stats_text
+                      ? `#${query.stats_text}`
                       : "#646464"
                     : defaultThemes[query.theme].statsText
                 }"
@@ -278,8 +278,8 @@ export const TweetImage = async (
               <text
                 fill="${
                   !query.theme
-                    ? query.statsText
-                      ? `#${query.statsText}`
+                    ? query.stats_text
+                      ? `#${query.stats_text}`
                       : "#646464"
                     : defaultThemes[query.theme].statsText
                 }"

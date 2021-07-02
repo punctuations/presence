@@ -201,8 +201,8 @@ export const GithubCardImage = async (
         <text
           fill="${
             !query.theme
-              ? query.statsText
-                ? `#${query.statsText}`
+              ? query.stats_text
+                ? `#${query.stats_text}`
                 : "#676767"
               : defaultThemes[query.theme].statsText
           }"
@@ -230,8 +230,8 @@ export const GithubCardImage = async (
         <text
           fill="${
             !query.theme
-              ? query.statsText
-                ? `#${query.statsText}`
+              ? query.stats_text
+                ? `#${query.stats_text}`
                 : "#676767"
               : defaultThemes[query.theme].statsText
           }"
@@ -338,8 +338,8 @@ export const GithubCardImage = async (
               <text
                 fill="${
                   !query.theme
-                    ? query.statsText
-                      ? `#${query.statsText}`
+                    ? query.stats_text
+                      ? `#${query.stats_text}`
                       : "#838383"
                     : defaultThemes[query.theme].statsText
                 }"
@@ -377,8 +377,8 @@ export const GithubCardImage = async (
               <text
                 fill="${
                   !query.theme
-                    ? query.statsText
-                      ? `#${query.statsText}`
+                    ? query.stats_text
+                      ? `#${query.stats_text}`
                       : "#838383"
                     : defaultThemes[query.theme].statsText
                 }"
@@ -408,8 +408,8 @@ export const GithubCardImage = async (
             <text
               fill="${
                 !query.theme
-                  ? query.statsText
-                    ? `#${query.statsText}`
+                  ? query.stats_text
+                    ? `#${query.stats_text}`
                     : "#838383"
                   : defaultThemes[query.theme].statsText
               }"
@@ -437,8 +437,8 @@ export const GithubCardImage = async (
               <text
                 fill="${
                   !query.theme
-                    ? query.statsText
-                      ? `#${query.statsText}`
+                    ? query.stats_text
+                      ? `#${query.stats_text}`
                       : "#838383"
                     : defaultThemes[query.theme].statsText
                 }"
@@ -471,8 +471,8 @@ export const GithubCardImage = async (
               <text
                 fill="${
                   !query.theme
-                    ? query.statsText
-                      ? `#${query.statsText}`
+                    ? query.stats_text
+                      ? `#${query.stats_text}`
                       : "#838383"
                     : defaultThemes[query.theme].statsText
                 }"
@@ -511,8 +511,8 @@ export const GithubCardImage = async (
         <text
           fill="${
             !query.theme
-              ? query.statsText
-                ? `#${query.statsText}`
+              ? query.stats_text
+                ? `#${query.stats_text}`
                 : "#676767"
               : defaultThemes[query.theme].statsText
           }"
@@ -546,8 +546,8 @@ export const GithubCardImage = async (
         <text
           fill="${
             !query.theme
-              ? query.statsText
-                ? `#${query.statsText}`
+              ? query.stats_text
+                ? `#${query.stats_text}`
                 : "#676767"
               : defaultThemes[query.theme].statsText
           }"
@@ -583,8 +583,8 @@ export const GithubCardImage = async (
           <text
             fill="${
               !query.theme
-                ? query.statsText
-                  ? `#${query.statsText}`
+                ? query.stats_text
+                  ? `#${query.stats_text}`
                   : "#676767"
                 : defaultThemes[query.theme].statsText
             }"
