@@ -7,6 +7,7 @@ import Header from "@lib/ui/header";
 import Images from "@lib/ui/images";
 import Docs from "@lib/ui/docs";
 import { Spacer } from "@geist-ui/react";
+import { Footer } from "@lib/ui/footer";
 
 export async function getServerSideProps() {
   const tweetResponse = await fetch(
@@ -82,6 +83,7 @@ export default function Home(props: {
         />
         <Spacer y={1} />
         <Docs text="🎉 Docs" url="/docs" />
+        <Footer />
       </Main>
     </>
   );
