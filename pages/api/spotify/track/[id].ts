@@ -1,6 +1,6 @@
 import { SpotifyImage } from "@lib/assets/spotify/song/image";
 
-import { base } from "@lib/assets/base";
+import { base } from "@lib/components/base";
 
 import { NextApiRequest, NextApiResponse } from "next";
 import axios, { AxiosResponse } from "axios";

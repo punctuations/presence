@@ -8,7 +8,7 @@ import { themes } from "@themes";
 import { ThemesTypes } from "@lib/types/ThemesTypes";
 import { SpotifySongResponse } from "@lib/types/SpotifySongResponse";
 import { SpotifyArtistResponse } from "@lib/types/SpotifyArtistResponse";
-import { urlBase } from "@lib/assets/urlBase";
+import { urlBase } from "@lib/components/urlBase";
 
 export const SpotifyImage = async (
   song: SpotifySongResponse,

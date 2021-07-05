@@ -5,7 +5,7 @@ import { themes } from "@themes";
 import { ThemesTypes } from "@lib/types/ThemesTypes";
 import { GithubUserResponse } from "@lib/types/GithubResponse";
 
-import { urlBase } from "@lib/assets/urlBase";
+import { urlBase } from "@lib/components/urlBase";
 
 export const GithubUserImage = async (
   github: GithubUserResponse,

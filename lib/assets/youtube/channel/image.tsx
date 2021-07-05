@@ -5,7 +5,7 @@ import { themes } from "@themes";
 import { ThemesTypes } from "@lib/types/ThemesTypes";
 import { YoutubeChannelResponse } from "@lib/types/YoutubeResponse";
 
-import { urlBase } from "@lib/assets/urlBase";
+import { urlBase } from "@lib/components/urlBase";
 
 export const YoutubeChannelImage = async (
   youtube: YoutubeChannelResponse,

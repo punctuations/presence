@@ -8,7 +8,7 @@ import {
   GithubContributors,
   GithubRepoReponse,
 } from "@lib/types/GithubResponse";
-import { urlBase } from "@lib/assets/urlBase";
+import { urlBase } from "@lib/components/urlBase";
 
 export const RepoImage = async (
   repo: GithubRepoReponse,

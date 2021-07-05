@@ -1,6 +1,6 @@
 import { TwitterImage } from "@twitter/user/image";
 
-import { base } from "@lib/assets/base";
+import { base } from "@lib/components/base";
 
 import { NextApiRequest, NextApiResponse } from "next";
 import axios, { AxiosResponse } from "axios";

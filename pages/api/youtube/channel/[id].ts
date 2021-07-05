@@ -1,6 +1,6 @@
 import { YoutubeChannelImage } from "@lib/assets/youtube/channel/image";
 
-import { base } from "@lib/assets/base";
+import { base } from "@lib/components/base";
 
 import { NextApiRequest, NextApiResponse } from "next";
 import axios, { AxiosResponse } from "axios";

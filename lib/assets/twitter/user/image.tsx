@@ -5,7 +5,7 @@ import { themes } from "@themes";
 import { ThemesTypes } from "@lib/types/ThemesTypes";
 import { TwitterResponse } from "@lib/types/TwitterResponse";
 
-import { urlBase } from "@lib/assets/urlBase";
+import { urlBase } from "@lib/components/urlBase";
 
 export const TwitterImage = async (
   twitter: TwitterResponse,
