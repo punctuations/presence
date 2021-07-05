@@ -6,10 +6,10 @@
 
 Presence is a service which can generate svg images for social medias by accessing the endpoint, `presence.vercel.app/api/:platform/:type/:param`, the api will return the image via headers; however, if you wish for base64 encoding then add the `?type=base64` query to the end of the endpoint to obtain the base64 encoding of the image like so:
 
-```json5
-// https://presence.vercel.app/api/twitter/user/atmattt?type=base64
+`GET https://presence.vercel.app/api/twitter/user/atmattt?type=base64`
 
-{ data: "data:image/svg+xml;base64,PHN2ZwogICAgICB4bWxucz0iaHR..." }
+```json
+{ "data": "data:image/svg+xml;base64,PHN2ZwogICAgICB4bWxucz0iaHR..." }
 ```
 
 [![presence](https://presence.vercel.app/api/twitter/user/atmattt)](https://twitter.com/atmattt)
