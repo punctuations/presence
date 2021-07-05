@@ -16,6 +16,7 @@ type Query = {
   desc?: string;
   stats?: string;
   stats_text?: string;
+  accent?: string;
   theme?: string;
   icon?: string;
   rounded?: string;
