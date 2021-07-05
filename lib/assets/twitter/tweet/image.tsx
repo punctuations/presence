@@ -3,7 +3,7 @@ import numeral from "numeral";
 
 import { themes } from "@themes";
 import { ThemesTypes } from "@lib/types/ThemesTypes";
-import { TweetResponse } from "@lib/types/TweetResponse";
+import { TweetResponse } from "@lib/types/TwitterResponse";
 import { urlBase } from "@lib/components/urlBase";
 
 export const TweetImage = async (
