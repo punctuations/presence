@@ -6,12 +6,12 @@ import { ThemesTypes } from "@lib/types/ThemesTypes";
 import {
   GithubColorResponse,
   GithubContributors,
-  GithubRepoReponse,
+  GithubRepoResponse,
 } from "@lib/types/GithubResponse";
 import { urlBase } from "@lib/components/urlBase";
 
 export const RepoImage = async (
-  repo: GithubRepoReponse,
+  repo: GithubRepoResponse,
   contributors: GithubContributors.RootObject,
   colors: GithubColorResponse,
   query: {

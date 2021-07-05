@@ -151,7 +151,7 @@ export interface GithubColorResponse {
   };
 }
 
-export interface GithubRepoReponse {
+export interface GithubRepoResponse {
   id: number;
   node_id: string;
   name: string;
