@@ -21,6 +21,7 @@ export const GithubCardImage = async (
     stats?: string;
     stats_text?: string;
     accent?: string;
+    show_language?: string;
     theme?: string;
     icon?: string;
     rounded?: string;
@@ -320,7 +321,8 @@ export const GithubCardImage = async (
       }
       <g>
         ${
-          starred[starredIndex].language == null
+          starred[starredIndex].language == null ||
+          query.show_language?.toLowerCase() === "false"
             ? `
             <g
               fill="${

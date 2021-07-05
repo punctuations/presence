@@ -17,6 +17,7 @@ type Query = {
   stats?: string;
   stats_text?: string;
   accent?: string;
+  show_language?: string;
   theme?: string;
   icon?: string;
   rounded?: string;
