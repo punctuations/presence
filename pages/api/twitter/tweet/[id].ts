@@ -22,38 +22,42 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const query = req.query as Query,
-    id = req.query.id;
+  return new Promise(async (resolve, reject) => {
+    const query = req.query as Query,
+      id = req.query.id;
 
-  axios
-    .get(
-      `https://api.twitter.com/2/tweets/${id}?tweet.fields=public_metrics&expansions=author_id&user.fields=profile_image_url`,
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TWITTER_BEARER_TOKEN}`,
-        },
-      }
-    )
-    .then(async (r: AxiosResponse) =>
-      res.send(
-        query.type?.toLowerCase() === "base64"
-          ? { data: await base(await TweetImage(r.data, query)) }
-          : await TweetImage(r.data, query)
+    axios
+      .get(
+        `https://api.twitter.com/2/tweets/${id}?tweet.fields=public_metrics&expansions=author_id&user.fields=profile_image_url`,
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_TWITTER_BEARER_TOKEN}`,
+          },
+        }
       )
-    )
-    .catch((err) => {
-      console.log(err);
-      res.send({ error: "Sorry, that tweet doesn't exist." });
-    });
+      .then(async (r: AxiosResponse) => {
+        res.send(
+          query.type?.toLowerCase() === "base64"
+            ? { data: await base(await TweetImage(r.data, query)) }
+            : await TweetImage(r.data, query)
+        );
+        return resolve("Created Image!");
+      })
+      .catch((err) => {
+        console.log(err);
+        res.send({ error: "Sorry, that tweet doesn't exist." });
+        return reject(err);
+      });
 
-  query.type?.toLowerCase() !== "base64"
-    ? res.setHeader("Content-Type", "image/svg+xml; charset=utf-8")
-    : null;
+    query.type?.toLowerCase() !== "base64"
+      ? res.setHeader("Content-Type", "image/svg+xml; charset=utf-8")
+      : null;
 
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET");
-  res.setHeader(
-    "content-security-policy",
-    "default-src 'none'; img-src * data:; style-src 'unsafe-inline'"
-  );
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET");
+    res.setHeader(
+      "content-security-policy",
+      "default-src 'none'; img-src * data:; style-src 'unsafe-inline'"
+    );
+  });
 }

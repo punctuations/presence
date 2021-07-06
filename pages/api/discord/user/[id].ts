@@ -24,39 +24,43 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const query = req.query as Query,
-    id = req.query.id;
+  return new Promise(async (resolve, reject) => {
+    const query = req.query as Query,
+      id = req.query.id;
 
-  const response = await fetch(`https://api.lanyard.rest/v1/users/${id}`);
+    const response = await fetch(`https://api.lanyard.rest/v1/users/${id}`);
 
-  const body: LanyardResponse = await response.json();
+    const body: LanyardResponse = await response.json();
 
-  axios
-    .get(`https://discord.com/api/users/${id}`, {
-      headers: {
-        Authorization: `Bot ${process.env.NEXT_PUBLIC_DISCORD_BOT_TOKEN}`,
-      },
-    })
-    .then(async (r: AxiosResponse) =>
-      res.send(
-        query.type?.toLowerCase() === "base64"
-          ? { data: await base(await DiscordImage(r.data, body, query)) }
-          : await DiscordImage(r.data, body, query)
-      )
-    )
-    .catch((err) => {
-      console.log(err);
-      res.send({ error: "Sorry, that user doesn't exist." });
-    });
+    axios
+      .get(`https://discord.com/api/users/${id}`, {
+        headers: {
+          Authorization: `Bot ${process.env.NEXT_PUBLIC_DISCORD_BOT_TOKEN}`,
+        },
+      })
+      .then(async (r: AxiosResponse) => {
+        res.send(
+          query.type?.toLowerCase() === "base64"
+            ? { data: await base(await DiscordImage(r.data, body, query)) }
+            : await DiscordImage(r.data, body, query)
+        );
+        return resolve("Created Image!");
+      })
+      .catch((err) => {
+        console.log(err);
+        res.send({ error: "Sorry, that user doesn't exist." });
+        return reject(err);
+      });
 
-  query.type?.toLowerCase() !== "base64"
-    ? res.setHeader("Content-Type", "image/svg+xml; charset=utf-8")
-    : null;
+    query.type?.toLowerCase() !== "base64"
+      ? res.setHeader("Content-Type", "image/svg+xml; charset=utf-8")
+      : null;
 
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET");
-  res.setHeader(
-    "content-security-policy",
-    "default-src 'none'; img-src * data:; style-src 'unsafe-inline'"
-  );
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET");
+    res.setHeader(
+      "content-security-policy",
+      "default-src 'none'; img-src * data:; style-src 'unsafe-inline'"
+    );
+  });
 }
