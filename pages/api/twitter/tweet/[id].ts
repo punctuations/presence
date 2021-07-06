@@ -50,6 +50,8 @@ export default async function handler(
     ? res.setHeader("Content-Type", "image/svg+xml; charset=utf-8")
     : null;
 
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET");
   res.setHeader(
     "content-security-policy",
     "default-src 'none'; img-src * data:; style-src 'unsafe-inline'"
