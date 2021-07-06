@@ -152,7 +152,8 @@ export const DiscordImage = async (
         ${
           lanyard.success
             ? lanyard.data.activities[0]?.type === 0 ||
-              lanyard.data.activities[1]?.type === 0
+              lanyard.data.activities[1]?.type === 0 ||
+              lanyard.data.listening_to_spotify
               ? `<rect
         width="1350"
         height="250"
