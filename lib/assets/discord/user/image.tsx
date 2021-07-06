@@ -151,8 +151,8 @@ export const DiscordImage = async (
         
         ${
           lanyard.success
-            ? lanyard.data.activities[0].type === 0 ||
-              lanyard.data.activities[1].type === 0
+            ? lanyard.data.activities[0]?.type === 0 ||
+              lanyard.data.activities[1]?.type === 0
               ? `<rect
         width="1350"
         height="250"
@@ -227,7 +227,7 @@ export const DiscordImage = async (
                   : `${escapeHtml(lanyard.data.spotify.song)} - ${escapeHtml(
                       lanyard.data.spotify.album
                     )}`
-                : lanyard.data.activities[0].type === 0
+                : lanyard.data.activities[0]?.type === 0
                 ? lanyard.data.activities[0]?.assets?.small_text
                   ? escapeHtml(lanyard.data.activities[0]?.assets?.small_text)
                   : escapeHtml(lanyard.data.activities[0].name)
@@ -254,7 +254,7 @@ export const DiscordImage = async (
             ${
               lanyard.data.listening_to_spotify
                 ? escapeHtml(lanyard.data.spotify.artist)
-                : lanyard.data.activities[0].type === 0
+                : lanyard.data.activities[0]?.type === 0
                 ? escapeHtml(lanyard.data.activities[0]?.state)
                 : lanyard.data.activities[1]
                 ? escapeHtml(lanyard.data.activities[1]?.state)
