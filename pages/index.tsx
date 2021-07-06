@@ -9,41 +9,7 @@ import Docs from "@lib/ui/docs";
 import { Spacer } from "@geist-ui/react";
 import { Footer } from "@lib/ui/footer";
 
-export async function getServerSideProps() {
-  const tweetResponse = await fetch(
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000/api/twitter/tweet/1394507872017403904?type=base64&theme=dark&rounded=true"
-      : "https://presence.vercel.app/api/twitter/tweet/1394507872017403904?type=base64&theme=dark&rounded=true"
-  );
-  const githubRepoResponse = await fetch(
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000/api/github/repo/punctuations:presence?type=base64&rounded=true"
-      : "https://presence.vercel.app/api/github/repo/punctuations:presence?type=base64&rounded=true"
-  );
-  const songResponse = await fetch(
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000/api/spotify/track/3dhjNA0jGA8vHBQ1VdD6vV?type=base64&index=1&rounded=true"
-      : "https://presence.vercel.app/api/spotify/track/3dhjNA0jGA8vHBQ1VdD6vV?type=base64&index=1&rounded=true"
-  );
-
-  const tweetBody = await tweetResponse.json(),
-    repoBody = await githubRepoResponse.json(),
-    songBody = await songResponse.json();
-
-  return {
-    props: {
-      tweet: tweetBody.data,
-      repo: repoBody.data,
-      song: songBody.data,
-    },
-  };
-}
-
-export default function Home(props: {
-  tweet?: string;
-  repo?: string;
-  song?: string;
-}) {
+export default function Home() {
   return (
     <>
       <Head>
@@ -76,11 +42,7 @@ export default function Home(props: {
 
       <Main>
         <Header />
-        <Images
-          tweet={props?.tweet as string}
-          repo={props?.repo as string}
-          song={props?.song as string}
-        />
+        <Images />
         <Spacer y={1} />
         <Docs text="🎉 Docs" url="/docs" />
         <Footer />
