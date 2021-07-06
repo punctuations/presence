@@ -1,6 +1,7 @@
 import { DiscordImage } from "@lib/assets/discord/user/image";
 
 import { base } from "@lib/components/base";
+import { convert } from "convert-svg-to-png";
 
 import { NextApiRequest, NextApiResponse } from "next";
 import axios, { AxiosResponse } from "axios";
@@ -42,6 +43,8 @@ export default async function handler(
         res.send(
           query.type?.toLowerCase() === "base64"
             ? { data: await base(await DiscordImage(r.data, body, query)) }
+            : query.type?.toLowerCase() === "png"
+            ? await convert(await DiscordImage(r.data, body, query))
             : await DiscordImage(r.data, body, query)
         );
         return resolve("Created Image!");
@@ -53,7 +56,12 @@ export default async function handler(
       });
 
     query.type?.toLowerCase() !== "base64"
-      ? res.setHeader("Content-Type", "image/svg+xml; charset=utf-8")
+      ? res.setHeader(
+          "Content-Type",
+          `image/${
+            query.type?.toLowerCase() === "png" ? "png" : "svg+xml"
+          }; charset=utf-8`
+        )
       : null;
 
     res.setHeader("Access-Control-Allow-Origin", "*");
