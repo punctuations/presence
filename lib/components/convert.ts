@@ -6,6 +6,9 @@ export async function convert(
   width?: string | number,
   height?: string | number
 ) {
+  await chrome.font(
+    "https://raw.githack.com/googlei18n/noto-emoji/master/fonts/NotoColorEmoji.ttf"
+  );
   const options = process.env.AWS_REGION
     ? {
         args: chrome.args,
