@@ -75,7 +75,7 @@ ${
           clip-path="url(#splash)"
           xlink:href="data:image/png;base64,${await urlBase(
             discord.discovery_splash
-              ? `https://cdn.discordapp.com/banners/${discord.id}/${discord.discovery_splash}.jpg?size=1024`
+              ? `https://cdn.discordapp.com/discovery-splashes/${discord.id}/${discord.discovery_splash}.jpg?size=1024`
               : `https://cdn.discordapp.com/banners/${discord.id}/${discord.splash}.jpg?size=1024`
           )}"
            width="1920"
