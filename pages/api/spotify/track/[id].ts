@@ -69,7 +69,7 @@ export default async function handler(
           query.type?.toLowerCase() === "base64"
             ? { data: await base(await SpotifyImage(body, r.data, query)) }
             : query.type?.toLowerCase() === "png"
-            ? await convert(await SpotifyImage(body, r.data, query), 950, 470)
+            ? await convert(await SpotifyImage(body, r.data, query), 955, 470)
             : await SpotifyImage(body, r.data, query)
         );
         return resolve("Created Image!");
