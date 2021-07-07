@@ -43,7 +43,7 @@ export default async function handler(
           query.type?.toLowerCase() === "base64"
             ? { data: await base(await CardImage(r.data, query)) }
             : query.type?.toLowerCase() === "png"
-            ? await convert(await CardImage(r.data, query))
+            ? await convert(await CardImage(r.data, query), 955, 470)
             : await CardImage(r.data, query)
         );
         return resolve("Created Image!");

@@ -41,7 +41,7 @@ export default async function handler(
                 data: await base(await GithubUserImage(r.data, query)),
               }
             : query.type?.toLowerCase() === "png"
-            ? await convert(await GithubUserImage(r.data, query))
+            ? await convert(await GithubUserImage(r.data, query), 955, 295)
             : await GithubUserImage(r.data, query)
         );
         return resolve("Created Image!");

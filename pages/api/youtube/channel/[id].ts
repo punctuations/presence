@@ -37,7 +37,7 @@ export default async function handler(
           query.type?.toLowerCase() === "base64"
             ? { data: await base(await YoutubeChannelImage(r.data, query)) }
             : query.type?.toLowerCase() === "png"
-            ? await convert(await YoutubeChannelImage(r.data, query))
+            ? await convert(await YoutubeChannelImage(r.data, query), 955, 295)
             : await YoutubeChannelImage(r.data, query)
         );
         return resolve("Created Image!");

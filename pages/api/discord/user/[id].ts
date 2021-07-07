@@ -45,7 +45,7 @@ export default async function handler(
           query.type?.toLowerCase() === "base64"
             ? { data: await base(await DiscordImage(r.data, body, query)) }
             : query.type?.toLowerCase() === "png"
-            ? await convert(await DiscordImage(r.data, body, query))
+            ? await convert(await DiscordImage(r.data, body, query), 955, 295)
             : await DiscordImage(r.data, body, query)
         );
         return resolve("Created Image!");

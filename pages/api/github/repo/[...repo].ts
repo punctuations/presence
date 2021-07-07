@@ -67,7 +67,11 @@ export default async function handler(
           query.type?.toLowerCase() === "base64"
             ? { data: await base(await RepoImage(r.data, body, colors, query)) }
             : query.type?.toLowerCase() === "png"
-            ? await convert(await RepoImage(r.data, body, colors, query))
+            ? await convert(
+                await RepoImage(r.data, body, colors, query),
+                955,
+                295
+              )
             : await RepoImage(r.data, body, colors, query)
         );
         return resolve("Created Image!");
