@@ -1,7 +1,7 @@
 import { GithubCardImage } from "@github/card/image";
 
 import { base } from "@lib/components/base";
-import { convert } from "convert-svg-to-png";
+import { convert } from "@lib/components/convert";
 
 import { NextApiRequest, NextApiResponse } from "next";
 import axios, { AxiosResponse } from "axios";
@@ -55,6 +55,7 @@ export default async function handler(
         },
       })
       .then(async (r: AxiosResponse) => {
+        res.status(200);
         res.send(
           query.type?.toLowerCase() === "base64"
             ? {
@@ -70,6 +71,7 @@ export default async function handler(
       })
       .catch((err) => {
         console.log(err);
+        res.status(500);
         res.send({ error: "Sorry, that user doesn't exist." });
         return reject(err);
       });

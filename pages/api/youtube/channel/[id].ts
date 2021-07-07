@@ -1,7 +1,7 @@
 import { YoutubeChannelImage } from "@lib/assets/youtube/channel/image";
 
 import { base } from "@lib/components/base";
-import { convert } from "convert-svg-to-png";
+import { convert } from "@lib/components/convert";
 
 import { NextApiRequest, NextApiResponse } from "next";
 import axios, { AxiosResponse } from "axios";
@@ -32,6 +32,7 @@ export default async function handler(
         `https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=${id}&key=${process.env.NEXT_PUBLIC_YOUTUBE_TOKEN}`
       )
       .then(async (r: AxiosResponse) => {
+        res.status(200);
         res.send(
           query.type?.toLowerCase() === "base64"
             ? { data: await base(await YoutubeChannelImage(r.data, query)) }
@@ -43,6 +44,7 @@ export default async function handler(
       })
       .catch((err) => {
         console.log(err);
+        res.status(500);
         res.send({ error: "Sorry, that channel doesn't exist." });
         return reject(err);
       });
