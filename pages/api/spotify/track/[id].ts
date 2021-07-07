@@ -27,7 +27,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  return new Promise(async (resolve, reject) => {
+  return new Promise(async (resolve) => {
     const query = req.query as Query,
       id = req.query.id;
 
@@ -78,7 +78,6 @@ export default async function handler(
         console.log(err);
         res.status(500);
         res.send({ error: "Sorry, that track doesn't exist." });
-        return reject(err);
       });
 
     query.type?.toLowerCase() !== "base64"

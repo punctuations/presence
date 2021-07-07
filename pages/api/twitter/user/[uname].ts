@@ -23,7 +23,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  return new Promise(async (resolve, reject) => {
+  return new Promise(async (resolve) => {
     const query = req.query as Query,
       uname = req.query.uname;
 
@@ -51,7 +51,6 @@ export default async function handler(
         console.log(err);
         res.status(500);
         res.send({ error: "Sorry, that user doesn't exist." });
-        return reject(err);
       });
 
     query.type?.toLowerCase() !== "base64"
