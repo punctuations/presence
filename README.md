@@ -17,10 +17,10 @@ Presence is a service which can generate svg images for social medias by accessi
 Presence also comes along with themes! By adding the following queries to the endpoint you can change what some things look like!
 
 | query         | type              | Outcome                                                                                                           | Notes                                                            |
-|---------------|-------------------|-------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| ------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
 | type          | "base64" \| "png" | returns base64 encoding of image or png image.                                                                    | Only accepts 'base64' or 'png', else it will return just the svg |
 | rounded       | boolean           | rounds the corners of the image.                                                                                  | n/a                                                              |
-| theme         | string            | uses theme presets located within  [themes.json] (./themes.json).                                                 | n/a                                                              |
+| theme         | string            | uses theme presets located within [themes.json] (./themes.json).                                                  | n/a                                                              |
 | icon          | colo(u)r          | changes the icon colo(u)r of the current platform.                                                                | colo(u)r cannot contain "#", ex. good: "c4c4c4", bad: "#c4c4c4"  |
 | bg            | colo(u)r          | changes the background colo(u)r.                                                                                  | "                                                                |
 | text          | colo(u)r          | changes the colo(u)r of any text that isn't specified otherwise by other queries.                                 | "                                                                |
