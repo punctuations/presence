@@ -23,7 +23,7 @@ Presence also comes along with themes! By adding the following queries to the en
 | theme         | string            | uses theme presets located within [themes.json] (./themes.json).                                                  | n/a                                                              |
 | icon          | colo(u)r          | changes the icon colo(u)r of the current platform.                                                                | colo(u)r cannot contain "#", ex. good: "c4c4c4", bad: "#c4c4c4"  |
 | bg            | colo(u)r          | changes the background colo(u)r.                                                                                  | "                                                                |
-| text          | colo(u)r          | changes the colo(u)r of any text that isn't specified otherwise by other queries.                                 | "                                                                |
+| text          | colo(u)r          | changes the colo(u)r of any text that isn't specified otherwise by other queries.                                  | "                                                                |
 | desc          | colo(u)r          | changes the description/bio colo(u)r.                                                                             | "                                                                |
 | stats         | colo(u)r          | changes the colo(u)r of the svg or the text that accompanies stats_text.                                          | "                                                                |
 | stats_text    | colo(u)r          | changes the colo(u)r of the text that accompanies any number or svg of statistics.                                | "                                                                |
@@ -31,7 +31,7 @@ Presence also comes along with themes! By adding the following queries to the en
 | show_language | boolean           | toggles the visibility of language on GitHub images.                                                              | n/a                                                              |
 | show_icon     | boolean           | toggles the visibility of the icon on spotify/song & spotify/track                                                | n/a                                                              |
 | top           | boolean           | only appears on spotify/song & spotify/track, changes the position of song text to the top.                       | n/a                                                              |
-| bottom        | boolean           | only appears on spotify/song & spotify/track, changes the position of song text to the bottom.                    | n/a                                                              |
+| bottom        | boolean           | only appears on spotify/song & spotify/track & discord/guild, changes the position of text to the bottom.         | n/a                                                              |
 | index         | number            | only appears on spotify/song & spotify/track, changes the most popular colo(u)r from the image as the background. | n/a                                                              |
 
 - please note that all queries are optional.
