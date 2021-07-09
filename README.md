@@ -4,15 +4,15 @@
 
 ---
 
-Presence is a service which can generate svg images for social medias by accessing the endpoint, `presence.vercel.app/api/:platform/:type/:param`, the api will return the image via headers; however, if you wish for base64 encoding then add the `?type=base64` query to the end of the endpoint to obtain the base64 encoding of the image like so:
+Presence is a service which can generate svg images for social medias by accessing the endpoint, `presence.im/api/:platform/:type/:param`, the api will return the image via headers; however, if you wish for base64 encoding then add the `?type=base64` query to the end of the endpoint to obtain the base64 encoding of the image like so:
 
-`GET https://presence.vercel.app/api/twitter/user/atmattt?type=base64`
+`GET https://presence.im/api/twitter/user/atmattt?type=base64`
 
 ```json
 { "data": "data:image/svg+xml;base64,PHN2ZwogICAgICB4bWxucz0iaHR..." }
 ```
 
-[![presence](https://presence.vercel.app/api/twitter/user/atmattt)](https://twitter.com/atmattt)
+[![presence](https://presence.im/api/twitter/user/atmattt)](https://twitter.com/atmattt)
 
 Presence also comes along with themes! By adding the following queries to the endpoint you can change what some things look like!
 
@@ -38,13 +38,13 @@ Presence also comes along with themes! By adding the following queries to the en
 
 ### Examples
 
-`GET https://presence.vercel.app/api/github/user/punctuations?bg=282e33&text=fff&stats_text=c9c9c9`
+`GET https://presence.im/api/github/user/punctuations?bg=282e33&text=fff&stats_text=c9c9c9`
 
-![](https://presence.vercel.app/api/github/user/punctuations?bg=282e33&text=fff&stats_text=c9c9c9)
+![](https://presence.im/api/github/user/punctuations?bg=282e33&text=fff&stats_text=c9c9c9)
 
 ---
 
-`GET https://presence.vercel.app/api/spotify/track/3dhjNA0jGA8vHBQ1VdD6vV?index=1&type=base64`
+`GET https://presence.im/api/spotify/track/3dhjNA0jGA8vHBQ1VdD6vV?index=1&type=base64`
 
 ```json
 { "data": "data:image/svg+xml;base64,CiAgICA8c3ZnCiAgICAgIHhtbG5zPSJodHR..." }
@@ -52,7 +52,7 @@ Presence also comes along with themes! By adding the following queries to the en
 
 base64 used as src:
 
-![](https://presence.vercel.app/api/spotify/track/3dhjNA0jGA8vHBQ1VdD6vV?index=1)
+![](https://presence.im/api/spotify/track/3dhjNA0jGA8vHBQ1VdD6vV?index=1)
 
 ### Contributing
 
