@@ -17,7 +17,7 @@ export default function Privacy() {
         description="A simple and elegant solution to images for socials media!"
         openGraph={{
           type: "website",
-          url: "https://presence.vercel.app/privacy",
+          url: "https://presence.im/privacy",
           title: "presence - privacy",
           description:
             "A simple and elegant solution to images for socials media!",

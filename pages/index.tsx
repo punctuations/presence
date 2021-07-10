@@ -21,7 +21,7 @@ export default function Home() {
         description="A simple and elegant solution to images for socials media!"
         openGraph={{
           type: "website",
-          url: "https://presence.vercel.app",
+          url: "https://presence.im",
           title: "presence",
           description:
             "A simple and elegant solution to images for socials media!",

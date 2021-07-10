@@ -17,7 +17,7 @@ export default function Terms() {
         description="A simple and elegant solution to images for socials media!"
         openGraph={{
           type: "website",
-          url: "https://presence.vercel.app/terms",
+          url: "https://presence.im/terms",
           title: "presence - terms",
           description:
             "A simple and elegant solution to images for socials media!",
