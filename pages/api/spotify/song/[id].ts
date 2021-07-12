@@ -57,7 +57,7 @@ export default async function handler(
     const body: SpotifySongResponse = await response.json();
 
     axios
-      .get(body.album.artists[0].href, {
+      .get(body.album ? body.album.artists[0].href : "", {
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${token.access_token}`,
