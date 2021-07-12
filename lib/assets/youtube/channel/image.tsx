@@ -6,6 +6,7 @@ import { ThemesTypes } from "@lib/types/ThemesTypes";
 import { YoutubeChannelResponse } from "@lib/types/YoutubeResponse";
 
 import { urlBase } from "@lib/components/urlBase";
+import { escapeUnsafe } from "@lib/components/escapeUnsafe";
 
 export const YoutubeChannelImage = async (
   youtube: YoutubeChannelResponse,
@@ -72,8 +73,10 @@ export const YoutubeChannelImage = async (
         @${
           youtube.items
             ? youtube.items[0].snippet.title.length > 11
-              ? `${youtube.items[0].snippet.title.slice(0, 11)}...`
-              : youtube.items[0].snippet.title
+              ? `${escapeUnsafe(
+                  youtube.items[0].snippet.title.slice(0, 11)
+                )}...`
+              : escapeUnsafe(youtube.items[0].snippet.title)
             : null
         }
       </text>
@@ -97,7 +100,7 @@ export const YoutubeChannelImage = async (
           font-weight="bold"
           font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         >
-          ${youtube.items ? youtube.items[0].snippet.title : null}
+          ${youtube.items ? escapeUnsafe(youtube.items[0].snippet.title) : null}
         </text>
         ${
           youtube.items && youtube.items[0].snippet.description.length > 84
@@ -115,7 +118,9 @@ export const YoutubeChannelImage = async (
                 font-size="36"
                 font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
               >
-                ${youtube.items[0].snippet.description.substring(0, 84)}
+                ${escapeUnsafe(
+                  youtube.items[0].snippet.description.substring(0, 84)
+                )}
               </text>
               <text
                 fill="${
@@ -132,11 +137,12 @@ export const YoutubeChannelImage = async (
               >
                 ${
                   youtube.items[0].snippet.description.length >= 154
-                    ? `${youtube.items[0].snippet.description.substring(
-                        84,
-                        154
+                    ? `${escapeUnsafe(
+                        youtube.items[0].snippet.description.substring(84, 154)
                       )}...`
-                    : youtube.items[0].snippet.description.substring(84)
+                    : escapeUnsafe(
+                        youtube.items[0].snippet.description.substring(84)
+                      )
                 }
               </text>
 
@@ -155,7 +161,11 @@ export const YoutubeChannelImage = async (
               font-size="40"
               font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
             >
-              ${youtube.items ? youtube.items[0].snippet.description : null}
+              ${
+                youtube.items
+                  ? escapeUnsafe(youtube.items[0].snippet.description)
+                  : null
+              }
             </text>
           `
         }
@@ -277,7 +287,7 @@ export const YoutubeChannelImage = async (
                     font-size="40"
                     font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                   >
-                    ${youtube.items[0].snippet.country}
+                    ${escapeUnsafe(youtube.items[0].snippet.country)}
                   </text>
                 </g>
               `
@@ -315,7 +325,9 @@ export const YoutubeChannelImage = async (
                     text-decoration="underline"
                     font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                   >
-                    youtube.com/${youtube.items[0].snippet.customUrl}
+                    youtube.com/${escapeUnsafe(
+                      youtube.items[0].snippet.customUrl
+                    )}
                   </text>
                 </g>
               `

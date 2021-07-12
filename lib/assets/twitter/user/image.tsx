@@ -6,6 +6,7 @@ import { ThemesTypes } from "@lib/types/ThemesTypes";
 import { TwitterResponse } from "@lib/types/TwitterResponse";
 
 import { urlBase } from "@lib/components/urlBase";
+import { escapeUnsafe } from "@lib/components/escapeUnsafe";
 
 export const TwitterImage = async (
   twitter: TwitterResponse,
@@ -74,8 +75,8 @@ export const TwitterImage = async (
       >
         @${
           twitter.data.username.length > 11
-            ? `${twitter.data.username.slice(0, 11)}...`
-            : twitter.data.username
+            ? `${escapeUnsafe(twitter.data.username.slice(0, 11))}...`
+            : escapeUnsafe(twitter.data.username)
         }
       </text>
 
@@ -99,7 +100,9 @@ export const TwitterImage = async (
           font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         >
           ${
-            twitter.data.name !== "" ? twitter.data.name : twitter.data.username
+            twitter.data.name !== ""
+              ? escapeUnsafe(twitter.data.name)
+              : escapeUnsafe(twitter.data.username)
           }
         </text>
         ${
@@ -118,7 +121,7 @@ export const TwitterImage = async (
                 font-size="36"
                 font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
               >
-                ${twitter.data.description.substring(0, 84)}
+                ${escapeUnsafe(twitter.data.description.substring(0, 84))}
               </text>
               <text
                 fill="${
@@ -135,8 +138,10 @@ export const TwitterImage = async (
               >
                 ${
                   twitter.data.description.length >= 154
-                    ? `${twitter.data.description.substring(84, 154)}...`
-                    : twitter.data.description.substring(84)
+                    ? `${escapeUnsafe(
+                        twitter.data.description.substring(84, 154)
+                      )}...`
+                    : escapeUnsafe(twitter.data.description.substring(84))
                 }
               </text>
 
@@ -155,7 +160,7 @@ export const TwitterImage = async (
               font-size="40"
               font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
             >
-              ${twitter.data.description}
+              ${escapeUnsafe(twitter.data.description)}
             </text>
           `
         }
@@ -246,7 +251,7 @@ export const TwitterImage = async (
                     font-size="40"
                     font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                   >
-                    ${twitter.data.location}
+                    ${escapeUnsafe(twitter.data.location)}
                   </text>
                 </g>
               `

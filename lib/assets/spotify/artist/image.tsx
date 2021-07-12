@@ -6,6 +6,7 @@ import { ThemesTypes } from "@lib/types/ThemesTypes";
 import { SpotifyArtistResponse } from "@lib/types/SpotifyArtistResponse";
 
 import { urlBase } from "@lib/components/urlBase";
+import { escapeUnsafe } from "@lib/components/escapeUnsafe";
 
 export const SpotifyArtistImage = async (
   artist: SpotifyArtistResponse,
@@ -77,8 +78,8 @@ export const SpotifyArtistImage = async (
         ${
           artist.name
             ? artist.name.length > 12
-              ? `${artist.name.slice(0, 12)}...`
-              : artist.name
+              ? `${escapeUnsafe(artist.name.slice(0, 12))}...`
+              : escapeUnsafe(artist.name)
             : null
         }
       </text>
@@ -102,7 +103,7 @@ export const SpotifyArtistImage = async (
           font-weight="bold"
           font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         >
-          ${artist.name}
+          ${escapeUnsafe(artist.name)}
         </text>
         ${
           artist.genres
@@ -125,7 +126,7 @@ export const SpotifyArtistImage = async (
               >
                 ${artist.genres.map((genre, i) => {
                   if (i <= 7) {
-                    return ` ${genre}`;
+                    return ` ${escapeUnsafe(genre)}`;
                   }
                 })}
               </text>
@@ -144,11 +145,11 @@ export const SpotifyArtistImage = async (
               >
                 ${artist.genres.map((genre, i) => {
                   if (i === artist.genres.length - 1 && i < 14) {
-                    return ` and ${genre}.`;
+                    return ` and ${escapeUnsafe(genre)}.`;
                   } else if (i < 14 && i !== artist.genres.length - 1) {
-                    return ` ${genre}`;
+                    return ` ${escapeUnsafe(genre)}`;
                   } else if (i === 14) {
-                    return ` and ${genre}...`;
+                    return ` and ${escapeUnsafe(genre)}...`;
                   }
                 })}
               </text>
@@ -169,17 +170,17 @@ export const SpotifyArtistImage = async (
             >
               ${artist.genres.map((genre, i) => {
                 if (i !== artist.genres.length - 1) {
-                  return ` ${genre}`;
+                  return ` ${escapeUnsafe(genre)}`;
                 } else if (
                   i === artist.genres.length - 1 &&
                   artist.genres.length > 1
                 ) {
-                  return ` and ${genre}.`;
+                  return ` and ${escapeUnsafe(genre)}.`;
                 } else if (
                   i === artist.genres.length - 1 &&
                   artist.genres.length! > 1
                 ) {
-                  return ` ${genre}.`;
+                  return ` ${escapeUnsafe(genre)}.`;
                 }
               })}
             </text>

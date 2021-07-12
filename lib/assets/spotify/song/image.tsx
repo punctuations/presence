@@ -9,6 +9,7 @@ import { ThemesTypes } from "@lib/types/ThemesTypes";
 import { SpotifySongResponse } from "@lib/types/SpotifySongResponse";
 import { SpotifyArtistResponse } from "@lib/types/SpotifyArtistResponse";
 import { urlBase } from "@lib/components/urlBase";
+import { escapeUnsafe } from "@lib/components/escapeUnsafe";
 
 export const SpotifyImage = async (
   song: SpotifySongResponse,
@@ -27,15 +28,6 @@ export const SpotifyImage = async (
   }
 ) => {
   const defaultThemes: ThemesTypes = themes;
-
-  function escapeHtml(unsafe: string) {
-    return unsafe
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
-  }
 
   const { ids, colors } = palette(
     await pixels(
@@ -134,8 +126,8 @@ export const SpotifyImage = async (
       >
         ${
           song.name.length > 39
-            ? `${escapeHtml(song.name.substring(39))}...`
-            : escapeHtml(song.name)
+            ? `${escapeUnsafe(song.name.substring(39))}...`
+            : escapeUnsafe(song.name)
         }
       </text>
       <text
@@ -161,30 +153,30 @@ export const SpotifyImage = async (
           song.artists.length > 3
             ? "Various Artists"
             : song.artists.length === 3
-            ? `${escapeHtml(
+            ? `${escapeUnsafe(
                 song.artists[0].name.length >= 14
                   ? `${song.artists[0].name.substring(0, 14)}-`
                   : song.artists[0].name
-              )}, ${escapeHtml(
+              )}, ${escapeUnsafe(
                 song.artists[1].name.length >= 14
                   ? `${song.artists[1].name.substring(0, 14)}-`
                   : song.artists[1].name
-              )}, ${escapeHtml(
+              )}, ${escapeUnsafe(
                 song.artists[2].name.length >= 14
                   ? `${song.artists[2].name.substring(0, 14)}..`
                   : song.artists[2].name
               )}.`
             : song.artists.length === 2
-            ? `${escapeHtml(
+            ? `${escapeUnsafe(
                 song.artists[0].name.length >= 21
                   ? `${song.artists[0].name.substring(0, 21)}-`
                   : song.artists[0].name
-              )}, ${escapeHtml(
+              )}, ${escapeUnsafe(
                 song.artists[1].name.length >= 21
                   ? `${song.artists[1].name.substring(0, 21)}..`
                   : song.artists[1].name
               )}.`
-            : `${escapeHtml(
+            : `${escapeUnsafe(
                 song.artists[0].name.length >= 43
                   ? `${song.artists[0].name.substring(0, 43)}..`
                   : song.artists[0].name

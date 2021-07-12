@@ -6,6 +6,7 @@ import { ThemesTypes } from "@lib/types/ThemesTypes";
 import { YoutubeVideoResponse } from "@lib/types/YoutubeResponse";
 
 import { urlBase } from "@lib/components/urlBase";
+import { escapeUnsafe } from "@lib/components/escapeUnsafe";
 
 export const YoutubeVideoImage = async (
   youtube: YoutubeVideoResponse,
@@ -76,8 +77,10 @@ export const YoutubeVideoImage = async (
           ${
             youtube.items
               ? youtube.items[0].snippet.title.length > 28
-                ? `${youtube.items[0].snippet.title.substring(0, 28)}...`
-                : youtube.items[0].snippet.title
+                ? `${escapeUnsafe(
+                    youtube.items[0].snippet.title.substring(0, 28)
+                  )}...`
+                : escapeUnsafe(youtube.items[0].snippet.title)
               : null
           }
         </text>
@@ -97,7 +100,9 @@ export const YoutubeVideoImage = async (
                 font-size="36"
                 font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
               >
-                ${youtube.items[0].snippet.description.substring(0, 84)}
+                ${escapeUnsafe(
+                  youtube.items[0].snippet.description.substring(0, 84)
+                )}
               </text>
               <text
                 fill="${
@@ -114,11 +119,12 @@ export const YoutubeVideoImage = async (
               >
                 ${
                   youtube.items[0].snippet.description.length >= 154
-                    ? `${youtube.items[0].snippet.description.substring(
-                        84,
-                        154
+                    ? `${escapeUnsafe(
+                        youtube.items[0].snippet.description.substring(84, 154)
                       )}...`
-                    : youtube.items[0].snippet.description.substring(84)
+                    : escapeUnsafe(
+                        youtube.items[0].snippet.description.substring(84)
+                      )
                 }
               </text>
 
@@ -137,7 +143,11 @@ export const YoutubeVideoImage = async (
               font-size="40"
               font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
             >
-              ${youtube.items ? youtube.items[0].snippet.description : null}
+              ${
+                youtube.items
+                  ? escapeUnsafe(youtube.items[0].snippet.description)
+                  : null
+              }
             </text>
           `
         }

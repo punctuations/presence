@@ -9,6 +9,7 @@ import {
   GithubRepoResponse,
 } from "@lib/types/GithubResponse";
 import { urlBase } from "@lib/components/urlBase";
+import { escapeUnsafe } from "@lib/components/escapeUnsafe";
 
 export const RepoImage = async (
   repo: GithubRepoResponse,
@@ -86,20 +87,22 @@ export const RepoImage = async (
           font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         >
           ${
-            !repo ? null : `${repo?.full_name.split("/")[0]}/`
+            !repo ? null : `${escapeUnsafe(repo?.full_name.split("/")[0])}/`
           }<tspan font-weight="bold">
             ${
               !repo
                 ? null
                 : repo?.full_name.length >= 27
-                ? ` ${repo?.full_name
-                    .split("/")[1]
-                    .substring(
-                      0,
-                      repo?.full_name.split("/")[0].length -
-                        repo?.full_name.split("/")[1].length
-                    )}`
-                : ` ${repo?.full_name.split("/")[1]}`
+                ? ` ${escapeUnsafe(
+                    repo?.full_name
+                      .split("/")[1]
+                      .substring(
+                        0,
+                        repo?.full_name.split("/")[0].length -
+                          repo?.full_name.split("/")[1].length
+                      )
+                  )}`
+                : ` ${escapeUnsafe(repo?.full_name.split("/")[1])}`
             }
           </tspan>
         </text>
@@ -125,7 +128,11 @@ export const RepoImage = async (
                   font-size="40"
                   font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                 >
-                  {$!repo ? null : repo.description.substring(0, 72)}
+                  ${
+                    !repo
+                      ? null
+                      : escapeUnsafe(repo.description.substring(0, 72))
+                  }
                 </text>
                 <text
                   fill="${
@@ -144,8 +151,10 @@ export const RepoImage = async (
                     !repo
                       ? null
                       : repo.description.length >= 154
-                      ? `${repo.description.substring(72, 154)}...`
-                      : repo.description.substring(72)
+                      ? `${escapeUnsafe(
+                          repo.description.substring(72, 154)
+                        )}...`
+                      : escapeUnsafe(repo.description.substring(72))
                   }
                 </text>
             `
@@ -163,7 +172,7 @@ export const RepoImage = async (
                 font-size="40"
                 font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
               >
-                ${!repo ? null : repo.description}
+                ${!repo ? null : escapeUnsafe(repo.description)}
               </text>
             `
             }
@@ -316,7 +325,7 @@ export const RepoImage = async (
                 font-size="36"
                 font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
               >
-                ${!repo ? null : repo.language}
+                ${!repo ? null : escapeUnsafe(repo.language)}
               </text>
               <g
                 fill="${

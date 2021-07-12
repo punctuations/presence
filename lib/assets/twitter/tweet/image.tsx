@@ -5,6 +5,7 @@ import { themes } from "@themes";
 import { ThemesTypes } from "@lib/types/ThemesTypes";
 import { TweetResponse } from "@lib/types/TwitterResponse";
 import { urlBase } from "@lib/components/urlBase";
+import { escapeUnsafe } from "@lib/components/escapeUnsafe";
 
 export const TweetImage = async (
   twitter: TweetResponse,
@@ -72,8 +73,10 @@ export const TweetImage = async (
       >
         @${
           twitter.includes?.users[0].username.length > 11
-            ? `${twitter.includes?.users[0].username.slice(0, 11)}...`
-            : twitter.includes?.users[0].username
+            ? `${escapeUnsafe(
+                twitter.includes?.users[0].username.slice(0, 11)
+              )}...`
+            : escapeUnsafe(twitter.includes?.users[0].username)
         }
       </text>
 
@@ -98,8 +101,8 @@ export const TweetImage = async (
         >
           ${
             twitter.includes?.users[0].name !== ""
-              ? twitter.includes?.users[0].name
-              : twitter.includes?.users[0].username
+              ? escapeUnsafe(twitter.includes?.users[0].name)
+              : escapeUnsafe(twitter.includes?.users[0].username)
           }
         </text>
         ${
@@ -121,7 +124,7 @@ export const TweetImage = async (
                   font-size="36"
                   font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                 >
-                  ${twitter.data.text.substring(0, 84)}
+                  ${escapeUnsafe(twitter.data.text.substring(0, 84))}
                 </text>
                 <text
                   fill="${
@@ -138,8 +141,8 @@ export const TweetImage = async (
                 >
                   ${
                     twitter.data.text.length >= 169
-                      ? `${twitter.data.text.substring(84, 169)}`
-                      : twitter.data.text.substring(84)
+                      ? `${escapeUnsafe(twitter.data.text.substring(84, 169))}`
+                      : escapeUnsafe(twitter.data.text.substring(84))
                   }
                 </text>
                 <text
@@ -157,8 +160,10 @@ export const TweetImage = async (
                 >
                   ${
                     twitter.data.text.length >= 253
-                      ? `${twitter.data.text.substring(169, 253)}...`
-                      : twitter.data.text.substring(169)
+                      ? `${escapeUnsafe(
+                          twitter.data.text.substring(169, 253)
+                        )}...`
+                      : escapeUnsafe(twitter.data.text.substring(169))
                   }
                 </text>
               
@@ -177,7 +182,7 @@ export const TweetImage = async (
                 font-size="40"
                 font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
               >
-                ${twitter.data.text}
+                ${escapeUnsafe(twitter.data.text)}
               </text>
             `
         }

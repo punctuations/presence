@@ -6,6 +6,7 @@ import { ThemesTypes } from "@lib/types/ThemesTypes";
 import { DiscordGuildResponse } from "@lib/types/DiscordResponse";
 
 import { urlBase } from "@lib/components/urlBase";
+import { escapeUnsafe } from "@lib/components/escapeUnsafe";
 
 export const DiscordGuildImage = async (
   discord: DiscordGuildResponse,
@@ -25,19 +26,6 @@ export const DiscordGuildImage = async (
   }
 ) => {
   const defaultThemes: ThemesTypes = themes;
-
-  function escapeHtml(unsafe: string | undefined) {
-    if (unsafe) {
-      return unsafe
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    } else {
-      return "";
-    }
-  }
 
   return `<svg
       xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +122,7 @@ ${
             query.bottom?.toLowerCase() === "true" ? 'text-anchor="middle"' : ""
           }
           font-size="64"
-          font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'>${escapeHtml(
+          font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'>${escapeUnsafe(
             discord.name
           )}</text>
     <text

@@ -8,6 +8,7 @@ import {
   GithubUserResponse,
 } from "@lib/types/GithubResponse";
 import { urlBase } from "@lib/components/urlBase";
+import { escapeUnsafe } from "@lib/components/escapeUnsafe";
 
 export const GithubCardImage = async (
   github: GithubUserResponse,
@@ -95,9 +96,9 @@ export const GithubCardImage = async (
         ${
           github.login
             ? github.login.length > 12
-              ? `${github.login.slice(0, 12)}...`
-              : github.login
-            : null
+              ? `${escapeUnsafe(github.login.slice(0, 12))}...`
+              : escapeUnsafe(github.login)
+            : ""
         }
       </text>
       <clipPath id="prefix__a">
@@ -117,7 +118,13 @@ export const GithubCardImage = async (
         font-weight="bold"
         font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
       >
-        ${!github ? null : github.name ? github.name : github.login}
+        ${
+          !github
+            ? null
+            : github.name
+            ? escapeUnsafe(github.name)
+            : escapeUnsafe(github.login)
+        }
       </text>
       ${
         github.bio
@@ -138,7 +145,7 @@ export const GithubCardImage = async (
                 font-size="36"
                 font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
               >
-                ${github.bio.substring(0, 84)}
+                ${escapeUnsafe(github.bio.substring(0, 84))}
               </text>
               <text
                 fill="${
@@ -155,9 +162,9 @@ export const GithubCardImage = async (
               >
                 ${
                   github.bio && github.bio.length >= 154
-                    ? `${github.bio.substring(84, 154)}...`
+                    ? `${escapeUnsafe(github.bio.substring(84, 154))}...`
                     : github.bio
-                    ? github.bio.substring(84)
+                    ? escapeUnsafe(github.bio.substring(84))
                     : ""
                 }
               </text>
@@ -176,7 +183,7 @@ export const GithubCardImage = async (
               font-size="40"
               font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
             >
-              ${github.bio}
+              ${escapeUnsafe(github.bio)}
             </text>
           `
           }
@@ -292,10 +299,16 @@ export const GithubCardImage = async (
         font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
       >
         ${
-          !starred ? null : `${starred[starredIndex]?.full_name.split("/")[0]}/`
+          !starred
+            ? null
+            : `${escapeUnsafe(starred[starredIndex]?.full_name.split("/")[0])}/`
         }
         <tspan font-weight="bold">
-          ${!starred ? null : starred[starredIndex]?.full_name.split("/")[1]}
+          ${
+            !starred
+              ? null
+              : escapeUnsafe(starred[starredIndex]?.full_name.split("/")[1])
+          }
         </tspan>
       </text>
       ${
@@ -314,7 +327,7 @@ export const GithubCardImage = async (
           font-size="30"
           font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         >
-          ${starred[starredIndex].description}
+          ${escapeUnsafe(starred[starredIndex].description)}
         </text>
       `
           : null
@@ -421,7 +434,7 @@ export const GithubCardImage = async (
               font-size="24"
               font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
             >
-              ${!starred ? null : starred[starredIndex].language}
+              ${!starred ? null : escapeUnsafe(starred[starredIndex].language)}
             </text>
             <g
               fill="${
@@ -524,7 +537,7 @@ export const GithubCardImage = async (
           font-size="40"
           font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         >
-          ${github ? github.location : null}
+          ${!github ? null : escapeUnsafe(github.location)}
         </text>
 
         ${
@@ -560,7 +573,7 @@ export const GithubCardImage = async (
           text-decoration="underline"
           font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         >
-          ${!github ? null : github.blog}
+          ${!github ? null : escapeUnsafe(github.blog)}
         </text>
 
         <g>

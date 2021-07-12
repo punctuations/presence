@@ -6,6 +6,7 @@ import { ThemesTypes } from "@lib/types/ThemesTypes";
 import { GithubUserResponse } from "@lib/types/GithubResponse";
 
 import { urlBase } from "@lib/components/urlBase";
+import { escapeUnsafe } from "@lib/components/escapeUnsafe";
 
 export const GithubUserImage = async (
   github: GithubUserResponse,
@@ -102,7 +103,13 @@ export const GithubUserImage = async (
           font-weight="bold"
           font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         >
-          ${!github ? null : github.name ? github.name : github.login}
+          ${
+            !github
+              ? null
+              : escapeUnsafe(github.name)
+              ? escapeUnsafe(github.name)
+              : escapeUnsafe(github.login)
+          }
         </text>
         ${
           github.bio
@@ -123,7 +130,7 @@ export const GithubUserImage = async (
                 font-size="36"
                 font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
               >
-                ${github.bio.substring(0, 84)}
+                ${escapeUnsafe(github.bio.substring(0, 84))}
               </text>
               <text
                 fill="${
@@ -140,9 +147,9 @@ export const GithubUserImage = async (
               >
                 ${
                   github.bio && github.bio.length >= 154
-                    ? `${github.bio.substring(84, 154)}...`
+                    ? `${escapeUnsafe(github.bio.substring(84, 154))}...`
                     : github.bio
-                    ? github.bio.substring(84)
+                    ? escapeUnsafe(github.bio.substring(84))
                     : ""
                 }
               </text>
@@ -161,7 +168,7 @@ export const GithubUserImage = async (
               font-size="40"
               font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
             >
-              ${github.bio}
+              ${escapeUnsafe(github.bio)}
             </text>
           `
           }
@@ -251,7 +258,7 @@ export const GithubUserImage = async (
                     font-size="40"
                     font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                   >
-                    ${github.location}
+                    ${escapeUnsafe(github.location)}
                   </text>
                 </g>
               `
@@ -289,7 +296,7 @@ export const GithubUserImage = async (
                     text-decoration="underline"
                     font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                   >
-                    ${github.blog}
+                    ${escapeUnsafe(github.blog)}
                   </text>
                 </g>
               `

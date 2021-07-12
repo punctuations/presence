@@ -5,6 +5,7 @@ import { ThemesTypes } from "@lib/types/ThemesTypes";
 import { DiscordUserResponse } from "@lib/types/DiscordResponse";
 
 import { urlBase } from "@lib/components/urlBase";
+import { escapeUnsafe } from "@lib/components/escapeUnsafe";
 import { flags } from "@lib/components/flag";
 import { LanyardResponse } from "@lib/types/LanyardResponse";
 
@@ -38,19 +39,6 @@ export const DiscordImage = async (
         return "https://cdn.discordapp.com/embed/avatars/3.png";
       case 4 || 9:
         return "https://cdn.discordapp.com/embed/avatars/4.png";
-    }
-  }
-
-  function escapeHtml(unsafe: string | undefined) {
-    if (unsafe) {
-      return unsafe
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    } else {
-      return "";
     }
   }
 
@@ -107,8 +95,8 @@ export const DiscordImage = async (
       >
         @${
           discord.username.length > 12
-            ? `${escapeHtml(discord.username.slice(0, 12))}...`
-            : escapeHtml(discord.username)
+            ? `${escapeUnsafe(discord.username.slice(0, 12))}...`
+            : escapeUnsafe(discord.username)
         }
       </text>
 
@@ -131,7 +119,7 @@ export const DiscordImage = async (
           font-weight="bold"
           font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         >
-          ${escapeHtml(discord.username)}
+          ${escapeUnsafe(discord.username)}
             <tspan font-size="52" font-weight="normal">#${
               discord.discriminator
             }</tspan>
@@ -219,23 +207,26 @@ export const DiscordImage = async (
             font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'>
             ${
               lanyard.data.listening_to_spotify
-                ? `${escapeHtml(lanyard.data.spotify.song)} - ${escapeHtml(
+                ? `${escapeUnsafe(lanyard.data.spotify.song)} - ${escapeUnsafe(
                     lanyard.data.spotify.album
                   )}`.length > 37
-                  ? `${escapeHtml(lanyard.data.spotify.song)} - ${escapeHtml(
-                      lanyard.data.spotify.album
-                    )}`.substring(0, 38) + "..."
-                  : `${escapeHtml(lanyard.data.spotify.song)} - ${escapeHtml(
-                      lanyard.data.spotify.album
-                    )}`
+                  ? `${escapeUnsafe(
+                      lanyard.data.spotify.song
+                    )} - ${escapeUnsafe(lanyard.data.spotify.album)}`.substring(
+                      0,
+                      38
+                    ) + "..."
+                  : `${escapeUnsafe(
+                      lanyard.data.spotify.song
+                    )} - ${escapeUnsafe(lanyard.data.spotify.album)}`
                 : lanyard.data.activities[0]?.type === 0
                 ? lanyard.data.activities[0]?.assets?.small_text
-                  ? escapeHtml(lanyard.data.activities[0]?.assets?.small_text)
-                  : escapeHtml(lanyard.data.activities[0].name)
+                  ? escapeUnsafe(lanyard.data.activities[0]?.assets?.small_text)
+                  : escapeUnsafe(lanyard.data.activities[0].name)
                 : lanyard.data.activities[1]
                 ? lanyard.data.activities[1]?.assets?.small_text
-                  ? escapeHtml(lanyard.data.activities[1]?.assets?.small_text)
-                  : escapeHtml(lanyard.data.activities[1].name)
+                  ? escapeUnsafe(lanyard.data.activities[1]?.assets?.small_text)
+                  : escapeUnsafe(lanyard.data.activities[1].name)
                 : ""
             }
           </text>
@@ -254,11 +245,11 @@ export const DiscordImage = async (
             font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'>
             ${
               lanyard.data.listening_to_spotify
-                ? escapeHtml(lanyard.data.spotify.artist)
+                ? escapeUnsafe(lanyard.data.spotify.artist)
                 : lanyard.data.activities[0]?.type === 0
-                ? escapeHtml(lanyard.data.activities[0]?.state)
+                ? escapeUnsafe(lanyard.data.activities[0]?.state)
                 : lanyard.data.activities[1]
-                ? escapeHtml(lanyard.data.activities[1]?.state)
+                ? escapeUnsafe(lanyard.data.activities[1]?.state)
                 : ""
             }
           </text>
