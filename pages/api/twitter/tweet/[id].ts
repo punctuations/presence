@@ -29,7 +29,7 @@ export default async function handler(
 
     axios
       .get(
-        `https://api.twitter.com/2/tweets/${id}?tweet.fields=public_metrics&expansions=author_id&user.fields=profile_image_url`,
+        `https://api.twitter.com/2/tweets/${id}?tweet.fields=public_metrics&expansions=author_id&user.fields=profile_image_url,verified`,
         {
           headers: {
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_TWITTER_BEARER_TOKEN}`,

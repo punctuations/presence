@@ -1,7 +1,7 @@
 export interface TwitterResponse {
   data: {
     id: string;
-    verified: string;
+    verified: boolean;
     protected: string;
     profile_image_url: string;
     created_at: string;
@@ -67,6 +67,7 @@ export interface TweetResponse {
         profile_image_url: string;
         username: string;
         name: string;
+        verified: boolean;
         id: string;
       }
     ];
