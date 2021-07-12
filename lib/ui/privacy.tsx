@@ -6,7 +6,7 @@ export function PrivacyPolicy() {
         Your privacy is important to us. It is Presence&#39;s policy to respect
         your privacy and comply with any applicable law and regulation regarding
         any personal information we may collect about you, including across our
-        website, <a href="https://presence.vercel.app">presence.vercel.app</a>,
+        website, <a href="https://presence.im">presence.im</a>,
         and other sites we own and operate.{" "}
       </p>
       <p>

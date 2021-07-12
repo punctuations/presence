@@ -5,7 +5,7 @@ export function TOS() {
 
       <p>
         <b>Presence</b> ("Us" or "We") provides the{" "}
-        <a href="https://presence.vercel.app">presence.vercel.app</a> website
+        <a href="https://presence.im">presence.im</a> website
         and various related services (collectively, the "Website") to you, the
         User, subject to your compliance with all the terms, conditions, and
         notices contained or referenced herein (the "Terms of Service"), as well
