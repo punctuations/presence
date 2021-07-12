@@ -5,11 +5,11 @@ export function TOS() {
 
       <p>
         <b>Presence</b> ("Us" or "We") provides the{" "}
-        <a href="https://presence.im">presence.im</a> website
-        and various related services (collectively, the "Website") to you, the
-        User, subject to your compliance with all the terms, conditions, and
-        notices contained or referenced herein (the "Terms of Service"), as well
-        as any other written agreement between us and you.
+        <a href="https://presence.im">presence.im</a> website and various
+        related services (collectively, the "Website") to you, the User, subject
+        to your compliance with all the terms, conditions, and notices contained
+        or referenced herein (the "Terms of Service"), as well as any other
+        written agreement between us and you.
       </p>
 
       <p>
