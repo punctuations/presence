@@ -8,10 +8,12 @@ import { urlBase } from "@lib/components/urlBase";
 import { escapeUnsafe } from "@lib/components/escapeUnsafe";
 import { flags } from "@lib/components/flag";
 import { LanyardResponse } from "@lib/types/LanyardResponse";
+import { DiscordBioResponse } from "@lib/types/DiscordBioResponse";
 
 export const DiscordImage = async (
   discord: DiscordUserResponse,
   lanyard: LanyardResponse,
+  bio: DiscordBioResponse,
   query: {
     [p: string]: string | string[] | undefined;
     bg?: string;
@@ -255,15 +257,45 @@ export const DiscordImage = async (
           </text>
       </g>`
               : `${
-                  lanyard.data.activities[0].emoji?.id
-                    ? `<image 
-                        x="470"
-                        y="290"
-                        width="50"
-                        height="50"
-                        xlink:href="https://cdn.discordapp.com/emojis/${lanyard.data.activities[0].emoji.id}.png" />`
+                  !bio.message && bio.payload?.user.details.description
+                    ? `<text
+                  fill="${
+                    !query.theme
+                      ? query.description
+                        ? `#${query.description}`
+                        : "#B4B4B4"
+                      : defaultThemes[query.theme].description
+                  }"
+              x="446"
+              y="305"
+              font-size="36"
+              font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
+              >
+              ${
+                bio.payload.user.details.description.length >= 84
+                  ? escapeUnsafe(
+                      `${bio.payload.user.details.description.substring(
+                        0,
+                        84
+                      )}...`
+                    )
+                  : escapeUnsafe(bio.payload.user.details.description)
+              }
+              </text>`
                     : ""
                 }
+                 ${
+                   lanyard.data.activities[0].emoji?.id
+                     ? `<image 
+                        x="470"
+                        y="${!bio.message ? "340" : "290"}"
+                        width="50"
+                        height="50"
+                        xlink:href="https://cdn.discordapp.com/emojis/${
+                          lanyard.data.activities[0].emoji.id
+                        }.png" />`
+                     : ""
+                 }
                
                <text fill="${
                  !query?.theme
@@ -272,11 +304,77 @@ export const DiscordImage = async (
                      : "#b4b4b4"
                    : defaultThemes[query?.theme].description
                }" x="${lanyard.data.activities[0].emoji?.id ? "540" : "470"}"
-                 y="325" 
+                 y="${!bio.message ? "375" : "325"}" 
                 font-size="36"
                 font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'>
-                ${lanyard.data.activities[0].state}
+                ${escapeUnsafe(lanyard.data.activities[0].state)}
                 </text>`
+            : !bio.message && bio.payload
+            ? `${
+                bio.payload.user.details.description &&
+                bio.payload.user.details.description.length > 84
+                  ? `
+              <text
+                fill="${
+                  !query.theme
+                    ? query.description
+                      ? `#${query.description}`
+                      : "#B4B4B4"
+                    : defaultThemes[query.theme].description
+                }"
+                x="446"
+                y="305"
+                font-size="36"
+                font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
+              >
+                ${escapeUnsafe(
+                  bio.payload.user.details.description.substring(0, 84)
+                )}
+              </text>
+              <text
+                fill="${
+                  !query.theme
+                    ? query.description
+                      ? `#${query.description}`
+                      : "#B4B4B4"
+                    : defaultThemes[query.theme].description
+                }"
+                x="446"
+                y="355"
+                font-size="36"
+                font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
+              >
+                ${
+                  bio.payload.user.details.description.length >= 154
+                    ? `${escapeUnsafe(
+                        bio.payload.user.details.description.substring(84, 154)
+                      )}...`
+                    : bio.payload.user.details.description
+                    ? escapeUnsafe(
+                        bio.payload.user.details.description.substring(84)
+                      )
+                    : ""
+                }
+              </text>
+          `
+                  : `
+            <text
+              fill="${
+                !query.theme
+                  ? query.description
+                    ? `#${query.description}`
+                    : "#B4B4B4"
+                  : defaultThemes[query.theme].description
+              }"
+              x="446"
+              y="305"
+              font-size="40"
+              font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
+            >
+              ${escapeUnsafe(bio.payload.user.details.description)}
+            </text>
+          `
+              }`
             : ""
         }
       </g>

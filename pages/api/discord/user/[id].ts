@@ -6,6 +6,7 @@ import { convert } from "@lib/components/convert";
 import { NextApiRequest, NextApiResponse } from "next";
 import axios, { AxiosResponse } from "axios";
 import { LanyardResponse } from "@lib/types/LanyardResponse";
+import { DiscordBioResponse } from "@lib/types/DiscordBioResponse";
 
 type Query = {
   [p: string]: string | string[] | undefined;
@@ -33,6 +34,12 @@ export default async function handler(
 
     const body: LanyardResponse = await response.json();
 
+    const dotbio = await fetch(
+      `https://discords.com/api-bio/user/details/${id}`
+    );
+
+    const bio: DiscordBioResponse = await dotbio.json();
+
     axios
       .get(`https://discord.com/api/users/${id}`, {
         headers: {
@@ -43,10 +50,14 @@ export default async function handler(
         res.status(200);
         res.send(
           query.type?.toLowerCase() === "base64"
-            ? { data: await base(await DiscordImage(r.data, body, query)) }
+            ? { data: await base(await DiscordImage(r.data, body, bio, query)) }
             : query.type?.toLowerCase() === "png"
-            ? await convert(await DiscordImage(r.data, body, query), 955, 295)
-            : await DiscordImage(r.data, body, query)
+            ? await convert(
+                await DiscordImage(r.data, body, bio, query),
+                955,
+                295
+              )
+            : await DiscordImage(r.data, body, bio, query)
         );
         return resolve("Created Image!");
       })
