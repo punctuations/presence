@@ -1,5 +1,3 @@
-import { GithubUserImage } from "@github/user/image";
-
 import { base } from "@lib/components/base";
 import { convert } from "@lib/components/convert";
 
@@ -27,7 +25,7 @@ export default async function handler(
 ) {
   return new Promise(async (resolve) => {
     const query = req.query as Query,
-      uname = req.query.uname;
+      uname = req.query.uname as string;
 
     const request = await fetch(
       `https://id.twitch.tv/oauth2/token?client_id=${process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID}&client_secret=${process.env.NEXT_PUBLIC_TWITCH_CLIENT_SECRET}&grant_type=client_credentials`,
@@ -52,7 +50,9 @@ export default async function handler(
     let user: Channel;
 
     for (let key in twitch.data) {
-      if (twitch.data[key].broadcaster_login === uname) {
+      if (
+        twitch.data[key].broadcaster_login.toLowerCase() === uname.toLowerCase()
+      ) {
         user = twitch.data[key];
       }
     }
