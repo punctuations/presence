@@ -4,6 +4,14 @@ export const testers: Testers = [
     name: "conrad",
   },
   {
+    id: "714863852441042965",
+    name: "fish",
+  },
+  {
+    id: "451261502138351627",
+    name: "kumal",
+  },
+  {
     id: "291050399509774340",
     name: "matt",
   },
@@ -21,6 +29,14 @@ export type Testers = [
   {
     id: "705665813994012695";
     name: "conrad";
+  },
+  {
+    id: "714863852441042965";
+    name: "fish";
+  },
+  {
+    id: "451261502138351627";
+    name: "kumal";
   },
   {
     id: "291050399509774340";
