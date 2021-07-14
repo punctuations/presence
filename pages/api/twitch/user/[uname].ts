@@ -47,15 +47,9 @@ export default async function handler(
     );
     const twitch: TwitchChannelResponse = await channel.json();
 
-    let user: Channel;
-
-    for (let key in twitch.data) {
-      if (
-        twitch.data[key].broadcaster_login.toLowerCase() === uname.toLowerCase()
-      ) {
-        user = twitch.data[key];
-      }
-    }
+    const user: Channel[] = twitch.data.filter((user) => {
+      return user.broadcaster_login.toLowerCase() === uname.toLowerCase();
+    });
 
     axios
       .get(`https://api.twitch.tv/helix/users?login=${uname}`, {
@@ -69,15 +63,15 @@ export default async function handler(
         res.send(
           query.type?.toLowerCase() === "base64"
             ? {
-                data: await base(await TwitchUserImage(user, r.data, query)),
+                data: await base(await TwitchUserImage(user[0], r.data, query)),
               }
             : query.type?.toLowerCase() === "png"
             ? await convert(
-                await TwitchUserImage(user, r.data, query),
+                await TwitchUserImage(user[0], r.data, query),
                 955,
                 295
               )
-            : await TwitchUserImage(user, r.data, query)
+            : await TwitchUserImage(user[0], r.data, query)
         );
         return resolve("Created Image!");
       })
