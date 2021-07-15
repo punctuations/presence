@@ -43,7 +43,7 @@ export default async function handler(
     axios
       .get(`https://discord.com/api/users/${id}`, {
         headers: {
-          Authorization: `Bot ${process.env.NEXT_PUBLIC_DISCORD_BOT_TOKEN}`,
+          Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
         },
       })
       .then(async (r: AxiosResponse) => {

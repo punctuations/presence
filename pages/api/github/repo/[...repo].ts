@@ -43,7 +43,7 @@ export default async function handler(
       `https://api.github.com/repos/${username}/${repo}/contributors`,
       {
         headers: {
-          Authorization: `token ${process.env.NEXT_PUBLIC_GITHUB_REPO_TOKEN}`,
+          Authorization: `token ${process.env.GITHUB_REPO_TOKEN}`,
         },
       }
     );
@@ -58,7 +58,7 @@ export default async function handler(
     axios
       .get(`https://api.github.com/repos/${username}/${repo}`, {
         headers: {
-          Authorization: `token ${process.env.NEXT_PUBLIC_GITHUB_REPO_TOKEN}`,
+          Authorization: `token ${process.env.GITHUB_REPO_TOKEN}`,
         },
       })
       .then(async (r: AxiosResponse) => {

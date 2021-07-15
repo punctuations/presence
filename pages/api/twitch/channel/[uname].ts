@@ -28,7 +28,7 @@ export default async function handler(
       uname = req.query.uname as string;
 
     const request = await fetch(
-      `https://id.twitch.tv/oauth2/token?client_id=${process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID}&client_secret=${process.env.NEXT_PUBLIC_TWITCH_CLIENT_SECRET}&grant_type=client_credentials`,
+      `https://id.twitch.tv/oauth2/token?client_id=${process.env.TWITCH_CLIENT_ID}&client_secret=${process.env.TWITCH_CLIENT_SECRET}&grant_type=client_credentials`,
       {
         method: "POST",
       }
@@ -41,7 +41,7 @@ export default async function handler(
       {
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
-          "Client-Id": `${process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID}`,
+          "Client-Id": `${process.env.TWITCH_CLIENT_ID}`,
         },
       }
     );
@@ -61,7 +61,7 @@ export default async function handler(
       .get(`https://api.twitch.tv/helix/users?login=${uname}`, {
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
-          "Client-Id": `${process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID}`,
+          "Client-Id": `${process.env.TWITCH_CLIENT_ID}`,
         },
       })
       .then(async (r: AxiosResponse) => {

@@ -30,7 +30,7 @@ export default async function handler(
     axios
       .get(`https://api.github.com/users/${uname}`, {
         headers: {
-          Authorization: `token ${process.env.NEXT_PUBLIC_GITHUB_USER_TOKEN}`,
+          Authorization: `token ${process.env.GITHUB_USER_TOKEN}`,
         },
       })
       .then(async (r: AxiosResponse) => {

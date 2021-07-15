@@ -29,7 +29,7 @@ export default async function handler(
 
     axios
       .get(
-        `https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=${id}&key=${process.env.NEXT_PUBLIC_YOUTUBE_TOKEN}`
+        `https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=${id}&key=${process.env.YOUTUBE_TOKEN}`
       )
       .then(async (r: AxiosResponse) => {
         res.status(200);

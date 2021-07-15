@@ -33,7 +33,7 @@ export default async function handler(
         `https://api.twitter.com/2/users/by/username/${uname}?user.fields=description,url,location,created_at,profile_image_url,public_metrics,verified,protected&expansions=pinned_tweet_id&tweet.fields=created_at,public_metrics`,
         {
           headers: {
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_TWITTER_BEARER_TOKEN}`,
+            Authorization: `Bearer ${process.env.TWITTER_BEARER_TOKEN}`,
           },
         }
       )
