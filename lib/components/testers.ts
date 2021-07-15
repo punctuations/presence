@@ -1,7 +1,11 @@
-export const testers: Testers = [
+export const testers = [
+  {
+    id: "123057713482694658",
+    name: "audn",
+  },
   {
     id: "705665813994012695",
-    name: "conrad",
+    name: "cnrad",
   },
   {
     id: "714863852441042965",
@@ -10,6 +14,10 @@ export const testers: Testers = [
   {
     id: "757834655516065862",
     name: "haden",
+  },
+  {
+    id: "433577405278453760",
+    name: "jm",
   },
   {
     id: "451261502138351627",
