@@ -74,8 +74,8 @@ export default async function handler(
             : query.type?.toLowerCase() === "png"
             ? await convert(
                 await TwitchUserImage(user, r.data, query),
-                955,
-                295
+                938,
+                285
               )
             : await TwitchUserImage(user, r.data, query)
         );

@@ -54,8 +54,8 @@ export default async function handler(
             : query.type?.toLowerCase() === "png"
             ? await convert(
                 await DiscordImage(r.data, body, bio, query),
-                955,
-                295
+                938,
+                285
               )
             : await DiscordImage(r.data, body, bio, query)
         );

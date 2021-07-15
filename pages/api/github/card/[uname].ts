@@ -66,8 +66,8 @@ export default async function handler(
             : query.type?.toLowerCase() === "png"
             ? await convert(
                 await GithubCardImage(r.data, body, colors, query),
-                955,
-                470
+                938,
+                460
               )
             : await GithubCardImage(r.data, body, colors, query)
         );

@@ -69,8 +69,8 @@ export default async function handler(
             : query.type?.toLowerCase() === "png"
             ? await convert(
                 await RepoImage(r.data, body, colors, query),
-                955,
-                295
+                938,
+                285
               )
             : await RepoImage(r.data, body, colors, query)
         );

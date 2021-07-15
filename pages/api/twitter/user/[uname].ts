@@ -42,7 +42,7 @@ export default async function handler(
           query.type?.toLowerCase() === "base64"
             ? { data: await base(await TwitterImage(r.data, query)) }
             : query.type?.toLowerCase() === "png"
-            ? await convert(await TwitterImage(r.data, query), 955, 295)
+            ? await convert(await TwitterImage(r.data, query), 938, 285)
             : await TwitterImage(r.data, query)
         );
         return resolve("Created Image!");

@@ -14,6 +14,7 @@ type Query = {
   stats?: string;
   stats_text?: string;
   accent?: string;
+  index?: string;
   theme?: string;
   icon?: string;
   showAccent?: string;
@@ -42,7 +43,7 @@ export default async function handler(
           query.type?.toLowerCase() === "base64"
             ? { data: await base(await DiscordGuildImage(r.data, query)) }
             : query.type?.toLowerCase() === "png"
-            ? await convert(await DiscordGuildImage(r.data, query), 955, 470)
+            ? await convert(await DiscordGuildImage(r.data, query), 938, 460)
             : await DiscordGuildImage(r.data, query)
         );
         return resolve("Created Image!");

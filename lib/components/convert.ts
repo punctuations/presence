@@ -27,13 +27,25 @@ export async function convert(
   const browser = await puppeteer.launch(options);
   const page = await browser.newPage();
   await page.setViewport({
-    width: width ? (typeof width === "string" ? parseInt(width) : width) : 2000,
-    height: height
-      ? typeof height === "string"
-        ? parseInt(height)
-        : height
-      : 1000,
+    width: 2000,
+    height: 1000,
   });
   await page.setContent(url, { waitUntil: "networkidle0" });
-  return await page.screenshot({ type: "png", omitBackground: true });
+  return await page.screenshot({
+    type: "png",
+    clip: {
+      x: 9,
+      y: 8,
+      width: width
+        ? typeof width === "string"
+          ? parseInt(width)
+          : width
+        : 1920,
+      height: height
+        ? typeof height === "string"
+          ? parseInt(height)
+          : height
+        : 1080,
+    },
+  });
 }
