@@ -33,6 +33,7 @@ export async function convert(
   await page.setContent(url, { waitUntil: "networkidle0" });
   return await page.screenshot({
     type: "png",
+    omitBackground: true,
     clip: {
       x: 9,
       y: 8,
