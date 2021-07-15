@@ -1,6 +1,11 @@
 import * as React from "react";
 import numeral from "numeral";
 
+// @ts-ignore
+import palette from "image-palette";
+// @ts-ignore
+import pixels from "image-pixels";
+
 import { themes } from "@themes";
 import { ThemesTypes } from "@lib/types/ThemesTypes";
 import { DiscordGuildResponse } from "@lib/types/DiscordResponse";
@@ -18,6 +23,7 @@ export const DiscordGuildImage = async (
     stats?: string;
     stats_text?: string;
     accent?: string;
+    index?: string;
     theme?: string;
     icon?: string;
     showAccent?: string;
@@ -26,6 +32,17 @@ export const DiscordGuildImage = async (
   }
 ) => {
   const defaultThemes: ThemesTypes = themes;
+
+  const { colors } = palette(
+    await pixels(
+      `data:image/png;base64,${await urlBase(
+        `https://cdn.discordapp.com/icons/${discord.id}/${discord.icon}.png`
+      )}`
+    )
+  );
+
+  console.log(discord.discovery_splash);
+  console.log(discord.splash);
 
   return `<svg
       xmlns="http://www.w3.org/2000/svg"
@@ -52,24 +69,56 @@ ${
         </clipPath>`
     : `<path
         fill="${
-          !query?.theme ? `#${query.bg}` : defaultThemes[query?.theme].bg
+          !query?.theme
+            ? query.bg
+              ? `#${query.bg}`
+              : `rgb(${
+                  colors[
+                    query.index
+                      ? parseInt(query.index) > colors.length - 1
+                        ? 0
+                        : parseInt(query.index)
+                      : 0
+                  ][0]
+                }, ${
+                  colors[
+                    query.index
+                      ? parseInt(query.index) > colors.length - 1
+                        ? 0
+                        : parseInt(query.index)
+                      : 0
+                  ][1]
+                }, ${
+                  colors[
+                    query.index
+                      ? parseInt(query.index) > colors.length - 1
+                        ? 0
+                        : parseInt(query.index)
+                      : 0
+                  ][2]
+                })`
+            : defaultThemes[query?.theme].bg
         }"
         d="M0 0h1920v940H0z"
       />`
 }
 
-<image
+${
+  discord.discovery_splash || discord.splash
+    ? `<image
           preserveAspectRatio="xMaxYMid slice"
           clip-path="url(#splash)"
           xlink:href="data:image/png;base64,${await urlBase(
             discord.discovery_splash
-              ? `https://cdn.discordapp.com/discovery-splashes/${discord.id}/${discord.discovery_splash}.jpg?size=1024`
-              : `https://cdn.discordapp.com/banners/${discord.id}/${discord.splash}.jpg?size=1024`
+              ? `https://cdn.discordapp.com/discovery-splashes/${discord.id}/${discord.discovery_splash}.jpg?size=3072`
+              : `https://cdn.discordapp.com/splashes/${discord.id}/${discord.splash}.jpg?size=3072`
           )}"
            width="1920"
            height="940"
            x="0"
-           y="0" />
+           y="0" />`
+    : ""
+}
 </g>
 
 <path
