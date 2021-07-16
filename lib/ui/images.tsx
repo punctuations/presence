@@ -14,7 +14,7 @@ const Images = () => {
   ];
 
   return (
-    <Grid>
+    <Grid xs={24}>
       <Grid.Container gap={1} alignItems="center" justify="center">
         {images.map((url, i) => {
           return (
