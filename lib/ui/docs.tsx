@@ -18,8 +18,8 @@ const Docs = (props: { text: string; url: string }) => {
   return (
     <Grid>
       <Button
-        onClick={click}
-        // onClick={() => router.push(props.url)}
+        // onClick={click}
+        onClick={() => router.push(props.url)}
         size="large"
       >
         {props.text} &rarr;
