@@ -1,10 +1,10 @@
 ![](public/alt.svg)
 
-#### A simple and elegant solution to images for socials media!
+#### A simple and elegant solution to images for social media!
 
 ---
 
-Presence is a service which can generate svg images for social medias by accessing the endpoint, `presence.im/api/:platform/:type/:param`, the api will return the image via headers; however, if you wish for base64 encoding then add the `?type=base64` query to the end of the endpoint to obtain the base64 encoding of the image like so:
+Presence is a service that generates SVG images for social medias. It does this by accessing the endpoint, `presence.im/api/:platform/:type/:param`, where the API will return the image via headers. If you wish for base64 encoding, then append the `?type=base64` query to the end of the URL to obtain the base64 encoding of the image like so:
 
 `GET https://presence.im/api/twitter/user/atmattt?type=base64`
 
@@ -14,7 +14,7 @@ Presence is a service which can generate svg images for social medias by accessi
 
 [![presence](https://presence.im/api/twitter/user/atmattt)](https://twitter.com/atmattt)
 
-Presence also comes along with themes! By adding the following queries to the endpoint you can change what some things look like!
+Presence also comes with themes! By adding the following queries to the endpoint you can change what some things look like!
 
 | query         | type              | Outcome                                                                                                           | Notes                                                            |
 | ------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
@@ -34,7 +34,7 @@ Presence also comes along with themes! By adding the following queries to the en
 | bottom        | boolean           | only appears on spotify/song & spotify/track & discord/guild, changes the position of text to the bottom.         | n/a                                                              |
 | index         | number            | only appears on spotify/song & spotify/track, changes the most popular colo(u)r from the image as the background. | n/a                                                              |
 
-- please note that all queries are optional.
+- _Please note that all queries are optional._
 
 ### Examples
 
