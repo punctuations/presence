@@ -61,7 +61,7 @@ const Header = () => {
           </Text>
         </Grid>
         <Grid>
-          <p>Beautifully simple images for your social media.</p>
+          <p>Beautifully simple images of your social media.</p>
         </Grid>
       </Grid.Container>
     </Grid>

@@ -14,13 +14,13 @@ export default function Privacy() {
       </Head>
       <NextSeo
         title="presence - privacy"
-        description="A simple and elegant solution to images for socials media!"
+        description="A simple and elegant solution to images of your socials media!"
         openGraph={{
           type: "website",
           url: "https://presence.im/privacy",
           title: "presence - privacy",
           description:
-            "A simple and elegant solution to images for socials media!",
+            "A simple and elegant solution to images of your socials media!",
           images: [
             {
               url: "/presence.png",
