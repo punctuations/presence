@@ -62,9 +62,9 @@ If you want to contribute to this project, fix some bugs, add some platforms, or
 
 ([emoji-key](https://allcontributors.org/docs/en/emoji-key))
 
-- [Conrad](https://github.com/cnrad) 💻 🤔
-- [Fish](https://github.com/rpxs) 🤔
+- [Conrad](https://github.com/cnrad) 💻 🤔 📖
+- [Fish](https://github.com/rpxs) 🤔 📓
 - [Jack](https://github.com/jacc) 🤔
-- [Ven](https://github.com/ven) 🤔
+- [Ven](https://github.com/ven) 💻 🤔 📓
 - [Jamie](https://twitter.com/jamiepine) 🎨 📓
 - [Haden](https://github.com/hadenpf) 🎨
