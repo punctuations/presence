@@ -87,22 +87,16 @@ export const RepoImage = async (
           font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         >
           ${
-            !repo ? null : `${escapeUnsafe(repo?.full_name.split("/")[0])}/`
+            !repo ? null : `${escapeUnsafe(repo?.full_name.split("/")[0])} /`
           }<tspan font-weight="bold">
             ${
               !repo
                 ? null
-                : repo?.full_name.length >= 27
-                ? ` ${escapeUnsafe(
-                    repo?.full_name
-                      .split("/")[1]
-                      .substring(
-                        0,
-                        repo?.full_name.split("/")[0].length -
-                          repo?.full_name.split("/")[1].length
-                      )
-                  )}`
-                : ` ${escapeUnsafe(repo?.full_name.split("/")[1])}`
+                : repo?.full_name.length > 26
+                ? `${escapeUnsafe(
+                    repo?.full_name.substring(0, 26).split("/")[1]
+                  )}...`
+                : `${escapeUnsafe(repo?.full_name.split("/")[1])}`
             }
           </tspan>
         </text>
@@ -131,7 +125,7 @@ export const RepoImage = async (
                   ${
                     !repo
                       ? null
-                      : escapeUnsafe(repo.description.substring(0, 72))
+                      : escapeUnsafe(repo.description.substring(0, 68))
                   }
                 </text>
                 <text
@@ -152,9 +146,9 @@ export const RepoImage = async (
                       ? null
                       : repo.description.length >= 154
                       ? `${escapeUnsafe(
-                          repo.description.substring(72, 154)
+                          repo.description.substring(68, 154)
                         )}...`
-                      : escapeUnsafe(repo.description.substring(72))
+                      : escapeUnsafe(repo.description.substring(68))
                   }
                 </text>
             `
