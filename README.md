@@ -67,4 +67,4 @@ If you want to contribute to this project, fix some bugs, add some platforms, or
 - [Jack](https://github.com/jacc) 🤔
 - [Ven](https://github.com/ven) 💻 🤔 📓
 - [Jamie](https://twitter.com/jamiepine) 🎨 📓
-- [Haden](https://github.com/hadenpf) 🎨
+- [Haden](https://github.com/hadenpf) 🎨 🐛
