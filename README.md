@@ -63,9 +63,9 @@ If you want to contribute to this project, fix some bugs, add some platforms, or
 ([emoji-key](https://allcontributors.org/docs/en/emoji-key))
 
 - [Tika](https://github.com/tika) 🎨
-- [Conrad](https://github.com/cnrad) 💻 🤔 📖
-- [Fish](https://github.com/rpxs) 🤔 📓 📦
+- [Conrad](https://github.com/cnrad) 💻 🤔 [📖](https://github.com/punctuations/presence/pull/12)
+- [Fish](https://github.com/rpxs) 🤔 📓 [📦](https://github.com/punctuations/presence/tree/main/lib/assets/producthunt)
 - [Jack](https://github.com/jacc) 🤔
-- [Ven](https://github.com/ven) 💻 🤔 📓
+- [Ven](https://github.com/ven) [💻](https://github.com/punctuations/presence/commit/9cdf8664861e17cde20abd3b31f1aa1bcb1001c0) 🤔 📓
 - [Jamie](https://twitter.com/jamiepine) 🎨 📓
 - [Haden](https://github.com/hadenpf) 🎨 🐛
