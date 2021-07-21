@@ -45,7 +45,7 @@ export default async function handler(
       .catch((err) => {
         console.log(err);
         res.status(500);
-        res.send({ error: "Sorry, that channel doesn't exist." });
+        res.send({ error: "Sorry, that video doesn't exist." });
       });
 
     query.type?.toLowerCase() !== "base64"

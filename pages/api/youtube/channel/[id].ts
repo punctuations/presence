@@ -32,15 +32,24 @@ export default async function handler(
         `https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=${id}&key=${process.env.NEXT_PUBLIC_YOUTUBE_TOKEN}`
       )
       .then(async (r: AxiosResponse) => {
-        res.status(200);
-        res.send(
-          query.type?.toLowerCase() === "base64"
-            ? { data: await base(await YoutubeChannelImage(r.data, query)) }
-            : query.type?.toLowerCase() === "png"
-            ? await convert(await YoutubeChannelImage(r.data, query), 938, 285)
-            : await YoutubeChannelImage(r.data, query)
-        );
-        return resolve("Created Image!");
+        if (r.data.items[0].snippet.title !== null) {
+          res.status(200);
+          res.send(
+            query.type?.toLowerCase() === "base64"
+              ? { data: await base(await YoutubeChannelImage(r.data, query)) }
+              : query.type?.toLowerCase() === "png"
+              ? await convert(
+                  await YoutubeChannelImage(r.data, query),
+                  938,
+                  285
+                )
+              : await YoutubeChannelImage(r.data, query)
+          );
+          return resolve("Created Image!");
+        } else {
+          res.status(500);
+          res.send({ error: "Sorry, that channel doesn't exist." });
+        }
       })
       .catch((err) => {
         console.log(err);
