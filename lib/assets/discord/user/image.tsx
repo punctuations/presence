@@ -420,9 +420,7 @@ export const DiscordImage = async (
                       ? lanyard.data.spotify.album_art_url
                       : lanyard.data.activities[0]?.assets?.large_image
                       ? `https://cdn.discordapp.com/app-assets/${BigInt(
-                          lanyard.data.activities[0].application_id
-                            ? lanyard.data.activities[0].application_id
-                            : 0
+                          lanyard.data.activities[0].application_id ?? 0
                         ).toString()}/${
                           lanyard.data.activities[0].assets.large_image
                         }.png`
@@ -451,9 +449,7 @@ export const DiscordImage = async (
                               ? "https://www.freepnglogos.com/uploads/spotify-logo-png/file-spotify-logo-png-4.png"
                               : lanyard.data.activities[0]?.assets?.small_image
                               ? `https://cdn.discordapp.com/app-assets/${BigInt(
-                                  lanyard.data.activities[0].application_id
-                                    ? lanyard.data.activities[0].application_id
-                                    : 0
+                                  lanyard.data.activities[0].application_id ?? 0
                                 ).toString()}/${
                                   lanyard.data.activities[0].assets.small_image
                                 }.png`
@@ -475,9 +471,7 @@ export const DiscordImage = async (
               ? lanyard.data.spotify.album_art_url
               : lanyard.data.activities[1]?.assets?.large_image
               ? `https://cdn.discordapp.com/app-assets/${BigInt(
-                  lanyard.data.activities[1].application_id
-                    ? lanyard.data.activities[1].application_id
-                    : 0
+                  lanyard.data.activities[1].application_id ?? 0
                 ).toString()}/${
                   lanyard.data.activities[1].assets.large_image
                 }.png`
@@ -506,9 +500,7 @@ export const DiscordImage = async (
                               ? "https://www.freepnglogos.com/uploads/spotify-logo-png/file-spotify-logo-png-4.png"
                               : lanyard.data.activities[1]?.assets?.small_image
                               ? `https://cdn.discordapp.com/app-assets/${BigInt(
-                                  lanyard.data.activities[1].application_id
-                                    ? lanyard.data.activities[1].application_id
-                                    : 0
+                                  lanyard.data.activities[1].application_id ?? 0
                                 ).toString()}/${
                                   lanyard.data.activities[1].assets.small_image
                                 }.png`
