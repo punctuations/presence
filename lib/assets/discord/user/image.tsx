@@ -89,8 +89,9 @@ export const DiscordImage = async (
               : "#000"
             : defaultThemes[query?.theme].text
         }"
-        x="83"
+        x="320"
         y="345"
+        text-anchor="end"
         font-size="36"
         font-weight="bold"
         font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
@@ -450,7 +451,9 @@ export const DiscordImage = async (
                               ? "https://www.freepnglogos.com/uploads/spotify-logo-png/file-spotify-logo-png-4.png"
                               : lanyard.data.activities[0]?.assets?.small_image
                               ? `https://cdn.discordapp.com/app-assets/${BigInt(
-                                  lanyard.data.activities[0].application_id ? lanyard.data.activities[0].application_id : 0
+                                  lanyard.data.activities[0].application_id
+                                    ? lanyard.data.activities[0].application_id
+                                    : 0
                                 ).toString()}/${
                                   lanyard.data.activities[0].assets.small_image
                                 }.png`
@@ -472,7 +475,9 @@ export const DiscordImage = async (
               ? lanyard.data.spotify.album_art_url
               : lanyard.data.activities[1]?.assets?.large_image
               ? `https://cdn.discordapp.com/app-assets/${BigInt(
-                  lanyard.data.activities[1].application_id ? lanyard.data.activities[1].application_id : 0
+                  lanyard.data.activities[1].application_id
+                    ? lanyard.data.activities[1].application_id
+                    : 0
                 ).toString()}/${
                   lanyard.data.activities[1].assets.large_image
                 }.png`
@@ -501,7 +506,9 @@ export const DiscordImage = async (
                               ? "https://www.freepnglogos.com/uploads/spotify-logo-png/file-spotify-logo-png-4.png"
                               : lanyard.data.activities[1]?.assets?.small_image
                               ? `https://cdn.discordapp.com/app-assets/${BigInt(
-                                  lanyard.data.activities[1].application_id ? lanyard.data.activities[1].application_id : 0
+                                  lanyard.data.activities[1].application_id
+                                    ? lanyard.data.activities[1].application_id
+                                    : 0
                                 ).toString()}/${
                                   lanyard.data.activities[1].assets.small_image
                                 }.png`

@@ -66,8 +66,9 @@ export const TwitterImage = async (
               : "#000"
             : defaultThemes[query?.theme].text
         }"
-        x="83"
-        y="350"
+        x="320"
+        y="345"
+        text-anchor="end"
         font-size="36"
         font-weight="bold"
         font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
