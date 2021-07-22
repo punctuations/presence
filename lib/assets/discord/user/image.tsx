@@ -420,6 +420,8 @@ export const DiscordImage = async (
                       : lanyard.data.activities[0]?.assets?.large_image
                       ? `https://cdn.discordapp.com/app-assets/${BigInt(
                           lanyard.data.activities[0].application_id
+                            ? lanyard.data.activities[0].application_id
+                            : 0
                         ).toString()}/${
                           lanyard.data.activities[0].assets.large_image
                         }.png`
