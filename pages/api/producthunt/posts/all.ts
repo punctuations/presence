@@ -51,10 +51,10 @@ export default async function handler(
         res.send(
           query.type?.toLowerCase() === "base64"
             ? {
-                data: await base(await GithubUserImage(r.data, query)),
+                data: await base(await ProductHuntAllImage(r.data, query)),
               }
             : query.type?.toLowerCase() === "png"
-            ? await convert(await GithubUserImage(r.data, query), 938, 285)
+            ? await convert(await ProductHuntAllImage(r.data, query), 938, 285)
             : await ProductHuntAllImage(r.data, query)
         );
         return resolve("Created Image!");
@@ -62,7 +62,7 @@ export default async function handler(
       .catch((err) => {
         console.log(err);
         res.status(500);
-        res.send({ error: "Sorry, that user doesn't exist." });
+        res.send({ error: "Sorry, an error occurred." });
       });
 
     query.type?.toLowerCase() !== "base64"
