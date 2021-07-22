@@ -1,5 +1,3 @@
-import { GithubUserImage } from "@github/user/image";
-
 import { base } from "@lib/components/base";
 import { convert } from "@lib/components/convert";
 
