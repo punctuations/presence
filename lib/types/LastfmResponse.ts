@@ -59,3 +59,56 @@ export interface Image {
   size: string;
   "#text": string;
 }
+
+export interface LastfmArtistResponse {
+  bio: Bio;
+  ontour: number;
+  stats: Stats;
+  mbid: string;
+  image: Image[];
+  similar: Similar;
+  url: string;
+  tags: Tags;
+  name: string;
+  streamable: string;
+}
+
+export interface Bio {
+  links: Links;
+  content: string;
+  published: string;
+  summary: string;
+}
+
+export interface Links {
+  link: Link;
+}
+
+export interface Link {
+  rel: string;
+  href: string;
+}
+
+export interface Stats {
+  playcount: number;
+  listeners: number;
+}
+
+export interface Similar {
+  artist: Artist2[];
+}
+
+export interface Artist2 {
+  url: string;
+  name: string;
+  image: Image[];
+}
+
+export interface Tags {
+  tag: Tag[];
+}
+
+export interface Tag {
+  name: string;
+  url: string;
+}
