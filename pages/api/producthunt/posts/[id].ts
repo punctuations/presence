@@ -24,7 +24,8 @@ export default async function handler(
   res: NextApiResponse
 ) {
   return new Promise(async (resolve) => {
-    const query = req.query as Query;
+    const query = req.query as Query,
+      id = req.query.id;
 
     const data = new URLSearchParams();
     data.append("client_id", `${process.env.PRODUCTHUNT_CLIENT_ID}`);
@@ -37,34 +38,28 @@ export default async function handler(
     });
 
     const body = await request.json();
+    console.log(body);
 
     axios
-      .get(
-        `https://api.producthunt.com/v1/posts/all?sort_by=votes_count&search[featured_month]=${
-          new Date().getMonth() + 1
-        }&search[featured_year]=${new Date().getFullYear()}`,
-        {
-          headers: {
-            Authorization: `Bearer ${body.access_token}`,
-          },
-        }
-      )
+      .get(`https://api.producthunt.com/v1/posts/${id}`, {
+        headers: {
+          Authorization: `Bearer ${body.access_token}`,
+        },
+      })
       .then(async (r: AxiosResponse) => {
         res.status(200);
         res.send(
           query.type?.toLowerCase() === "base64"
             ? {
-                data: await base(
-                  await ProductHuntAllImage(r.data.posts[0], query)
-                ),
+                data: await base(await ProductHuntAllImage(r.data.post, query)),
               }
             : query.type?.toLowerCase() === "png"
             ? await convert(
-                await ProductHuntAllImage(r.data.posts[0], query),
+                await ProductHuntAllImage(r.data.post, query),
                 938,
                 285
               )
-            : await ProductHuntAllImage(r.data.posts[0], query)
+            : await ProductHuntAllImage(r.data.post, query)
         );
         return resolve("Created Image!");
       })

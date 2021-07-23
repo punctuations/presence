@@ -49,11 +49,17 @@ export default async function handler(
         res.send(
           query.type?.toLowerCase() === "base64"
             ? {
-                data: await base(await ProductHuntAllImage(r.data, query)),
+                data: await base(
+                  await ProductHuntAllImage(r.data.posts[0], query)
+                ),
               }
             : query.type?.toLowerCase() === "png"
-            ? await convert(await ProductHuntAllImage(r.data, query), 938, 285)
-            : await ProductHuntAllImage(r.data, query)
+            ? await convert(
+                await ProductHuntAllImage(r.data.posts[0], query),
+                938,
+                285
+              )
+            : await ProductHuntAllImage(r.data.posts[0], query)
         );
         return resolve("Created Image!");
       })

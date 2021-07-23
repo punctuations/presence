@@ -82,17 +82,17 @@ export const ProductHuntAllImage = async (
           font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         >
           ${
-            product.posts[0].name.length > 27
-              ? `${product.posts[0].name.substring(0, 27)}...`
-              : product.posts[0].name
+            product.name.length > 27
+              ? `${product.name.substring(0, 27)}...`
+              : product.name
           }
         </text>
         ${
-          product.posts[0].tagline == null
+          product.tagline == null
             ? null
             : `
             ${
-              product.posts[0].tagline.length > 72
+              product.tagline.length > 72
                 ? `
                 <text
                   fill="${
@@ -107,7 +107,7 @@ export const ProductHuntAllImage = async (
                   font-size="40"
                   font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                 >
-                  ${escapeUnsafe(product.posts[0].tagline.substring(0, 68))}
+                  ${escapeUnsafe(product.tagline.substring(0, 68))}
                 </text>
                 <text
                   fill="${
@@ -123,11 +123,9 @@ export const ProductHuntAllImage = async (
                   font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                 >
                   ${
-                    product.posts[0].tagline.length >= 154
-                      ? `${escapeUnsafe(
-                          product.posts[0].tagline.substring(68, 154)
-                        )}...`
-                      : escapeUnsafe(product.posts[0].tagline.substring(68))
+                    product.tagline.length >= 154
+                      ? `${escapeUnsafe(product.tagline.substring(68, 154))}...`
+                      : escapeUnsafe(product.tagline.substring(68))
                   }
                 </text>
             `
@@ -145,7 +143,7 @@ export const ProductHuntAllImage = async (
                 font-size="40"
                 font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
               >
-                ${escapeUnsafe(product.posts[0].tagline)}
+                ${escapeUnsafe(product.tagline)}
               </text>
             `
             }
@@ -167,9 +165,9 @@ export const ProductHuntAllImage = async (
                   font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                 >
                 ${
-                  product.posts[0].topics.length >= 2
-                    ? `${product.posts[0].topics[0].name} | ${product.posts[0].topics[1].name}`
-                    : product.posts[0].topics[0].name
+                  product.topics.length >= 2
+                    ? `${product.topics[0].name} | ${product.topics[1].name}`
+                    : product.topics[0].name
                 }
                 </text>
             </g>
@@ -197,7 +195,7 @@ export const ProductHuntAllImage = async (
                   font-size="36"
                   font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                 >
-                  ${numeral(product.posts[0].comments_count).format("0a")}
+                  ${numeral(product.comments_count).format("0a")}
                 </text>
             </g>
             <g>
@@ -224,7 +222,7 @@ export const ProductHuntAllImage = async (
                       font-size="36"
                       font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
                     >
-                  ${numeral(product.posts[0].votes_count).format("0a")}
+                  ${numeral(product.votes_count).format("0a")}
                 </text>
             </g>
         </g>
@@ -233,7 +231,7 @@ export const ProductHuntAllImage = async (
       <image
         clip-path="url(#prefix__a)"
         xlink:href="data:image/png;base64,${await urlBase(
-          product.posts[0].thumbnail.image_url
+          product.thumbnail.image_url
         )}"
         width="390"
         height="390"

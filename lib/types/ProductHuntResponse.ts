@@ -1,12 +1,8 @@
-export interface ProductHuntAllResponse {
-  posts: Post[];
-}
-
 export interface ProductHuntUserResponse {
   user: User;
 }
 
-export interface Post {
+export interface ProductHuntAllResponse {
   comments_count: number;
   id: number;
   name: string;
@@ -123,7 +119,7 @@ export interface Vote {
   created_at: string;
   user_id: number;
   post_id: number;
-  post: Post;
+  post: ProductHuntAllResponse;
 }
 
 export interface CurrentUser {}
