@@ -45,16 +45,16 @@ export default async function handler(
       .get(
         `https://api.producthunt.com/v1/posts/all?sort_by=votes_count${
           query.day
-            ? `search[featured_day]=${query.day}`
-            : `search[featured_day]=${new Date().getDate()}`
+            ? `&search[featured_day]=${query.day}`
+            : `&search[featured_day]=${new Date().getDate()}`
         }${
           query.month
-            ? `search[featured_month]=${query.month}`
-            : `search[featured_month]=${new Date().getMonth() + 1}`
+            ? `&search[featured_month]=${query.month}`
+            : `&search[featured_month]=${new Date().getMonth() + 1}`
         }${
           query.year
-            ? `search[featured_year]=${query.year}`
-            : `search[featured_year]=${new Date().getFullYear()}`
+            ? `&search[featured_year]=${query.year}`
+            : `&search[featured_year]=${new Date().getFullYear()}`
         }`,
         {
           headers: {
