@@ -1,4 +1,4 @@
-import { YoutubeVideoImage } from "@lib/assets/youtube/video/image";
+import { YoutubeVideoImage } from "@youtube/video/image";
 
 import { base } from "@lib/components/base";
 import { convert } from "@lib/components/convert";

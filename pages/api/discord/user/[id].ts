@@ -1,4 +1,4 @@
-import { DiscordImage } from "@lib/assets/discord/user/image";
+import { DiscordImage } from "@discord/user/image";
 
 import { base } from "@lib/components/base";
 import { convert } from "@lib/components/convert";

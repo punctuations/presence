@@ -1,4 +1,4 @@
-import { LastfmArtistImage } from "@lib/assets/lastfm/artist/image";
+import { LastfmArtistImage } from "@lastfm/artist/image";
 
 import { base } from "@lib/components/base";
 import { convert } from "@lib/components/convert";

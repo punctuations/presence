@@ -1,4 +1,4 @@
-import { SpotifyImage } from "@lib/assets/spotify/song/image";
+import { SpotifyImage } from "@spotify/song/image";
 
 import { base } from "@lib/components/base";
 import { convert } from "@lib/components/convert";

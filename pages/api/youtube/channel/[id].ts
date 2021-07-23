@@ -1,4 +1,4 @@
-import { YoutubeChannelImage } from "@lib/assets/youtube/channel/image";
+import { YoutubeChannelImage } from "@youtube/channel/image";
 
 import { base } from "@lib/components/base";
 import { convert } from "@lib/components/convert";

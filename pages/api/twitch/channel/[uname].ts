@@ -1,9 +1,10 @@
+import { TwitchUserImage } from "@twitch/user/image";
+
 import { base } from "@lib/components/base";
 import { convert } from "@lib/components/convert";
 
 import { NextApiRequest, NextApiResponse } from "next";
 import axios, { AxiosResponse } from "axios";
-import { TwitchUserImage } from "@lib/assets/twitch/user/image";
 import { Channel, TwitchChannelResponse } from "@lib/types/TwitchResponse";
 
 type Query = {

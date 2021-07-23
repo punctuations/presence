@@ -2,10 +2,17 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@": ["/"],
       "@themes": ["themes.json"],
       "@lib/*": ["lib/*"],
+      "@discord/*": ["lib/assets/discord/*"],
       "@github/*": ["lib/assets/github/*"],
-      "@twitter/*": ["lib/assets/twitter/*"]
+      "@lastfm/*": ["lib/assets/lastfm/*"],
+      "@product/*": ["lib/assets/producthunt/*"],
+      "@spotify/*": ["lib/assets/spotify/*"],
+      "@twitch/*": ["lib/assets/twitch/*"],
+      "@twitter/*": ["lib/assets/twitter/*"],
+      "@youtube/*": ["lib/assets/youtube/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

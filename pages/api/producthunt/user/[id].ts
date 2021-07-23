@@ -1,4 +1,4 @@
-import { ProductHuntUserImage } from "@lib/assets/producthunt/user/image";
+import { ProductHuntUserImage } from "@product/user/image";
 
 import { base } from "@lib/components/base";
 import { convert } from "@lib/components/convert";
