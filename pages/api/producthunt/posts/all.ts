@@ -50,7 +50,7 @@ export default async function handler(
         }${
           query.month
             ? `search[featured_month]=${query.month}`
-            : `search[featured_month]=${new Date().getMonth()}`
+            : `search[featured_month]=${new Date().getMonth() + 1}`
         }${
           query.year
             ? `search[featured_year]=${query.year}`
