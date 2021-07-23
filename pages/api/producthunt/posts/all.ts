@@ -4,7 +4,7 @@ import { convert } from "@lib/components/convert";
 import { NextApiRequest, NextApiResponse } from "next";
 import axios, { AxiosResponse } from "axios";
 import { URLSearchParams } from "url";
-import { ProductHuntAllImage } from "@lib/assets/producthunt/posts/all";
+import { ProductHuntAllImage } from "@lib/assets/producthunt/posts/image";
 
 type Query = {
   [p: string]: string | string[] | undefined;
