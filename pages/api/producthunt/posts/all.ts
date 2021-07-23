@@ -29,34 +29,6 @@ export default async function handler(
   return new Promise(async (resolve) => {
     const query = req.query as Query;
 
-    function time() {
-      if (query.day && !query.month && !query.year) {
-        return `&search[featured_day]=${query.day}&search[featured_month]=${
-          new Date().getMonth() + 1
-        }&search[featured_year]=${new Date().getFullYear()}`;
-      } else if (query.day && query.month && !query.year) {
-        return `&search[featured_day]=${query.day}&search[featured_month]=${
-          query.month
-        }&search[featured_year]=${new Date().getFullYear()}`;
-      } else if (query.day && query.month && query.year) {
-        return `&search[featured_day]=${query.day}&search[featured_month]=${query.month}&search[featured_year]=${query.year}`;
-      } else if (!query.day && query.month && query.year) {
-        return `&search[featured_day]=${new Date().getDate()}&search[featured_month]=${
-          query.month
-        }&search[featured_year]=${query.year}`;
-      } else if (!query.day && query.month && !query.year) {
-        return `&search[featured_day]=${new Date().getDate()}&search[featured_month]=${
-          query.month
-        }&search[featured_year]=${new Date().getFullYear()}`;
-      } else if (!query.day && !query.month && query.year) {
-        return `&search[featured_day]=${new Date().getDate()}&search[featured_month]=${
-          new Date().getMonth() + 1
-        }&search[featured_year]=${query.year}`;
-      } else {
-        return "";
-      }
-    }
-
     const data = new URLSearchParams();
     data.append("client_id", `${process.env.PRODUCTHUNT_CLIENT_ID}`);
     data.append("client_secret", `${process.env.PRODUCTHUNT_CLIENT_SECRET}`);
@@ -71,7 +43,19 @@ export default async function handler(
 
     axios
       .get(
-        `https://api.producthunt.com/v1/posts/all?sort_by=votes_count${time()}`,
+        `https://api.producthunt.com/v1/posts/all?sort_by=votes_count${
+          query.day
+            ? `search[featured_day]=${query.day}`
+            : `search[featured_day]=${new Date().getDate()}`
+        }${
+          query.month
+            ? `search[featured_month]=${query.month}`
+            : `search[featured_month]=${new Date().getMonth()}`
+        }${
+          query.year
+            ? `search[featured_year]=${query.year}`
+            : `search[featured_year]=${new Date().getFullYear()}`
+        }`,
         {
           headers: {
             Authorization: `Bearer ${body.access_token}`,
