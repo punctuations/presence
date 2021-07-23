@@ -16,6 +16,9 @@ type Query = {
   theme?: string;
   icon?: string;
   rounded?: string;
+  day?: string;
+  month?: string;
+  year?: string;
   type?: string;
 };
 
@@ -25,6 +28,34 @@ export default async function handler(
 ) {
   return new Promise(async (resolve) => {
     const query = req.query as Query;
+
+    function time() {
+      if (query.day && !query.month && !query.year) {
+        return `&search[featured_day]=${query.day}&search[featured_month]=${
+          new Date().getMonth() + 1
+        }&search[featured_year]=${new Date().getFullYear()}`;
+      } else if (query.day && query.month && !query.year) {
+        return `&search[featured_day]=${query.day}&search[featured_month]=${
+          query.month
+        }&search[featured_year]=${new Date().getFullYear()}`;
+      } else if (query.day && query.month && query.year) {
+        return `&search[featured_day]=${query.day}&search[featured_month]=${query.month}&search[featured_year]=${query.year}`;
+      } else if (!query.day && query.month && query.year) {
+        return `&search[featured_day]=${new Date().getDate()}&search[featured_month]=${
+          query.month
+        }&search[featured_year]=${query.year}`;
+      } else if (!query.day && query.month && !query.year) {
+        return `&search[featured_day]=${new Date().getDate()}&search[featured_month]=${
+          query.month
+        }&search[featured_year]=${new Date().getFullYear()}`;
+      } else if (!query.day && !query.month && query.year) {
+        return `&search[featured_day]=${new Date().getDate()}&search[featured_month]=${
+          new Date().getMonth() + 1
+        }&search[featured_year]=${query.year}`;
+      } else {
+        return "";
+      }
+    }
 
     const data = new URLSearchParams();
     data.append("client_id", `${process.env.PRODUCTHUNT_CLIENT_ID}`);
@@ -39,11 +70,14 @@ export default async function handler(
     const body = await request.json();
 
     axios
-      .get(`https://api.producthunt.com/v1/posts/all?sort_by=votes_count`, {
-        headers: {
-          Authorization: `Bearer ${body.access_token}`,
-        },
-      })
+      .get(
+        `https://api.producthunt.com/v1/posts/all?sort_by=votes_count${time()}`,
+        {
+          headers: {
+            Authorization: `Bearer ${body.access_token}`,
+          },
+        }
+      )
       .then(async (r: AxiosResponse) => {
         res.status(200);
         res.send(
@@ -66,7 +100,9 @@ export default async function handler(
       .catch((err) => {
         console.log(err);
         res.status(500);
-        res.send({ error: "Sorry, an error occurred." });
+        res.send({
+          error: "Sorry, no posts were able to be retrieved at this time.",
+        });
       });
 
     query.type?.toLowerCase() !== "base64"
