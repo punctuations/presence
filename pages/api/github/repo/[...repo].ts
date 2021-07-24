@@ -5,10 +5,7 @@ import { convert } from "@lib/components/convert";
 
 import { NextApiRequest, NextApiResponse } from "next";
 import axios, { AxiosResponse } from "axios";
-import {
-  GithubColorResponse,
-  GithubContributors,
-} from "@lib/types/GithubResponse";
+import { GithubColorResponse, GithubContributors } from "@types/GithubResponse";
 
 type Query = {
   [p: string]: string | string[] | undefined;

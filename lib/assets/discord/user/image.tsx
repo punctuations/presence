@@ -1,14 +1,14 @@
 import * as React from "react";
 
 import { themes } from "@themes";
-import { ThemesTypes } from "@lib/types/ThemesTypes";
-import { DiscordUserResponse } from "@lib/types/DiscordResponse";
+import { ThemesTypes } from "@types/ThemesTypes";
+import { DiscordUserResponse } from "@types/DiscordResponse";
 
 import { urlBase } from "@lib/components/urlBase";
 import { escapeUnsafe } from "@lib/components/escapeUnsafe";
 import { flags } from "@lib/components/flag";
-import { LanyardResponse } from "@lib/types/LanyardResponse";
-import { DiscordBioResponse } from "@lib/types/DiscordBioResponse";
+import { LanyardResponse } from "@types/LanyardResponse";
+import { DiscordBioResponse } from "@types/DiscordBioResponse";
 import { isTester } from "@lib/components/testers";
 
 export const DiscordImage = async (

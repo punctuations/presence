@@ -2,8 +2,8 @@ import * as React from "react";
 import numeral from "numeral";
 
 import { themes } from "@themes";
-import { ThemesTypes } from "@lib/types/ThemesTypes";
-import { SpotifyArtistResponse } from "@lib/types/SpotifyArtistResponse";
+import { ThemesTypes } from "@types/ThemesTypes";
+import { SpotifyArtistResponse } from "@types/SpotifyArtistResponse";
 
 import { urlBase } from "@lib/components/urlBase";
 import { escapeUnsafe } from "@lib/components/escapeUnsafe";

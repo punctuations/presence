@@ -5,8 +5,8 @@ import { convert } from "@lib/components/convert";
 
 import { NextApiRequest, NextApiResponse } from "next";
 import axios, { AxiosResponse } from "axios";
-import { LanyardResponse } from "@lib/types/LanyardResponse";
-import { DiscordBioResponse } from "@lib/types/DiscordBioResponse";
+import { LanyardResponse } from "@types/LanyardResponse";
+import { DiscordBioResponse } from "@types/DiscordBioResponse";
 
 type Query = {
   [p: string]: string | string[] | undefined;

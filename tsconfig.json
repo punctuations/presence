@@ -5,6 +5,7 @@
       "@": ["/"],
       "@themes": ["themes.json"],
       "@lib/*": ["lib/*"],
+      "@types/*": ["lib/types/*"],
       "@discord/*": ["lib/assets/discord/*"],
       "@github/*": ["lib/assets/github/*"],
       "@lastfm/*": ["lib/assets/lastfm/*"],

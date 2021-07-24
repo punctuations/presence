@@ -2,8 +2,8 @@ import * as React from "react";
 import numeral from "numeral";
 
 import { themes } from "@themes";
-import { ThemesTypes } from "@lib/types/ThemesTypes";
-import { Channel, TwitchUserResponse } from "@lib/types/TwitchResponse";
+import { ThemesTypes } from "@types/ThemesTypes";
+import { Channel, TwitchUserResponse } from "@types/TwitchResponse";
 
 import { urlBase } from "@lib/components/urlBase";
 import { escapeUnsafe } from "@lib/components/escapeUnsafe";

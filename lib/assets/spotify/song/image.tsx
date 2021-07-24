@@ -5,9 +5,9 @@ import palette from "image-palette";
 import pixels from "image-pixels";
 
 import { themes } from "@themes";
-import { ThemesTypes } from "@lib/types/ThemesTypes";
-import { SpotifySongResponse } from "@lib/types/SpotifySongResponse";
-import { SpotifyArtistResponse } from "@lib/types/SpotifyArtistResponse";
+import { ThemesTypes } from "@types/ThemesTypes";
+import { SpotifySongResponse } from "@types/SpotifySongResponse";
+import { SpotifyArtistResponse } from "@types/SpotifyArtistResponse";
 import { urlBase } from "@lib/components/urlBase";
 import { escapeUnsafe } from "@lib/components/escapeUnsafe";
 

@@ -2,8 +2,8 @@ import * as React from "react";
 import numeral from "numeral";
 
 import { themes } from "@themes";
-import { ThemesTypes } from "@lib/types/ThemesTypes";
-import { YoutubeChannelResponse } from "@lib/types/YoutubeResponse";
+import { ThemesTypes } from "@types/ThemesTypes";
+import { YoutubeChannelResponse } from "@types/YoutubeResponse";
 
 import { urlBase } from "@lib/components/urlBase";
 import { escapeUnsafe } from "@lib/components/escapeUnsafe";

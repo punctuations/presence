@@ -8,7 +8,7 @@ import axios, { AxiosResponse } from "axios";
 import {
   GithubAllReposResponse,
   GithubColorResponse,
-} from "@lib/types/GithubResponse";
+} from "@types/GithubResponse";
 
 type Query = {
   [p: string]: string | string[] | undefined;

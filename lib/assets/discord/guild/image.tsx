@@ -7,8 +7,8 @@ import palette from "image-palette";
 import pixels from "image-pixels";
 
 import { themes } from "@themes";
-import { ThemesTypes } from "@lib/types/ThemesTypes";
-import { DiscordGuildResponse } from "@lib/types/DiscordResponse";
+import { ThemesTypes } from "@types/ThemesTypes";
+import { DiscordGuildResponse } from "@types/DiscordResponse";
 
 import { urlBase } from "@lib/components/urlBase";
 import { escapeUnsafe } from "@lib/components/escapeUnsafe";
