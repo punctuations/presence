@@ -5,7 +5,7 @@ import { convert } from "@lib/components/convert";
 
 import { NextApiRequest, NextApiResponse } from "next";
 import axios, { AxiosResponse } from "axios";
-import { Channel, TwitchChannelResponse } from "@types/TwitchResponse";
+import { Channel, TwitchChannelResponse } from "^types/TwitchResponse";
 
 type Query = {
   [p: string]: string | string[] | undefined;

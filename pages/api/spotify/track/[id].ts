@@ -6,7 +6,7 @@ import { convert } from "@lib/components/convert";
 import { NextApiRequest, NextApiResponse } from "next";
 import axios, { AxiosResponse } from "axios";
 import { URLSearchParams } from "url";
-import { SpotifySongResponse } from "@types/SpotifySongResponse";
+import { SpotifySongResponse } from "^types/SpotifySongResponse";
 
 type Query = {
   [p: string]: string | string[] | undefined;

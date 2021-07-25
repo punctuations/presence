@@ -2,8 +2,8 @@ import * as React from "react";
 import numeral from "numeral";
 
 import { themes } from "@themes";
-import { ThemesTypes } from "@types/ThemesTypes";
-import { TweetResponse } from "@types/TwitterResponse";
+import { ThemesTypes } from "^types/ThemesTypes";
+import { TweetResponse } from "^types/TwitterResponse";
 import { urlBase } from "@lib/components/urlBase";
 import { escapeUnsafe } from "@lib/components/escapeUnsafe";
 

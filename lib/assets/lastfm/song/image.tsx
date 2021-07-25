@@ -5,8 +5,8 @@ import palette from "image-palette";
 import pixels from "image-pixels";
 
 import { themes } from "@themes";
-import { ThemesTypes } from "@types/ThemesTypes";
-import { LastfmSongResponse } from "@types/LastfmResponse";
+import { ThemesTypes } from "^types/ThemesTypes";
+import { LastfmSongResponse } from "^types/LastfmResponse";
 import { urlBase } from "@lib/components/urlBase";
 import { escapeUnsafe } from "@lib/components/escapeUnsafe";
 
