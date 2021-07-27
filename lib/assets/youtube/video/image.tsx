@@ -55,6 +55,33 @@ export const YoutubeVideoImage = async (
           : defaultThemes[query?.theme].icon
       }" d="M105.713 73.9057C105.168 71.8271 103.561 70.1901 101.522 69.6345C97.8246 68.625 82.9999 68.625 82.9999 68.625C82.9999 68.625 68.1752 68.625 64.4781 69.6345C62.4384 70.1902 60.832 71.8271 60.2868 73.9057C59.2961 77.6733 59.2961 85.5341 59.2961 85.5341C59.2961 85.5341 59.2961 93.3949 60.2868 97.1625C60.832 99.2411 62.4384 100.81 64.4781 101.365C68.1752 102.375 82.9999 102.375 82.9999 102.375C82.9999 102.375 97.8245 102.375 101.522 101.365C103.561 100.81 105.168 99.2411 105.713 97.1625C106.704 93.3949 106.704 85.5341 106.704 85.5341C106.704 85.5341 106.704 77.6733 105.713 73.9057V73.9057ZM78.1513 92.6711V78.3971L90.5419 85.5343L78.1513 92.6711V92.6711Z"/>
 
+        <text
+        fill="${
+          !query?.theme
+            ? query?.text
+              ? `#${query?.text}`
+              : "#000"
+            : defaultThemes[query?.theme].text
+        }"
+        x="320"
+        y="345"
+        text-anchor="end"
+        font-size="36"
+        font-weight="bold"
+        font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
+        transform="rotate(-90 100 355)"
+      >
+        ${
+          youtube.items
+            ? youtube.items[0].snippet.channelTitle.length > 11
+              ? `${escapeUnsafe(
+                  youtube.items[0].snippet.channelTitle.slice(0, 11)
+                )}...`
+              : escapeUnsafe(youtube.items[0].snippet.channelTitle)
+            : null
+        }
+      </text>
+
       <clipPath id="prefix__a">
         <rect width="300" height="255" x="120" y="100" rx="31" />
       </clipPath>
