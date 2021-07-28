@@ -72,3 +72,9 @@ If you want to contribute to this project, fix some bugs, add some platforms, or
 - [Ven](https://github.com/ven) [💻](https://github.com/punctuations/presence/commit/9cdf8664861e17cde20abd3b31f1aa1bcb1001c0) 🤔 📓
 - [Jamie](https://twitter.com/jamiepine) 🎨 📓
 - [Haden](https://github.com/hadenpf) 🎨 🐛
+
+### Notice
+
+- Unfortunately only services that support App Authorization and doesn't require User Authorization.
+
+- Soundcloud will be added, app registration is waiting as they "will no longer be processing API application requests at this time. [They] are working to re-evaluate our process to make it more efficient."
