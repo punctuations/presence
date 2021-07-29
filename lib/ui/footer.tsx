@@ -1,4 +1,6 @@
-import { Divider, Grid, Spacer } from "@geist-ui/react";
+import NextLink from "next/link";
+
+import { Divider, Grid, Link, Spacer } from "@geist-ui/react";
 import * as Icon from "@geist-ui/react-icons";
 
 export function Footer() {
@@ -10,13 +12,15 @@ export function Footer() {
         <Grid xs={10}>
           <Grid.Container gap={2} justify="space-evenly" direction="column">
             <Grid>
-              <a href="/">
-                <img
-                  style={{ width: "12rem" }}
-                  src="/presence.svg"
-                  alt="logo"
-                />
-              </a>
+              <NextLink href="/">
+                <Link>
+                  <img
+                    style={{ width: "12rem" }}
+                    src="/presence.svg"
+                    alt="logo"
+                  />
+                </Link>
+              </NextLink>
             </Grid>
 
             <Grid xs={9}>
@@ -46,10 +50,18 @@ export function Footer() {
           </Grid.Container>
         </Grid>
         <Grid xs={6}>
-          <a href="/privacy">Privacy Policy</a>
+          <NextLink href="/privacy">
+            <Link icon color>
+              Privacy Policy
+            </Link>
+          </NextLink>
         </Grid>
         <Grid xs={6}>
-          <a href="/terms">Terms of Service</a>
+          <NextLink href="/terms">
+            <Link icon color>
+              Terms of Service
+            </Link>
+          </NextLink>
         </Grid>
       </Grid.Container>
     </Grid>
