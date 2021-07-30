@@ -4,8 +4,8 @@ import Tilt from "react-parallax-tilt";
 const Images = () => {
   const images: string[] = [
     process.env.NODE_ENV === "development"
-      ? "http://localhost:3000/api/twitter/tweet/1394507872017403904?type=png&theme=dark&rounded=true"
-      : "https://presence.vercel.app/api/twitter/tweet/1394507872017403904?type=png&theme=dark&rounded=true",
+      ? "http://localhost:3000/api/twitter/tweet/1411037838024474625?type=png&theme=dark&rounded=true"
+      : "https://presence.vercel.app/api/twitter/tweet/1411037838024474625?type=png&theme=dark&rounded=true",
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000/api/github/repo/punctuations:presence?type=png&rounded=true"
       : "https://presence.vercel.app/api/github/repo/punctuations:presence?type=png&rounded=true",
@@ -26,7 +26,7 @@ const Images = () => {
                 <Tilt
                   scale={1.03}
                   perspective={5000}
-                  glareEnable={true}
+                  glareEnable
                   glareMaxOpacity={0.8}
                   glareColor="#ffffff"
                   glarePosition="bottom"
