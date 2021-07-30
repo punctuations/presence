@@ -23,27 +23,31 @@ export function Footer() {
               </NextLink>
             </Grid>
 
-            <Grid xs={9}>
-              <Grid.Container gap={0.75} justify="space-evenly" direction="row">
+            <Grid xs={12}>
+              <Grid.Container gap={0.25} justify="space-evenly" direction="row">
                 <Grid>
-                  <a href="https://github.com/punctuations/presence">
+                  <Link
+                    block
+                    color
+                    href="https://github.com/punctuations/presence"
+                  >
                     <Icon.Github />
-                  </a>
+                  </Link>
                 </Grid>
                 <Grid>
-                  <a href="https://twitter.com/atmattt">
+                  <Link block color href="https://twitter.com/atmattt">
                     <Icon.Twitter />
-                  </a>
+                  </Link>
                 </Grid>
                 <Grid>
-                  <a href="https://discord.gg/R3QtA68Cbf">
+                  <Link block color href="https://discord.gg/R3QtA68Cbf">
                     <Icon.MessageCircle />
-                  </a>
+                  </Link>
                 </Grid>
                 <Grid>
-                  <a href="mailto:matt@dont-ping.me">
+                  <Link block color href="mailto:matt@dont-ping.me">
                     <Icon.Mail />
-                  </a>
+                  </Link>
                 </Grid>
               </Grid.Container>
             </Grid>
