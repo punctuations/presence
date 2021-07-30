@@ -1,4 +1,5 @@
-import { Grid, Image } from "@geist-ui/react";
+import { Grid, Image, useMediaQuery } from "@geist-ui/react";
+import Tilt from "react-parallax-tilt";
 
 const Images = () => {
   const images: string[] = [
@@ -13,13 +14,34 @@ const Images = () => {
       : "https://presence.vercel.app/api/spotify/track/3dhjNA0jGA8vHBQ1VdD6vV?type=png&index=1&rounded=true",
   ];
 
+  const upLG = useMediaQuery("lg", { match: "up" });
+
   return (
     <Grid xs={24}>
       <Grid.Container gap={1} alignItems="center" justify="center">
         {images.map((url, i) => {
           return (
             <Grid xs={12} key={i}>
-              <Image width={540} height={160} alt="example image" src={url} />
+              {upLG ? (
+                <Tilt
+                  scale={1.05}
+                  perspective={2000}
+                  glareEnable={true}
+                  glareMaxOpacity={0.8}
+                  glareColor="#ffffff"
+                  glarePosition="bottom"
+                  glareBorderRadius="7px"
+                >
+                  <Image
+                    width={540}
+                    height={160}
+                    alt="example image"
+                    src={url}
+                  />
+                </Tilt>
+              ) : (
+                <Image width={540} height={160} alt="example image" src={url} />
+              )}
             </Grid>
           );
         })}
