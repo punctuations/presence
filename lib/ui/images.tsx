@@ -24,13 +24,13 @@ const Images = () => {
             <Grid xs={12} key={i}>
               {upLG ? (
                 <Tilt
-                  scale={1.05}
-                  perspective={2000}
+                  scale={1.03}
+                  perspective={5000}
                   glareEnable={true}
                   glareMaxOpacity={0.8}
                   glareColor="#ffffff"
                   glarePosition="bottom"
-                  glareBorderRadius="7px"
+                  glareBorderRadius="5px"
                 >
                   <Image
                     width={540}
