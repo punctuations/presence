@@ -182,7 +182,7 @@ export const TwitterImage = async (
                     ? query?.text
                       ? `#${query?.text}`
                       : "#000"
-                    : defaultThemes[query?.theme].text
+                    : defaultThemes[query?.theme].stats
                 }"
                 font-weight="bold"
                 font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
@@ -210,7 +210,7 @@ export const TwitterImage = async (
                     ? query?.text
                       ? `#${query?.text}`
                       : "#000"
-                    : defaultThemes[query?.theme].text
+                    : defaultThemes[query?.theme].stats
                 }"
                 font-weight="bold"
               >
