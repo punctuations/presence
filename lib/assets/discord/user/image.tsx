@@ -262,9 +262,9 @@ export const DiscordImage = async (
                   !bio.message && bio.payload?.user.details.description
                     ? `<text
                   fill="${
-                    !query.theme
-                      ? query.description
-                        ? `#${query.description}`
+                    !query?.theme
+                      ? query?.desc
+                        ? `#${query?.desc}`
                         : "#B4B4B4"
                       : defaultThemes[query.theme].description
                   }"
@@ -319,8 +319,8 @@ export const DiscordImage = async (
               <text
                 fill="${
                   !query.theme
-                    ? query.description
-                      ? `#${query.description}`
+                    ? query?.desc
+                      ? `#${query?.desc}`
                       : "#B4B4B4"
                     : defaultThemes[query.theme].description
                 }"
@@ -336,8 +336,8 @@ export const DiscordImage = async (
               <text
                 fill="${
                   !query.theme
-                    ? query.description
-                      ? `#${query.description}`
+                    ? query?.desc
+                      ? `#${query?.desc}`
                       : "#B4B4B4"
                     : defaultThemes[query.theme].description
                 }"
@@ -363,8 +363,8 @@ export const DiscordImage = async (
             <text
               fill="${
                 !query.theme
-                  ? query.description
-                    ? `#${query.description}`
+                  ? query?.desc
+                    ? `#${query?.desc}`
                     : "#B4B4B4"
                   : defaultThemes[query.theme].description
               }"
