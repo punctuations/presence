@@ -287,14 +287,14 @@ export const DiscordImage = async (
                     : ""
                 }
                  ${
-                   lanyard.data.activities[0].emoji?.id
+                   lanyard.data.activities[0]?.emoji?.id
                      ? `<image 
                         x="470"
                         y="${!bio.message ? "340" : "290"}"
                         width="50"
                         height="50"
                         xlink:href="https://cdn.discordapp.com/emojis/${
-                          lanyard.data.activities[0].emoji.id
+                          lanyard.data.activities[0]?.emoji.id
                         }.png" />`
                      : ""
                  }
@@ -305,7 +305,7 @@ export const DiscordImage = async (
                      ? `#${query?.desc}`
                      : "#b4b4b4"
                    : defaultThemes[query?.theme].description
-               }" x="${lanyard.data.activities[0].emoji?.id ? "540" : "470"}"
+               }" x="${lanyard.data.activities[0]?.emoji?.id ? "540" : "470"}"
                  y="${!bio.message ? "375" : "325"}" 
                 font-size="36"
                 font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'>
