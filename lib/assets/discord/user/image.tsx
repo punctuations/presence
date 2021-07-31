@@ -309,7 +309,7 @@ export const DiscordImage = async (
                  y="${!bio.message ? "375" : "325"}" 
                 font-size="36"
                 font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'>
-                ${escapeUnsafe(lanyard.data.activities[0].state)}
+                ${escapeUnsafe(lanyard.data.activities[0]?.state)}
                 </text>`
             : !bio.message && bio.payload
             ? `${
