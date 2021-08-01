@@ -4,8 +4,8 @@ import Tilt from "react-parallax-tilt";
 const Images = () => {
   const images: string[] = [
     process.env.NODE_ENV === "development"
-      ? "http://localhost:3000/api/twitter/tweet/1411037838024474625?type=png&theme=dark&rounded=true"
-      : "https://presence.vercel.app/api/twitter/tweet/1411037838024474625?type=png&theme=dark&rounded=true",
+      ? "http://localhost:3000/api/twitter/tweet/1421727443262582784?type=png&theme=dark&rounded=true"
+      : "https://presence.vercel.app/api/twitter/tweet/1421727443262582784?type=png&theme=dark&rounded=true",
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000/api/github/repo/punctuations:presence?type=png&rounded=true"
       : "https://presence.vercel.app/api/github/repo/punctuations:presence?type=png&rounded=true",
