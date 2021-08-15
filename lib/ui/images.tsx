@@ -34,7 +34,7 @@ const Images = () => {
                 >
                   <Image
                     width={540}
-                    height={160}
+                    height={470}
                     alt="example image"
                     src={url}
                   />
