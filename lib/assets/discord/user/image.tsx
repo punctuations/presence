@@ -259,7 +259,7 @@ export const DiscordImage = async (
           </text>
       </g>`
               : `${
-                  !bio.message && bio.payload?.user.details.description
+                  bio.user.bio.length > 0
                     ? `<text
                   fill="${
                     !query?.theme
@@ -274,14 +274,9 @@ export const DiscordImage = async (
               font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
               >
               ${
-                bio.payload.user.details.description.length >= 84
-                  ? escapeUnsafe(
-                      `${bio.payload.user.details.description.substring(
-                        0,
-                        84
-                      )}...`
-                    )
-                  : escapeUnsafe(bio.payload.user.details.description)
+                bio.user.bio.length >= 84
+                  ? escapeUnsafe(`${bio.user.bio.substring(0, 84)}...`)
+                  : escapeUnsafe(bio.user.bio)
               }
               </text>`
                     : ""
@@ -290,7 +285,7 @@ export const DiscordImage = async (
                    lanyard.data.activities[0]?.emoji?.id
                      ? `<image 
                         x="470"
-                        y="${!bio.message ? "340" : "290"}"
+                        y="${bio.user.bio.length > 0 ? "340" : "290"}"
                         width="50"
                         height="50"
                         xlink:href="https://cdn.discordapp.com/emojis/${
@@ -306,15 +301,14 @@ export const DiscordImage = async (
                      : "#b4b4b4"
                    : defaultThemes[query?.theme].description
                }" x="${lanyard.data.activities[0]?.emoji?.id ? "540" : "470"}"
-                 y="${!bio.message ? "375" : "325"}" 
+                 y="${bio.user.bio.length > 0 ? "375" : "325"}" 
                 font-size="36"
                 font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'>
                 ${escapeUnsafe(lanyard.data.activities[0]?.state)}
                 </text>`
-            : !bio.message && bio.payload
+            : bio.user.bio.length > 0
             ? `${
-                bio.payload.user.details.description &&
-                bio.payload.user.details.description.length > 84
+                bio.user.bio && bio.user.bio.length > 84
                   ? `
               <text
                 fill="${
@@ -329,9 +323,7 @@ export const DiscordImage = async (
                 font-size="36"
                 font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
               >
-                ${escapeUnsafe(
-                  bio.payload.user.details.description.substring(0, 84)
-                )}
+                ${escapeUnsafe(bio.user.bio.substring(0, 84))}
               </text>
               <text
                 fill="${
@@ -347,14 +339,10 @@ export const DiscordImage = async (
                 font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
               >
                 ${
-                  bio.payload.user.details.description.length >= 154
-                    ? `${escapeUnsafe(
-                        bio.payload.user.details.description.substring(84, 154)
-                      )}...`
-                    : bio.payload.user.details.description
-                    ? escapeUnsafe(
-                        bio.payload.user.details.description.substring(84)
-                      )
+                  bio.user.bio.length >= 154
+                    ? `${escapeUnsafe(bio.user.bio.substring(84, 154))}...`
+                    : bio.user.bio
+                    ? escapeUnsafe(bio.user.bio.substring(84))
                     : ""
                 }
               </text>
@@ -373,7 +361,7 @@ export const DiscordImage = async (
               font-size="40"
               font-family='"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
             >
-              ${escapeUnsafe(bio.payload.user.details.description)}
+              ${escapeUnsafe(bio.user.bio)}
             </text>
           `
               }`

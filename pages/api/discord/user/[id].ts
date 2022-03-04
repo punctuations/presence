@@ -34,9 +34,7 @@ export default async function handler(
 
     const body: LanyardResponse = await response.json();
 
-    const dotbio = await fetch(
-      `https://discords.com/api-bio/user/details/${id}`
-    );
+    const dotbio = await fetch(`https://dcdn.dstn.to/profile/${id}`);
 
     const bio: DiscordBioResponse = await dotbio.json();
 
