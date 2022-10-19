@@ -23,22 +23,22 @@ const Images = () => {
           return (
             <Grid xs={12} key={i}>
               {upLG ? (
-                <Tilt
-                  scale={1.03}
-                  perspective={5000}
-                  glareEnable
-                  glareMaxOpacity={0.8}
-                  glareColor="#ffffff"
-                  glarePosition="bottom"
-                  glareBorderRadius="5px"
-                >
+                // <Tilt
+                //   scale={1.01}
+                //   perspective={5000}
+                //   glareEnable
+                //   glareMaxOpacity={0.8}
+                //   glareColor="#ffffff"
+                //   glarePosition="bottom"
+                //   glareBorderRadius="5px"
+                // >
                   <Image
                     width={540}
                     height={470}
                     alt="example image"
                     src={url}
                   />
-                </Tilt>
+                // </Tilt>
               ) : (
                 <Image width={540} height={160} alt="example image" src={url} />
               )}
