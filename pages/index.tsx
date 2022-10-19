@@ -43,7 +43,7 @@ export default function Home() {
       <Main>
         <Header />
         <Images />
-        <Spacer y={1} />
+        <Spacer h={1} />
         <Docs text="🎉 Docs" url="https://docs.presence.im" />
         <Footer />
       </Main>
