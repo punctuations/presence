@@ -6,7 +6,7 @@ import * as Icon from "@geist-ui/react-icons";
 export function Footer() {
   return (
     <Grid style={{ width: "100%" }}>
-      <Spacer y={3} />
+      <Spacer h={3} />
       <Divider />
       <Grid.Container gap={2} justify="space-around" alignItems="center">
         <Grid xs={10}>

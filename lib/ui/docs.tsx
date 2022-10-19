@@ -20,7 +20,6 @@ const Docs = (props: { text: string; url: string }) => {
       <Button
         // onClick={click}
         onClick={() => router.push(props.url)}
-        size="large"
       >
         {props.text} &rarr;
       </Button>
