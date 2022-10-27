@@ -6,21 +6,15 @@ export async function convert(
     width?: string | number,
     height?: string | number
 ) {
-    const font_list = [
-        "https://raw.githack.com/googlei18n/noto-emoji/master/fonts/NotoColorEmoji.ttf",
-        "https://cdn.dont-ping.me/api/&noto_normal.ttf",
-        "https://cdn.dont-ping.me/api/&noto_bold.ttf",
-        "https://cdn.dont-ping.me/api/&noto_jp_normal.otf",
-        "https://cdn.dont-ping.me/api/&noto_jp_bold.otf",
-        "https://cdn.dont-ping.me/api/&noto_kr_normal.otf",
-        "https://cdn.dont-ping.me/api/&noto_kr_bold.otf",
-        "https://cdn.dont-ping.me/api/&noto_sc_normal.otf",
-        "https://cdn.dont-ping.me/api/&noto_sc_bold.otf"
-    ]
-
-    for (let font of font_list) {
-        await chrome.font(font)
-    }
+    await chrome.font("https://raw.githack.com/googlei18n/noto-emoji/master/fonts/NotoColorEmoji.ttf")
+    await chrome.font("https://cdn.dont-ping.me/api/&noto_normal.ttf")
+    await chrome.font("https://cdn.dont-ping.me/api/&noto_bold.ttf")
+    await chrome.font("https://cdn.dont-ping.me/api/&noto_jp_normal.otf")
+    await chrome.font("https://cdn.dont-ping.me/api/&noto_jp_bold.otf")
+    await chrome.font("https://cdn.dont-ping.me/api/&noto_kr_normal.otf")
+    await chrome.font("https://cdn.dont-ping.me/api/&noto_kr_bold.otf")
+    await chrome.font("https://cdn.dont-ping.me/api/&noto_sc_normal.otf")
+    await chrome.font("https://cdn.dont-ping.me/api/&noto_sc_bold.otf")
 
     const options = process.env.AWS_REGION
         ? {
