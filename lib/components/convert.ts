@@ -9,6 +9,12 @@ export async function convert(
     await chrome.font(
         "https://raw.githack.com/googlei18n/noto-emoji/master/fonts/NotoColorEmoji.ttf"
     );
+    await chrome.font(
+        "https://cdn.dont-ping.me/api/&noto_normal.ttf"
+    )
+    await chrome.font(
+        "https://cdn.dont-ping.me/api/&noto_bold.ttf"
+    )
     const options = process.env.AWS_REGION
         ? {
             args: [...chrome.args, "--disable-web-security"],
