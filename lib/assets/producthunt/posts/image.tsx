@@ -38,6 +38,17 @@ export const ProductHuntAllImage = async (
         query.rounded?.toLowerCase() === "true" ? "7px" : "0px"
       }"
     >
+    
+    <defs>
+        <style text="text/css">
+            @import url('https://fonts.googleapis.com/css?family=Noto+Sans:wght@400;700|Noto+Sans+JP:wght@400;700|Noto+Sans+KR:wght@400;700|Noto+Sans+SC:wght@400;700');
+            
+            * {
+                font-family: 'Noto Sans', 'Noto Sans JP', 'Noto Sans KR', 'Noto Sans SC', sans-serif;
+            }
+        </style>
+    </defs>
+    
       <path
         fill="${
           !query.theme
