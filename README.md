@@ -2,13 +2,6 @@
 
 #### A simple and elegant solution to images for social media!
 
----
-
-# NOTICE:
-Due to upkeep cost this will be taken down as of Nov 1. 2022
-
----
-
 <a href="https://www.producthunt.com/posts/presence-8?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-presence-8" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=306714&theme=dark" alt="presence - A simple and elegant solution to images of your social media | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 
 Presence is a service that generates SVG images for social medias. It does this by accessing the endpoint, `presence.im/api/:platform/:type/:param`, where the API will return the image via headers. If you wish for base64 encoding, then append the `?type=base64` query to the end of the URL to obtain the base64 encoding of the image like so:
